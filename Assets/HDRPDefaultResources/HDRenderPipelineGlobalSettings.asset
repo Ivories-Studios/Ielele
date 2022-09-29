@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: HDRenderPipelineGlobalSettings
   m_EditorClassIdentifier: 
   m_DefaultVolumeProfile: {fileID: 11400000, guid: 994c051f3c92feb459b4b7a582e99b69, type: 2}
-  m_LookDevVolumeProfile: {fileID: 11400000, guid: 254c4fe87beb7be4fa72e1681edbed02, type: 2}
+  m_LookDevVolumeProfile: {fileID: 11400000, guid: 569ab875e2501404b8e3f24cf2cfba3e, type: 2}
   m_RenderingPathDefaultCameraFrameSettings:
     bitDatas:
       data1: 72198260625768269
@@ -60,11 +60,38 @@ MonoBehaviour:
     msaaMode: 1
     materialQuality: 0
   m_RenderPipelineResources: {fileID: 11400000, guid: 3ce144cff5783da45aa5d4fdc2da14b7, type: 2}
-  m_RenderPipelineRayTracingResources: {fileID: 11400000, guid: ba6e7f30e5cffc249a8bf7ee5756c196, type: 2}
+  m_RenderPipelineRayTracingResources: {fileID: 0}
   beforeTransparentCustomPostProcesses: []
   beforePostProcessCustomPostProcesses: []
   afterPostProcessBlursCustomPostProcesses: []
-  afterPostProcessCustomPostProcesses: []
+  afterPostProcessCustomPostProcesses:
+  - AnalogTVNoise_RLPRO, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - Artefacts_RLPRO, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - Bleed_RLPRO_HDRP, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - BottomNoise_RLPRO, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - BottomStretch_RLPRO, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - CinematicBars_RLPRO, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - ColormapPalette_RLPRO, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - CRTAperture_RLPRO, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - CustomTexture_RLPRO, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - Fisheye_RLPRO, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - Glitch1_RLPRO, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - Glitch2_RLPRO, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - Glitch3_RLPRO, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - Jitter_RLPRO, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - LowRes_RLPRO, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - Negative_RLPRO, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - Noise_RLPRO, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - NTSCEncode_RLPRO, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - OldFilm_RLPRO, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - Phosphor_RLPRO, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - PictureCorrection_RLPRO, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - PulsatingVignette_RLPRO, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - TV_RLPRO, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - UltimateVignette_RLPRO, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - VHSScanlines_RLPRO, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - VHS_RLPRO, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - Warp_RLPRO, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   beforeTAACustomPostProcesses: []
   lightLayerName0: Light Layer default
   lightLayerName1: Light Layer 1
