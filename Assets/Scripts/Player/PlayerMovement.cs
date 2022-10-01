@@ -9,6 +9,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float _speed;
     [SerializeField] CinemachineVirtualCamera _virtualCamera;
 
+    [Space]
+    [SerializeField] PlayerGraphicsTurnScript _graphicsTurnScript;
+
     Rigidbody _rigidbody;
     Vector2 _movementDelta;
     CinemachineFramingTransposer _composer;
@@ -71,6 +74,16 @@ public class PlayerMovement : MonoBehaviour
         {
             LeanTween.cancel(_deadZoneId);
             _composer.m_DeadZoneWidth = 0.2f;
+
+            // Graphics turning
+            if (_movementDelta.x > 0)
+            {
+                _graphicsTurnScript.TurnLeft();
+            }
+            else if (_movementDelta.x < 0)
+            {
+                _graphicsTurnScript.TurnRight();
+            }
         }
         else
         {
