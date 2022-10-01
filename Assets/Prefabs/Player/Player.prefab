@@ -194,6 +194,13 @@ MonoBehaviour:
   danceTime: 0
   charmTime: 0
   weakened: 0
+  death:
+  - {fileID: 8300000, guid: a37ecd6554ee50b49bdaf36c8e06dfa0, type: 3}
+  - {fileID: 8300000, guid: eac01f6fb8e09bb46b5997d37f0e6c00, type: 3}
+  - {fileID: 8300000, guid: e069544c23751974b871271aab76e5ee, type: 3}
+  - {fileID: 8300000, guid: 427a6a2c90edaed4c99ba6d53087ddaa, type: 3}
+  - {fileID: 8300000, guid: 2c3899f4e49995e4c80d1994e4ff2e23, type: 3}
+  - {fileID: 8300000, guid: 30a10d23fdf2b5146ac88d1e8f0c6df6, type: 3}
   comboFunction:
     serializedVersion: 2
     m_Curve:
@@ -222,6 +229,11 @@ MonoBehaviour:
   surroundingInteractableObjects: []
   wellBuffs: 0
   volume: {fileID: 0}
+  hurtAudio:
+  - {fileID: 8300000, guid: 51977b8b41ad8594390831198469d0da, type: 3}
+  - {fileID: 8300000, guid: 0c05016ff43dd5a49870594a66664c5f, type: 3}
+  - {fileID: 8300000, guid: 73d4e470b98709b459f37deb8a8a7019, type: 3}
+  - {fileID: 8300000, guid: 8a318e106b4f7464fa9733ab0e32d461, type: 3}
   audioSource: {fileID: 5883090544085066685}
 --- !u!114 &8480132064706530457
 MonoBehaviour:
@@ -454,7 +466,7 @@ AudioSource:
   m_GameObject: {fileID: 61540296607098450}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 7889809515553981350, guid: 688fb7a07f6f69e46a14f0f4223d1182, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1

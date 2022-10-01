@@ -52,6 +52,7 @@ public class UnitObject : MonoBehaviour
     [HideInInspector] public float danceTime;
     [HideInInspector] public float charmTime;
     [HideInInspector] public float weakened;
+    [SerializeField] protected List<AudioClip> death = new List<AudioClip>();
     bool inKnockback;
     protected Rigidbody rb;
 
@@ -112,6 +113,7 @@ public class UnitObject : MonoBehaviour
         if(health < 0)
         {
             //Die anim
+            AudioSource.PlayClipAtPoint(death[Random.Range(0, death.Count)], transform.position);
         }
     }
 

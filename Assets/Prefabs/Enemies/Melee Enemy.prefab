@@ -27,10 +27,9 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1585455117450829601}
-  m_RootOrder: -1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &733244263783322078
 CapsuleCollider:
@@ -73,10 +72,9 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1585455117450829601}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &9184558366073643298
 SpriteRenderer:
@@ -89,7 +87,6 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -158,10 +155,9 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1585455117450829601}
-  m_RootOrder: -1
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!70 &6839993649175358590
 CapsuleCollider2D:
@@ -228,7 +224,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 503622613960765120}
   - {fileID: 7690546901364378461}
@@ -260,6 +255,13 @@ MonoBehaviour:
   danceTime: 0
   charmTime: 0
   weakened: 0
+  death:
+  - {fileID: 8300000, guid: a37ecd6554ee50b49bdaf36c8e06dfa0, type: 3}
+  - {fileID: 8300000, guid: eac01f6fb8e09bb46b5997d37f0e6c00, type: 3}
+  - {fileID: 8300000, guid: e069544c23751974b871271aab76e5ee, type: 3}
+  - {fileID: 8300000, guid: 427a6a2c90edaed4c99ba6d53087ddaa, type: 3}
+  - {fileID: 8300000, guid: 2c3899f4e49995e4c80d1994e4ff2e23, type: 3}
+  - {fileID: 8300000, guid: 30a10d23fdf2b5146ac88d1e8f0c6df6, type: 3}
   movementTarget: {x: 0, y: 0, z: 0}
   targetDisplacement: {x: 0, y: 0}
   state: 0

@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.Rendering;
-using UnityEngine.Rendering.HighDefinition;
 
 public class PlayerObject : UnitObject
 {
@@ -25,6 +24,7 @@ public class PlayerObject : UnitObject
     public int wellBuffs = 0;
 
     [SerializeField] Volume volume;
+    [SerializeField] List<AudioClip> hurtAudio = new List<AudioClip>();
     [SerializeField] AudioSource audioSource;
 
     public override void Awake()
@@ -181,9 +181,11 @@ public class PlayerObject : UnitObject
         amount = (int)(amount * (1 + wellBuffs * 0.5f));
         base.TakeDamage(amount);
         CanvasManager.Instance.SetHealth(health);
+        audioSource.PlayOneShot(hurtAudio[Random.Range(0, hurtAudio.Count)]);
         if(health <= 0)
         {
             StartCoroutine(ActivatePostProcess());
+            AudioSource.PlayClipAtPoint(death[Random.Range(0, death.Count)], transform.position);
         }
     }
 
@@ -207,19 +209,19 @@ public class PlayerObject : UnitObject
         {
             ntsc.active = true;
         }
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         Jitter_RLPRO jitter;
         if(volume.profile.TryGet(out jitter))
         {
             jitter.active = true;
         }
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         Bleed_RLPRO_HDRP bleed;
         if(volume.profile.TryGet(out bleed))
         {
             bleed.active = true;
         }
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         Noise_RLPRO noise;
         if(volume.profile.TryGet(out noise))
         {
