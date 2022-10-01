@@ -19,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
     PlayerObject _playerObject;
     bool isLookingRight = true;
 
+    [SerializeField] AudioSource _audioSource;
+
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
@@ -40,8 +42,17 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        print(_audioSource.isPlaying);
         if (_playerObject.CanMove)
         {
+            if (_movementDelta != Vector2.zero)
+            {
+                _audioSource.UnPause();
+            }
+            else
+            {
+                _audioSource.Pause();
+            }
             Vector3 targetPosition = _rigidbody.position + _speed * Time.fixedDeltaTime * new Vector3(_movementDelta.x, 0, _movementDelta.y);
             _rigidbody.MovePosition(targetPosition);
             if (_movementDelta.x > 0)
@@ -60,6 +71,10 @@ public class PlayerMovement : MonoBehaviour
                     TurnRight(false);
                 }
             }
+        }
+        else
+        {
+            _audioSource.Pause();
         }
     }
 

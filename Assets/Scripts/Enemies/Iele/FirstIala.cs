@@ -65,8 +65,9 @@ public class FirstIala : UnitObject
         yield return new WaitForSeconds(1f);
         for(int i = 0; i < Random.Range(spawnLocations.Length / 2, spawnLocations.Length); i++)
         {
-            Instantiate(basicEnemyPrefabs[Random.Range(0, basicEnemyPrefabs.Length)], spawnLocations[i].position, Quaternion.identity);
+            encounter.GetComponent<EnemyAiManager>().CreateEnemy(basicEnemyPrefabs[0].gameObject, spawnLocations[i].position);
         }
+        encounter.GetComponent<EnemyAiManager>().StartFight();
         yield return new WaitForSeconds(5f);
         CastAttack(1);
         yield return new WaitForSeconds(10f);

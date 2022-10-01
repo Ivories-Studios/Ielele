@@ -5993,6 +5993,14 @@ PrefabInstance:
       propertyPath: m_Intensity
       value: 40000
       objectReference: {fileID: 0}
+    - target: {fileID: 760395068708567414, guid: d340dce82b37b154787042b205d13c57, type: 3}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 760395068708567414, guid: d340dce82b37b154787042b205d13c57, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2164822008252007676, guid: d340dce82b37b154787042b205d13c57, type: 3}
       propertyPath: m_Type
       value: 0
@@ -6985,7 +6993,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0.13052616, y: 0, z: 0, w: 0.9914449}
-  m_LocalPosition: {x: -0.020866025, y: 8.830002, z: -28.108456}
+  m_LocalPosition: {x: -0.020866394, y: 8.830002, z: -28.108456}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12912,7 +12920,7 @@ MonoBehaviour:
   m_ScreenX: 0.5008993
   m_ScreenY: 0.5
   m_CameraDistance: 29.436056
-  m_DeadZoneWidth: 0.0002929688
+  m_DeadZoneWidth: 0.3
   m_DeadZoneHeight: 1
   m_DeadZoneDepth: 0
   m_UnlimitedSoftZone: 0
@@ -15274,6 +15282,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3898199777042500517}
   - component: {fileID: 3898199777042500518}
+  - component: {fileID: 3898199777042500519}
   m_Layer: 0
   m_Name: First boss
   m_TagString: Untagged
@@ -15314,6 +15323,22 @@ MonoBehaviour:
   done: 0
   iala: {fileID: 3898199776848742125}
   healthBars: {fileID: 3898199776565476600}
+--- !u!114 &3898199777042500519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3898199777042500516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8727c48188da162468774e142b0b49a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemies: []
+  NumberOfEnemiesAttackingPlayer: 0
+  enemyIdleLocations: []
+  enemyFleeLocations: []
 --- !u!1 &3898199777054346508
 GameObject:
   m_ObjectHideFlags: 0
@@ -15640,6 +15665,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3898199777090711912}
   - component: {fileID: 3898199777090711913}
+  - component: {fileID: 3898199777090711914}
   m_Layer: 0
   m_Name: Third boss
   m_TagString: Untagged
@@ -15679,6 +15705,22 @@ MonoBehaviour:
   secondIala: {fileID: 441909715}
   thirdIala: {fileID: 2119896052}
   healthBars: {fileID: 309092377}
+--- !u!114 &3898199777090711914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3898199777090711911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8727c48188da162468774e142b0b49a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemies: []
+  NumberOfEnemiesAttackingPlayer: 0
+  enemyIdleLocations: []
+  enemyFleeLocations: []
 --- !u!1 &3898199777090778928
 GameObject:
   m_ObjectHideFlags: 0
@@ -16185,7 +16227,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3898199777188910463}
   m_LocalRotation: {x: 0.13052616, y: 0, z: 0, w: 0.9914449}
-  m_LocalPosition: {x: -0.020866025, y: 8.830002, z: -28.108456}
+  m_LocalPosition: {x: -0.020866394, y: 8.830002, z: -28.108456}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -16331,6 +16373,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3898199777261354413}
   - component: {fileID: 3898199777261354414}
+  - component: {fileID: 3898199777261354415}
   m_Layer: 0
   m_Name: Second boss
   m_TagString: Untagged
@@ -16369,6 +16412,22 @@ MonoBehaviour:
   iala2: {fileID: 3898199777545610917}
   iala3: {fileID: 3898199777669453460}
   healthBars: {fileID: 3898199777117170379}
+--- !u!114 &3898199777261354415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3898199777261354412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8727c48188da162468774e142b0b49a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemies: []
+  NumberOfEnemiesAttackingPlayer: 0
+  enemyIdleLocations: []
+  enemyFleeLocations: []
 --- !u!1 &3898199777293273228
 GameObject:
   m_ObjectHideFlags: 0
@@ -16609,7 +16668,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press Enter to finish the current line or to continue to the next one...
+  m_text: Press Enter to continue...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2bb100a12668e2d4fbfea072fc6c5b4c, type: 2}
   m_sharedMaterial: {fileID: -4115665081638162986, guid: 2bb100a12668e2d4fbfea072fc6c5b4c, type: 2}
