@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FirstIala : UnitObject
 {
@@ -13,11 +14,14 @@ public class FirstIala : UnitObject
     [SerializeField] Transform safeLocation;
 
     [SerializeField] UnitObject[] basicEnemyPrefabs;
+    [SerializeField] Slider healthBar;
 
     // Start is called before the first frame update
     public override void Start()
     {
-        
+        base.Start();
+        healthBar.maxValue = _maxHealth;
+        healthBar.value = health;
     }
 
     // Update is called once per frame
@@ -87,5 +91,11 @@ public class FirstIala : UnitObject
             yield return null;
         }
         rb.MovePosition(dest);
+    }
+
+    public override void TakeDamage(int amount)
+    {
+        base.TakeDamage(amount);
+        healthBar.value = health;
     }
 }

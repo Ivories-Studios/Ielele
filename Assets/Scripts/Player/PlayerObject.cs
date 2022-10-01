@@ -171,6 +171,7 @@ public class PlayerObject : UnitObject
 
     public override void TakeDamage(int amount)
     {
+        amount = (int)(amount * (1 + wellBuffs * 0.5f));
         base.TakeDamage(amount);
         CanvasManager.Instance.SetHealth(amount);
     }
