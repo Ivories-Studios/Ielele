@@ -13,6 +13,7 @@ public class CanvasManager : MonoBehaviour
     [SerializeField] Sprite halfHealthSprite;
     [SerializeField] Sprite emptyHealthSprite;
     [SerializeField] MenuManager menuManager;
+    [SerializeField] ParticleSystem energyParticleSystem;
 
     private void Awake()
     {
