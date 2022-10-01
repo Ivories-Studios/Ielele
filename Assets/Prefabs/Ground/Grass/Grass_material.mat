@@ -133,8 +133,8 @@ Material:
     - _AlphaSrcBlend: 1
     - _AlphaToMask: 0
     - _AlphaToMaskInspectorValue: 0
-    - _Alpha_clip: 0.14
-    - _Alpha_size: 1.18
+    - _Alpha_clip: 0.08
+    - _Alpha_size: 0.82
     - _Anisotropy: 0
     - _BlendMode: 0
     - _CoatMask: 0
