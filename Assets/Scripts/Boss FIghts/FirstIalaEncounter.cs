@@ -6,6 +6,7 @@ public class FirstIalaEncounter : Encounter
 {
     [SerializeField] FirstIala iala;
     Phases currentPhase = Phases.Idle;
+    [SerializeField] GameObject healthBars;
 
     float timer = 0;
 
@@ -73,6 +74,12 @@ public class FirstIalaEncounter : Encounter
                 }
                 break;
         }
+    }
+
+    public override void StartFight()
+    {
+        gameObject.SetActive(true);
+        healthBars.SetActive(true);
     }
 }
 
