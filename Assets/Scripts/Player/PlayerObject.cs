@@ -22,9 +22,11 @@ public class PlayerObject : UnitObject
 
     public int wellBuffs = 0;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         Instance = this;
+
     }
 
     // Update is called once per frame

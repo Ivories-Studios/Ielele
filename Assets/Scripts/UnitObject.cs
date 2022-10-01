@@ -7,6 +7,7 @@ public class UnitObject : MonoBehaviour
     [SerializeField] protected int _maxHealth;
     [SerializeField] protected int _maxEnergy;
     [SerializeField] protected List<Attack> attacks = new List<Attack>();
+    public float speed = 5;
     public int team;
     public int health { get; protected set; }
     public int energy { get; protected set; }
@@ -33,7 +34,7 @@ public class UnitObject : MonoBehaviour
     bool inKnockback;
     protected Rigidbody rb;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         rb = GetComponent<Rigidbody>();
     }
@@ -61,6 +62,11 @@ public class UnitObject : MonoBehaviour
             Dance(-Time.deltaTime);
         }
         rb.velocity = Vector3.zero;
+    }
+
+    public virtual void FixedUpdate()
+    {
+        
     }
 
     public virtual void CastAttack(int index, float multiplier = 1)

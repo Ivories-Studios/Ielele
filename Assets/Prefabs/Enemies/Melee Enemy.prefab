@@ -251,8 +251,17 @@ MonoBehaviour:
   _maxHealth: 3
   _maxEnergy: 0
   attacks: []
+  speed: 5
   team: 1
   blockTime: 0
+  stunTime: 0
+  danceTime: 0
+  movementTarget: {x: 0, y: 0, z: 0}
+  targetDisplacement: {x: 0, y: 0}
+  state: 0
+  AIStateDuration: 0
+  zBounds: {x: 0, y: 0}
+  range: 2
 --- !u!54 &3674419158398836531
 Rigidbody:
   m_ObjectHideFlags: 0
