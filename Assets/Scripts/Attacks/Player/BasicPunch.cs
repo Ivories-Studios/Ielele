@@ -8,6 +8,8 @@ public class BasicPunch : Attack
 
     public override void Cast(UnitObject unit, float multiplier)
     {
+        base.Cast(unit, multiplier);
+
         Attack a = Instantiate(gameObject, unit.transform).GetComponent<Attack>();
         a._caster = unit;
         a._power *= (int)multiplier;
@@ -38,10 +40,10 @@ public class BasicPunch : Attack
                 target.TakeDamage(_power);
                 Vector3 knockbackDir = new Vector3(transform.position.x - target.transform.position.x > 0 ? -1 : 1, 0, 0);
                 target.Knockback(knockbackDir, _knockback);
-                if(_caster is PlayerObject player && increaseComboOnce)
+                _caster.IncreaseEnergy(1);
+                if (_caster is PlayerObject player && increaseComboOnce)
                 {
                     player.IncreaseCombo(_comboIncrease);
-                    player.IncreaseEnergyLevel(1);
                     increaseComboOnce = false;
                 }
             }

@@ -11,8 +11,6 @@ public class IalaProjectile : Attack
     {
         Attack a = Instantiate(gameObject, unit.transform.position, unit.transform.rotation).GetComponent<Attack>();
         a._caster = unit;
-        a._power *= (int)multiplier;
-        unit.blockTime = _blockTime;
     }
 
     public void OnTriggerEnter2D(Collider2D collision)

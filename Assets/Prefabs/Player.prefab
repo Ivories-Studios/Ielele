@@ -80,7 +80,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87690c4418c031645a71a370a823f5d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 5
+  _maxHealth: 10
   _maxEnergy: 10
   attacks:
   - {fileID: -7155571223921436062, guid: 5ee1877f07c5a324cac0b67eb3a30a82, type: 3}
@@ -91,6 +91,8 @@ MonoBehaviour:
   blockTime: 0
   stunTime: 0
   danceTime: 0
+  charmTime: 0
+  weakened: 0
   comboFunction:
     serializedVersion: 2
     m_Curve:
@@ -118,6 +120,7 @@ MonoBehaviour:
   comboInARow: 0
   surroundingInteractableObjects: []
   wellBuffs: 0
+  volume: {fileID: 0}
 --- !u!114 &8480132064706530457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,6 +226,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: e6ca8898-d6b6-4b95-8754-d46cfae9eb0e
     m_ActionName: Player/Attack 4[/Keyboard/downArrow]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8718713791504787691}
+        m_TargetAssemblyTypeName: PlayerObject, Assembly-CSharp
+        m_MethodName: Interact
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 55189612-13c8-403d-8989-cf610f5e25c3
+    m_ActionName: Player/Interact[/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

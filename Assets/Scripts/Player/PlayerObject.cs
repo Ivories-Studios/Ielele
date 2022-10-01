@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.HighDefinition;
 
 public class PlayerObject : UnitObject
 {
@@ -22,7 +24,9 @@ public class PlayerObject : UnitObject
 
     public int wellBuffs = 0;
 
-    protected override void Awake()
+    [SerializeField] Volume volume;
+
+    public override void Awake()
     {
         base.Awake();
         Instance = this;
@@ -33,7 +37,7 @@ public class PlayerObject : UnitObject
     public override void Update()
     {
         base.Update();
-        if(_queuedAction != null && attacks[_queuedAction.attackIndex].CanCast(this))
+        if(_queuedAction != null && attacks[_queuedAction.attackIndex].CanCast(this) && CanAttack)
         {
             CastAttack(_queuedAction.attackIndex);
             _queuedAction = null;
@@ -53,6 +57,7 @@ public class PlayerObject : UnitObject
 
     public void OnAttack1(InputAction.CallbackContext context)
     {
+        TakeDamage(20);
         if (context.started)
         {
             if (CanAttack)
@@ -176,13 +181,44 @@ public class PlayerObject : UnitObject
         amount = (int)(amount * (1 + wellBuffs * 0.5f));
         base.TakeDamage(amount);
         CanvasManager.Instance.SetHealth(amount);
+        if(health <= 0)
+        {
+            StartCoroutine(ActivatePostProcess());
+        }
     }
 
-    public void IncreaseEnergyLevel(int amount)
+    public override void IncreaseEnergy(int amount)
     {
-        energy += amount;
+        base.IncreaseEnergy(amount);
         energy = Mathf.Clamp(energy, 0, _maxEnergy);
         CanvasManager.Instance.SetEnergy(energy);
+    }
+
+    IEnumerator ActivatePostProcess()
+    {
+        NTSCEncode_RLPRO ntsc;
+        if(volume.profile.TryGet(out ntsc))
+        {
+            ntsc.active = true;
+        }
+        yield return new WaitForSeconds(0.5f);
+        Jitter_RLPRO jitter;
+        if(volume.profile.TryGet(out jitter))
+        {
+            jitter.active = true;
+        }
+        yield return new WaitForSeconds(0.5f);
+        Bleed_RLPRO_HDRP bleed;
+        if(volume.profile.TryGet(out bleed))
+        {
+            bleed.active = true;
+        }
+        yield return new WaitForSeconds(0.5f);
+        Noise_RLPRO noise;
+        if(volume.profile.TryGet(out noise))
+        {
+            noise.active = true;
+        }
     }
 
     public override void Die()

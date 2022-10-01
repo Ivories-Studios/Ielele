@@ -9,6 +9,7 @@ public class KneeStrike : Attack
 
     public override void Cast(UnitObject unit, float mutliplier)
     {
+        base.Cast(unit, mutliplier);
         Attack a = Instantiate(gameObject, unit.transform).GetComponent<Attack>();
         a._caster = unit;
         a._power *= (int)mutliplier;
@@ -42,10 +43,10 @@ public class KneeStrike : Attack
                 target.Stun(stun);
                 Vector3 knockbackDir = new Vector3(transform.position.x - target.transform.position.x > 0 ? -1 : 1, 0, 0);
                 target.Knockback(knockbackDir, _knockback);
+                _caster.IncreaseEnergy(1);
                 if (_caster is PlayerObject player && increaseComboOnce)
                 {
                     player.IncreaseCombo(_comboIncrease);
-                    player.IncreaseEnergyLevel(1);
                     increaseComboOnce = false;
                 }
             }

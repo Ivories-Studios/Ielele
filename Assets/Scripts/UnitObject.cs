@@ -16,7 +16,7 @@ public class UnitObject : MonoBehaviour
     {
         get
         {
-            return blockTime <= 0 && stunTime <= 0 && !inKnockback && danceTime <= 0;
+            return blockTime <= 0 && stunTime <= 0 && !inKnockback && danceTime <= 0 && charmTime <= 0 && MenuManager.Instance.gameRunning;
         }
     }
 
@@ -24,17 +24,19 @@ public class UnitObject : MonoBehaviour
     {
         get
         {
-            return blockTime <= 0 && danceTime <= 0 && !inKnockback && danceTime<= 0;
+            return blockTime <= 0 && danceTime <= 0 && !inKnockback && danceTime <= 0 && charmTime <= 0 && MenuManager.Instance.gameRunning;
         }
     }
 
     [HideInInspector] public float blockTime;
     [HideInInspector] public float stunTime;
     [HideInInspector] public float danceTime;
+    [HideInInspector] public float charmTime;
+    [HideInInspector] public float weakened;
     bool inKnockback;
     protected Rigidbody rb;
 
-    protected virtual void Awake()
+    public virtual void Awake()
     {
         rb = GetComponent<Rigidbody>();
     }
@@ -61,6 +63,14 @@ public class UnitObject : MonoBehaviour
         {
             Dance(-Time.deltaTime);
         }
+        if(charmTime > 0)
+        {
+            Charm(-Time.deltaTime);
+        }
+        if (weakened > 0)
+        {
+            Weaken(-Time.deltaTime);
+        }
         rb.velocity = Vector3.zero;
     }
 
@@ -73,7 +83,7 @@ public class UnitObject : MonoBehaviour
     {
         if (attacks[index].CanCast(this))
         {
-            attacks[index].Cast(this, multiplier);
+            attacks[index].Cast(this, multiplier * (weakened > 0 ? 0.75f : 1));
         }
     }
 
@@ -82,8 +92,13 @@ public class UnitObject : MonoBehaviour
         health -= amount;
         if(health < 0)
         {
-            Die();
+            //Die anim
         }
+    }
+
+    public virtual void IncreaseEnergy(int amount)
+    {
+        energy += amount;
     }
 
     public virtual void Die()
@@ -100,9 +115,9 @@ public class UnitObject : MonoBehaviour
             });
     }
 
-    public void Knockback(Vector3 dir, float amount)
+    public void Knockback(Vector3 dir, float amount, float duration = 0.5f)
     {
-        LeanTween.value(gameObject, 0, amount, 0.5f).setEase(LeanTweenType.easeInCubic)
+        LeanTween.value(gameObject, 0, amount, duration).setEase(LeanTweenType.easeInCubic)
             .setOnUpdate((v) =>
             {
                 rb.MovePosition(rb.position + Time.deltaTime * v * dir);
@@ -126,6 +141,32 @@ public class UnitObject : MonoBehaviour
     {
         danceTime += amount;
         if (danceTime <= 0)
+        {
+
+        }
+        else
+        {
+
+        }
+    }
+
+    public void Charm(float amount)
+    {
+        charmTime += amount;
+        if(charmTime <= 0)
+        {
+
+        }
+        else
+        {
+
+        }
+    }
+
+    public void Weaken(float amount)
+    {
+        weakened += amount;
+        if(weakened <= 0)
         {
 
         }

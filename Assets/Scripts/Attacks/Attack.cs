@@ -29,7 +29,7 @@ public class Attack : MonoBehaviour
 
     public virtual void Cast(UnitObject unit, float multiplier = 1f)
     {
-
+        unit.IncreaseEnergy(-_energyCost);
     }
 
     public virtual bool CanCast(UnitObject unit)

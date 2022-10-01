@@ -252,9 +252,21 @@ MonoBehaviour:
   _maxEnergy: 0
   attacks:
   - {fileID: 1770575043626850351, guid: 5cc0766b34f09ef4e995125b792ccf6d, type: 3}
+  - {fileID: 4016354789028466147, guid: ea295f507077e5c49856b79f07543814, type: 3}
   team: 1
   blockTime: 0
   stunTime: 0
+  danceTime: 0
+  charmTime: 0
+  weakened: 0
+  encounter: {fileID: 0}
+  projectileLocations: []
+  stunLocations: []
+  idleLocations: []
+  spawnLocations: []
+  safeLocation: {fileID: 0}
+  basicEnemyPrefabs: []
+  healthBar: {fileID: 0}
 --- !u!54 &3674419158398836531
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -6,6 +6,8 @@ public class ShieldBlock : Attack
 {
     public override void Cast(UnitObject unit, float mutliplier)
     {
+        base.Cast(unit, mutliplier);
+
         Attack a = Instantiate(gameObject, unit.transform).GetComponent<Attack>();
         a._caster = unit;
         a._power *= (int)mutliplier;

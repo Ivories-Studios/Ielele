@@ -71,6 +71,15 @@ public partial class @ControlSchemes : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""55189612-13c8-403d-8989-cf610f5e25c3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -172,6 +181,17 @@ public partial class @ControlSchemes : IInputActionCollection2, IDisposable
                     ""action"": ""Attack 4"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e49ca779-4be9-4c0c-81fb-b2ee57e4d4d2"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -202,6 +222,7 @@ public partial class @ControlSchemes : IInputActionCollection2, IDisposable
         m_Player_Attack2 = m_Player.FindAction("Attack 2", throwIfNotFound: true);
         m_Player_Attack3 = m_Player.FindAction("Attack 3", throwIfNotFound: true);
         m_Player_Attack4 = m_Player.FindAction("Attack 4", throwIfNotFound: true);
+        m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -266,6 +287,7 @@ public partial class @ControlSchemes : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Attack2;
     private readonly InputAction m_Player_Attack3;
     private readonly InputAction m_Player_Attack4;
+    private readonly InputAction m_Player_Interact;
     public struct PlayerActions
     {
         private @ControlSchemes m_Wrapper;
@@ -275,6 +297,7 @@ public partial class @ControlSchemes : IInputActionCollection2, IDisposable
         public InputAction @Attack2 => m_Wrapper.m_Player_Attack2;
         public InputAction @Attack3 => m_Wrapper.m_Player_Attack3;
         public InputAction @Attack4 => m_Wrapper.m_Player_Attack4;
+        public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -299,6 +322,9 @@ public partial class @ControlSchemes : IInputActionCollection2, IDisposable
                 @Attack4.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack4;
                 @Attack4.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack4;
                 @Attack4.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack4;
+                @Interact.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
+                @Interact.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
+                @Interact.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -318,6 +344,9 @@ public partial class @ControlSchemes : IInputActionCollection2, IDisposable
                 @Attack4.started += instance.OnAttack4;
                 @Attack4.performed += instance.OnAttack4;
                 @Attack4.canceled += instance.OnAttack4;
+                @Interact.started += instance.OnInteract;
+                @Interact.performed += instance.OnInteract;
+                @Interact.canceled += instance.OnInteract;
             }
         }
     }
@@ -338,5 +367,6 @@ public partial class @ControlSchemes : IInputActionCollection2, IDisposable
         void OnAttack2(InputAction.CallbackContext context);
         void OnAttack3(InputAction.CallbackContext context);
         void OnAttack4(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
     }
 }

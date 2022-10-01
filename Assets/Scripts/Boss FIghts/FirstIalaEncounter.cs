@@ -8,8 +8,6 @@ public class FirstIalaEncounter : Encounter
     Phases currentPhase = Phases.Idle;
     [SerializeField] GameObject healthBars;
 
-    float timer = 0;
-
     // Update is called once per frame
     void Update()
     {
@@ -26,25 +24,34 @@ public class FirstIalaEncounter : Encounter
                         {
                             case 0:
                             case 1:
-                                currentPhase = Phases.SpawnEnemies;
-                                done = 0;
-                                StartCoroutine(iala.StartSpawnEnemiesAttack());
+                                if (iala != null)
+                                {
+                                    currentPhase = Phases.SpawnEnemies;
+                                    done = 0;
+                                    StartCoroutine(iala.StartSpawnEnemiesAttack());
+                                }
                                 break;
                             case 2:
                             case 3:
                             case 4:
                             case 5:
                             case 6:
-                                currentPhase = Phases.Projectiles;
-                                done = 0;
-                                StartCoroutine(iala.StartProjectileAttack());
+                                if (iala != null)
+                                {
+                                    currentPhase = Phases.Projectiles;
+                                    done = 0;
+                                    StartCoroutine(iala.StartProjectileAttack());
+                                }
                                 break;
                             case 7:
                             case 8:
                             case 9:
-                                currentPhase = Phases.Stun;
-                                done = 0;
-                                StartCoroutine(iala.StartStunAttack());
+                                if (iala != null)
+                                {
+                                    currentPhase = Phases.Stun;
+                                    done = 0;
+                                    StartCoroutine(iala.StartStunAttack());
+                                }
                                 break;
                         }
                     }

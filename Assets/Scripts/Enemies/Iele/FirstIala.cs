@@ -27,6 +27,10 @@ public class FirstIala : UnitObject
     // Update is called once per frame
     public override void Update()
     {
+        if(health <= 0)
+        {
+            return;
+        }
         base.Update();
         blockTime = 0;
         stunTime -= Time.deltaTime;
@@ -34,6 +38,11 @@ public class FirstIala : UnitObject
 
     public IEnumerator StartProjectileAttack()
     {
+        if (health <= 0)
+        {
+            encounter.done++;
+            yield break;
+        }
         Transform dest = projectileLocations[Random.Range(0, projectileLocations.Length)];
         for (int i = 0; i < Random.Range(3, 6); i++)
         {
@@ -47,6 +56,11 @@ public class FirstIala : UnitObject
 
     public IEnumerator StartSpawnEnemiesAttack()
     {
+        if (health <= 0)
+        {
+            encounter.done++;
+            yield break;
+        }
         yield return StartCoroutine(MoveCoroutine(safeLocation.position));
         yield return new WaitForSeconds(1f);
         for(int i = 0; i < Random.Range(spawnLocations.Length / 2, spawnLocations.Length); i++)
@@ -63,6 +77,12 @@ public class FirstIala : UnitObject
 
     public IEnumerator StartStunAttack()
     {
+        if (health <= 0)
+        {
+            encounter.done++;
+
+            yield break;
+        }
         Transform dest = stunLocations[Random.Range(0, stunLocations.Length)];
         yield return StartCoroutine(MoveCoroutine(dest.position));
         yield return new WaitForSeconds(1f);
@@ -73,12 +93,20 @@ public class FirstIala : UnitObject
 
     public IEnumerator StartIdle()
     {
+        if (health <= 0)
+        {
+            yield break;
+        }
         Transform dest = idleLocations[Random.Range(0, idleLocations.Length)];
         yield return StartCoroutine(MoveCoroutine(dest.position + new Vector3(0, 0, Random.Range(-3, 3))));
     }
 
     IEnumerator MoveCoroutine(Vector3 dest)
     {
+        if (health <= 0)
+        {
+            yield break;
+        }
         float time = 0.9f;
         Vector3 startingPos = rb.position;
         Vector3 finalPos = dest;
