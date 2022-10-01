@@ -9,7 +9,22 @@ public class UnitObject : MonoBehaviour
     [SerializeField] protected List<Attack> attacks = new List<Attack>();
     public float speed = 5;
     public int team;
-    public int health { get; protected set; }
+    public int Health {
+        get { return health; }
+        protected set
+        {
+            if (isInvicible) return;
+            health = value;
+        }
+    }
+
+    protected int health
+    {
+        get; private set;
+    }
+
+    public bool isInvicible = false;
+
     public int energy { get; protected set; }
 
     public bool CanMove
