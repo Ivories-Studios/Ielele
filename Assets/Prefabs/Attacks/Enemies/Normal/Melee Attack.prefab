@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7268699051403776849}
   - component: {fileID: 6401480129454310305}
   m_Layer: 0
-  m_Name: Basic Punch
+  m_Name: Melee Attack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +28,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -78,5 +77,14 @@ MonoBehaviour:
   _knockback: 0
   _comboIncrease: 0
   _instantiateSelf: 1
+  audioClips: []
+  audioClips2:
+  - {fileID: 8300000, guid: bc12b673fb1262d4f90c398e7d8583e6, type: 3}
+  - {fileID: 8300000, guid: 70e1adf76ad60c1489cde976aff07076, type: 3}
+  - {fileID: 8300000, guid: a863d9231c7d6774c8b8419780b136d8, type: 3}
+  - {fileID: 8300000, guid: a58538336ceaa0049afdebe470b22b0f, type: 3}
+  - {fileID: 8300000, guid: 9189bc92020d5884cb8052f72e55c50f, type: 3}
+  - {fileID: 8300000, guid: 914f20568ce2e3a44950d0e4921de142, type: 3}
+  - {fileID: 8300000, guid: 50798ffe10d05ac49b01820fd7f07b7b, type: 3}
   _destroyAfter: 0.1
   _caster: {fileID: 0}

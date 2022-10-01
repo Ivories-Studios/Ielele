@@ -14,6 +14,7 @@ public class InteractableObject : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        print(collision.name);
         if (collision.transform.parent.CompareTag("Player"))
         {
             collision.GetComponentInParent<PlayerObject>().surroundingInteractableObjects.Add(this);

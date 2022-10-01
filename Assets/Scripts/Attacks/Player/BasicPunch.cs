@@ -22,6 +22,8 @@ public class BasicPunch : Attack
             }
         }
         unit.StepAhead(_stepAhead);
+        AudioSource.PlayClipAtPoint(audioClips2[Random.Range(0, audioClips2.Count)], a.transform.position);
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -46,6 +48,7 @@ public class BasicPunch : Attack
                 {
                     player.IncreaseCombo(_comboIncrease);
                     increaseComboOnce = false;
+                    AudioSource.PlayClipAtPoint(audioClips[Random.Range(0, audioClips.Count)], transform.position);
                 }
             }
         }

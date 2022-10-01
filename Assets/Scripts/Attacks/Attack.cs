@@ -11,6 +11,8 @@ public class Attack : MonoBehaviour
     [SerializeField] protected float _knockback;
     [SerializeField] protected float _comboIncrease;
     [SerializeField] protected bool _instantiateSelf;
+    [SerializeField] protected List<AudioClip> audioClips = new List<AudioClip>();
+    [SerializeField] protected List<AudioClip> audioClips2 = new List<AudioClip>();
     [SerializeField, Tooltip("-1: never; 0: next frame; >0: after delay")] protected float _destroyAfter = -1;
 
     [HideInInspector] public UnitObject _caster;

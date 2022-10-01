@@ -1,0 +1,90 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7547867537553347613
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3154720753091914349}
+  - component: {fileID: 7268699051403776849}
+  - component: {fileID: 6401480129454310305}
+  m_Layer: 0
+  m_Name: Big Melee Attack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3154720753091914349
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7547867537553347613}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &7268699051403776849
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7547867537553347613}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &6401480129454310305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7547867537553347613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d77c0cd7ae5bba4b92b843810b9cb1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _energyCost: 0
+  _power: 2
+  _blockTime: 0.1
+  _stepAhead: 0.2
+  _knockback: 0
+  _comboIncrease: 0
+  _instantiateSelf: 1
+  audioClips: []
+  audioClips2:
+  - {fileID: 8300000, guid: bc12b673fb1262d4f90c398e7d8583e6, type: 3}
+  - {fileID: 8300000, guid: 70e1adf76ad60c1489cde976aff07076, type: 3}
+  - {fileID: 8300000, guid: a863d9231c7d6774c8b8419780b136d8, type: 3}
+  - {fileID: 8300000, guid: a58538336ceaa0049afdebe470b22b0f, type: 3}
+  - {fileID: 8300000, guid: 9189bc92020d5884cb8052f72e55c50f, type: 3}
+  - {fileID: 8300000, guid: 914f20568ce2e3a44950d0e4921de142, type: 3}
+  - {fileID: 8300000, guid: 50798ffe10d05ac49b01820fd7f07b7b, type: 3}
+  _destroyAfter: 0.1
+  _caster: {fileID: 0}

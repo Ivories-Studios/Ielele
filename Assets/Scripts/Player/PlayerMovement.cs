@@ -42,7 +42,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        print(_audioSource.isPlaying);
         if (_playerObject.CanMove)
         {
             if (_movementDelta != Vector2.zero)

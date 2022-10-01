@@ -20,6 +20,7 @@ public class AxeFall : Attack
             }
         }
         unit.StepAhead(_stepAhead);
+        AudioSource.PlayClipAtPoint(audioClips[Random.Range(0, audioClips.Count)], a.transform.position);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

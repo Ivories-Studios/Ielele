@@ -12,6 +12,7 @@ public class MeleeAttack : Attack
         a._caster = unit;
         unit.blockTime = _blockTime;
         unit.StepAhead(_stepAhead);
+        AudioSource.PlayClipAtPoint(audioClips2[Random.Range(0, audioClips2.Count)], a.transform.position);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
