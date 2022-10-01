@@ -72,6 +72,15 @@ public class PlayerMovement : MonoBehaviour
         }
         if (_movementDelta != Vector2.zero)
         {
+            if (_movementDelta.x < 0)
+            {
+                _graphicsTurnScript.TurnRight();
+            }
+            else if (_movementDelta.x > 0)
+            {
+                _graphicsTurnScript.TurnLeft();
+            }
+
             LeanTween.cancel(_deadZoneId);
             _composer.m_DeadZoneWidth = 0.3f;
         }
