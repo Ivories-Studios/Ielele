@@ -141,9 +141,9 @@ GameObject:
   - component: {fileID: 2104774563330287438}
   - component: {fileID: 3088667940449432538}
   - component: {fileID: 8213750710682824908}
-  - component: {fileID: 7396785868244566273}
+  - component: {fileID: 6970138310667439717}
   m_Layer: 0
-  m_Name: Buff well
+  m_Name: Boss Well
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -197,8 +197,8 @@ MonoBehaviour:
   onInteract:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7396785868244566273}
-        m_TargetAssemblyTypeName: BuffWell, Assembly-CSharp
+      - m_Target: {fileID: 6970138310667439717}
+        m_TargetAssemblyTypeName: BossWell, Assembly-CSharp
         m_MethodName: Interact
         m_Mode: 0
         m_Arguments:
@@ -209,7 +209,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &7396785868244566273
+--- !u!114 &6970138310667439717
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -218,6 +218,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7639389100368541214}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b2bdb049a8445d49835bcc871a701c7, type: 3}
+  m_Script: {fileID: 11500000, guid: d4e7bfb1c1dce3049b8435019fd90481, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  index: 0

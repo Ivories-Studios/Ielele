@@ -94,7 +94,7 @@ public class EnemyAiManager : MonoBehaviour
             int numberOfAttackingEnemies = 0;
             for (int i = enemies.Count - 1; i >= 0; i--)
             {
-                if (enemies[i].health <= 0)
+                if (enemies[i].Health <= 0)
                 {
                     enemies.Remove(enemies[i]);
                 }

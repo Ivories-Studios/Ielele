@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ThirdIalaEncounter : MonoBehaviour
+public class ThirdIalaEncounter : Encounter
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] FirstIala firstIala;
+    [SerializeField] SecondIala secondIala;
+    [SerializeField] ThirdIala thirdIala;
+
+    public override void StartFight()
     {
-        
     }
 
     // Update is called once per frame

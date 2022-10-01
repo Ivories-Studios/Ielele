@@ -4,11 +4,26 @@ using UnityEngine;
 
 public class BossWell : MonoBehaviour
 {
-    [SerializeField] Encounter bossEncounter;
-    bool onlyOnce;
+    bool onlyOnce = true;
+    public int index;
 
     public void Interact(PlayerObject player)
     {
-        bossEncounter.StartFight();
+        if (onlyOnce)
+        {
+            switch (index)
+            {
+                case 1:
+                    DialogueManager.Instance.Iala1();
+                    break;
+                case 2:
+                    DialogueManager.Instance.Iala2();
+                    break;
+                case 3:
+                    DialogueManager.Instance.Iala3();
+                    break;
+            }
+            onlyOnce = false;
+        }
     }
 }

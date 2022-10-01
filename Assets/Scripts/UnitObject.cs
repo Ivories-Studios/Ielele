@@ -9,8 +9,12 @@ public class UnitObject : MonoBehaviour
     [SerializeField] protected List<Attack> attacks = new List<Attack>();
     public float speed = 5;
     public int team;
-    public int Health {
-        get { return health; }
+    public int Health 
+    {
+        get 
+        { 
+            return health; 
+        }
         protected set
         {
             if (isInvicible) return;
@@ -31,7 +35,7 @@ public class UnitObject : MonoBehaviour
     {
         get
         {
-            return blockTime <= 0 && stunTime <= 0 && !inKnockback && danceTime <= 0 && charmTime <= 0 && MenuManager.Instance.gameRunning;
+            return blockTime <= 0 && stunTime <= 0 && !inKnockback && danceTime <= 0 && charmTime <= 0 && MenuManager.Instance.gameRunning && !DialogueManager.Instance.isInDialogue;
         }
     }
 
@@ -39,7 +43,7 @@ public class UnitObject : MonoBehaviour
     {
         get
         {
-            return blockTime <= 0 && danceTime <= 0 && !inKnockback && danceTime <= 0 && charmTime <= 0 && MenuManager.Instance.gameRunning;
+            return blockTime <= 0 && danceTime <= 0 && !inKnockback && danceTime <= 0 && charmTime <= 0 && MenuManager.Instance.gameRunning && !DialogueManager.Instance.isInDialogue;
         }
     }
 
@@ -109,6 +113,11 @@ public class UnitObject : MonoBehaviour
         {
             //Die anim
         }
+    }
+
+    public virtual void Heal(int amount)
+    {
+        health += amount;
     }
 
     public virtual void IncreaseEnergy(int amount)

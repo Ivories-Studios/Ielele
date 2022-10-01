@@ -36,6 +36,7 @@ public class BasicPunch : Attack
                     {
                         _power = (int)(_power * 0.5f);
                     }
+                    _player.RollForHeal();
                 }
                 target.TakeDamage(_power);
                 Vector3 knockbackDir = new Vector3(transform.position.x - target.transform.position.x > 0 ? -1 : 1, 0, 0);

@@ -27,6 +27,7 @@ public class ShieldBlock : Attack
                     {
                         _power = (int)(_power * 0.5f);
                     }
+                    _player.RollForHeal();
                 }
                 enemyAttack._caster.TakeDamage(_power);
                 Vector3 knockbackDir = new Vector3(transform.position.x - enemyAttack._caster.transform.position.x > 0 ? -1 : 1, 0, 0);

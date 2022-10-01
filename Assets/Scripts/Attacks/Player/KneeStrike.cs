@@ -38,6 +38,7 @@ public class KneeStrike : Attack
                         stun *= 1.2f;
                         _knockback *= 1.5f;
                     }
+                    _player.RollForHeal();
                 }
                 target.TakeDamage(_power);
                 target.Stun(stun);

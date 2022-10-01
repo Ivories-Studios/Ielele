@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
@@ -18,18 +19,6 @@ public class MenuManager : MonoBehaviour
         Instance = this;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void ShowMenu()
     {
         gameObject.SetActive(true);
@@ -38,11 +27,11 @@ public class MenuManager : MonoBehaviour
 
     public void StartGame()
     {
-        gameRunning = true;
         LeanTween.moveY(GetComponent<RectTransform>(), 600, 2).setEase(LeanTweenType.easeInBack)
             .setOnComplete(() => 
             { 
                 gameObject.SetActive(false);
+                gameRunning = true;
                 if (firstTime) 
                 {
                     DialogueManager.Instance.StartCoroutine(DelayDialogue());
@@ -69,6 +58,11 @@ public class MenuManager : MonoBehaviour
             {
                 LeanTween.moveX(victoryScreen.GetComponent<RectTransform>(), 1200, 3).setDelay(2).setEase(LeanTweenType.easeInBack).setOnComplete(() => victoryScreen.SetActive(false));
             });
+    }
+
+    public void ChangeScene(string scene)
+    {
+        SceneManager.LoadScene(scene);
     }
 
     public void Quit()

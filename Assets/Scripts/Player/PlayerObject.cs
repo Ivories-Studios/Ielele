@@ -179,11 +179,17 @@ public class PlayerObject : UnitObject
     {
         amount = (int)(amount * (1 + wellBuffs * 0.5f));
         base.TakeDamage(amount);
-        CanvasManager.Instance.SetHealth(amount);
+        CanvasManager.Instance.SetHealth(health);
         if(health <= 0)
         {
             StartCoroutine(ActivatePostProcess());
         }
+    }
+
+    public override void Heal(int amount)
+    {
+        base.Heal(amount);
+        CanvasManager.Instance.SetHealth(health);
     }
 
     public override void IncreaseEnergy(int amount)
@@ -223,6 +229,16 @@ public class PlayerObject : UnitObject
     public override void Die()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void RollForHeal()
+    {
+        int randomNumber = Random.Range(0, 1000);
+        if(randomNumber + _combo / 2 > 990)
+        {
+            Heal(1);
+            CanvasManager.Instance.SetHealth(health);
+        }
     }
 }
 
