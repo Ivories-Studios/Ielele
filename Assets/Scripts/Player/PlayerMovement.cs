@@ -12,13 +12,15 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody _rigidbody;
     Vector2 _movementDelta;
     CinemachineFramingTransposer _composer;
-    int _deadZoneWidthCoroutine;
     int _deadZoneId;
+    PlayerObject _playerObject;
+    bool isLookingRight = true;
 
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
         _composer = _virtualCamera.GetCinemachineComponent<CinemachineFramingTransposer>();
+        _playerObject = GetComponent<PlayerObject>();
     }
 
     // Start is called before the first frame update
@@ -35,17 +37,40 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector3 targetPosition = _rigidbody.position + new Vector3(_movementDelta.x, 0, _movementDelta.y) * _speed * Time.fixedDeltaTime;
-        _rigidbody.MovePosition(targetPosition);
+        if (_playerObject.CanMove)
+        {
+            Vector3 targetPosition = _rigidbody.position + _speed * Time.fixedDeltaTime * new Vector3(_movementDelta.x, 0, _movementDelta.y);
+            _rigidbody.MovePosition(targetPosition);
+        }
     }
 
     public void OnMovement(InputAction.CallbackContext context)
     {
+        if (!_playerObject.CanMove)
+        {
+            return;
+        }
         _movementDelta = context.ReadValue<Vector2>();
         if(_movementDelta != Vector2.zero)
         {
             LeanTween.cancel(_deadZoneId);
             _composer.m_DeadZoneWidth = 0.2f;
+            if(_movementDelta.x > 0)
+            {
+                if (!isLookingRight && context.started)
+                {
+                    //anim call TurnRight
+                    TurnRight(true);
+                }
+            }
+            else if(_movementDelta.x < 0)
+            {
+                if (isLookingRight && context.started)
+                {
+                    //anim call TurnRight
+                    TurnRight(false);
+                }
+            }
         }
         else
         {
@@ -58,23 +83,9 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void OnAttack1(InputAction.CallbackContext context)
+    public void TurnRight(bool right)
     {
-
-    }
-
-    public void OnAttack2(InputAction.CallbackContext context)
-    {
-
-    }
-
-    public void OnAttack3(InputAction.CallbackContext context)
-    {
-
-    }
-
-    public void OnAttack4(InputAction.CallbackContext context)
-    {
-
+        isLookingRight = right;
+        transform.rotation = Quaternion.Euler(0, right ? 0 : 180, 0);
     }
 }
