@@ -55,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 _graphicsTurnScript.TurnLeft();
             }
-            else
+            else if (_movementDelta.x < 0)
             {
                 _graphicsTurnScript.TurnRight();
             }
