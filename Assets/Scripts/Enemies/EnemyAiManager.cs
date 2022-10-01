@@ -57,6 +57,13 @@ public class EnemyAiManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        foreach(Enemy e in enemies)
+        {
+            if(e == null)
+            {
+                enemies.Remove(e);
+            }
+        }
         timer -= Time.deltaTime;
         if (timer <= 0)
         {

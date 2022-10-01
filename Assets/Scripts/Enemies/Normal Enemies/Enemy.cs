@@ -14,10 +14,25 @@ public class Enemy : UnitObject
     public Vector2 zBounds;
     public float range = 2.5f;
 
+    float attackingTime = 0;
+
     // Update is called once per frame
     public override void Update()
     {
         base.Update();
+
+        if(attackingTime <= 0)
+        {
+            if(PlayerObject.Instance.transform.position.x > Mathf.Min(transform.position.x, transform.position.x + transform.right.x) && 
+                PlayerObject.Instance.transform.position.y < Mathf.Max(transform.position.y, transform.position.x + transform.right.x))
+            {
+                if(PlayerObject.Instance.transform.position.y < transform.position.y + 1 && PlayerObject.Instance.transform.position.y > transform.position.y - 1)
+                {
+                    CastAttack(0);
+                    attackingTime = 5;
+                }
+            }
+        }
     }
     public override void FixedUpdate()
     {
@@ -54,18 +69,18 @@ public class Enemy : UnitObject
             {
                 //Fully walking animation
                 if (Vector3.Distance(transform.position, actualTarget()) > 0.1f){
-                    rb.MovePosition(transform.position + (Vector3)(dir * speed * Time.deltaTime));
+                    rb.MovePosition(transform.position + (dir * speed * Time.deltaTime));
                 }
             }
             else if (state == AIState.RoamingAround)
             {
                 //Slow walking animation
-                rb.MovePosition(transform.position + (Vector3)(dir * 1 * Time.deltaTime));
+                rb.MovePosition(transform.position + (dir * 1 * Time.deltaTime));
             }
             else if (state == AIState.Flee)
             {
                 //Flee animation
-                rb.MovePosition(transform.position + (Vector3)(dir * speed * Time.deltaTime));
+                rb.MovePosition(transform.position + (dir * speed * Time.deltaTime));
             }
             else
             {

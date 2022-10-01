@@ -119,7 +119,7 @@ MonoBehaviour:
   _power: 2
   _blockTime: 0
   _stepAhead: 0
-  _knockback: 5
+  _knockback: 1
   _comboIncrease: 0
   _instantiateSelf: 1
   _destroyAfter: 20

@@ -132,19 +132,21 @@ public class UnitObject : MonoBehaviour
 
     public void StepAhead(float amount)
     {
-        LeanTween.value(gameObject, 0, amount, 0.3f).setEase(LeanTweenType.easeInExpo)
+        Vector3 start = rb.position;
+        LeanTween.value(gameObject, 0, 1, 0.1f).setEase(LeanTweenType.easeOutCubic)
             .setOnUpdate((v) =>
             {
-                rb.MovePosition(rb.position + Time.deltaTime * v * transform.right);
+                rb.MovePosition(Vector3.Lerp(start, start + transform.right * amount, v));
             });
     }
 
-    public void Knockback(Vector3 dir, float amount, float duration = 0.5f)
+    public void Knockback(Vector3 dir, float amount, float duration = 0.2f)
     {
-        LeanTween.value(gameObject, 0, amount, duration).setEase(LeanTweenType.easeInCubic)
+        Vector3 start = rb.position;
+        LeanTween.value(gameObject, 0, 1, duration).setEase(LeanTweenType.easeOutCubic)
             .setOnUpdate((v) =>
             {
-                rb.MovePosition(rb.position + Time.deltaTime * v * dir);
+                rb.MovePosition(Vector3.Lerp(start, start + dir.normalized * amount, v));
             }).setOnStart(() => inKnockback = true).setOnComplete(() => inKnockback = false);
     }
 

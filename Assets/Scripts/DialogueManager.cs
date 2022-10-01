@@ -174,14 +174,63 @@ public class DialogueManager : MonoBehaviour
 
     void Iala2_5()
     {
-        nextDialogue = null;
+        nextDialogue = Iala2_6;
         playerText.text = "There is only one way to proceed.";
         StartCoroutine(ClackaClacka(playerText));
     }
 
+    void Iala2_6()
+    {
+        bossEncounters[1].StartFight();
+        nextDialogue = null;
+        playerPanel.SetActive(false);
+        enemyPanel.SetActive(false);
+        isInDialogue = false;
+    }
+
     public void Iala3()
     {
+        nextDialogue = Iala3_1;
+        enemyPanel.SetActive(true);
+        enemyName.text = "The First Fairy";
+        enemyImage.sprite = iala1;
+        enemyText.text = "<u><s><i>TOGHETHER AT LAST</i></s></u>";
+        StartCoroutine(ClackaClacka(enemyText));
+    }
 
+    public void Iala3_1()
+    {
+        nextDialogue = Iala3_2;
+        enemyName.text = "The Second Fairy";
+        enemyImage.sprite = iala2;
+        enemyText.text = "<u><s><i>TOGHETHER AT LAST</i></s></u>";
+        StartCoroutine(ClackaClacka(enemyText));
+    }
+
+    public void Iala3_2()
+    {
+        nextDialogue = Iala3_3;
+        enemyName.text = "The Third Fairy";
+        enemyImage.sprite = iala3;
+        enemyText.text = "<u><s><i>TOGHETHER AT LAST</i></s></u>";
+        StartCoroutine(ClackaClacka(enemyText));
+    }
+
+    public void Iala3_3()
+    {
+        nextDialogue = Iala3_4;
+        playerPanel.SetActive(true);
+        playerText.text = "";
+        StartCoroutine(ClackaClacka(playerText));
+    }
+
+    public void Iala3_4()
+    {
+        bossEncounters[2].StartFight();
+        nextDialogue = null;
+        playerPanel.SetActive(false);
+        enemyPanel.SetActive(false);
+        isInDialogue = false;
     }
 
     IEnumerator ClackaClacka(TextMeshProUGUI text)

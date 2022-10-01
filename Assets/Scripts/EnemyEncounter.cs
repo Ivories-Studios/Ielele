@@ -13,6 +13,7 @@ public class EnemyEncounter : Encounter
     [SerializeField] Collider[] marginCollider;
 
     EnemyAiManager aiManager;
+    bool lastWave = false;
 
     private void Awake()
     {
@@ -36,17 +37,24 @@ public class EnemyEncounter : Encounter
                 aiManager.CreateEnemy(enemyGroups[i], spawnPoints[Random.Range(0, spawnPoints.Count)].position);
             }
         }
+        lastWave = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(aiManager.enemies.Count == 0 && lastWave)
+        {
+            StopFight();
+        }
     }
 
     public override void StartFight()
     {
-        virtualCamera.Priority = 20;
+        if (virtualCamera != null)
+        {
+            virtualCamera.Priority = 20;
+        }
         foreach(Collider col in marginCollider)
         {
             col.gameObject.SetActive(true);
@@ -56,7 +64,10 @@ public class EnemyEncounter : Encounter
 
     public void StopFight()
     {
-        virtualCamera.Priority = 0;
+        if (virtualCamera != null)
+        {
+            virtualCamera.Priority = 0;
+        }
         foreach (Collider col in marginCollider)
         {
             col.gameObject.SetActive(false);

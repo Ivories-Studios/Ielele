@@ -250,9 +250,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 3
   _maxEnergy: 0
-  attacks: []
-  speed: 5
+  attacks:
+  - {fileID: 6401480129454310305, guid: c46b2fa0247be57459cc892faa0ff05a, type: 3}
+  speed: 4
   team: 1
+  isInvicible: 0
   blockTime: 0
   stunTime: 0
   danceTime: 0

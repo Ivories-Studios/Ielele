@@ -57,6 +57,7 @@ public class PlayerObject : UnitObject
 
     public void OnAttack1(InputAction.CallbackContext context)
     {
+        TakeDamage(20);
         if (context.performed)
         {
             if (CanAttack)

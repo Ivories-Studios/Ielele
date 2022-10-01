@@ -22,12 +22,12 @@ public class MenuManager : MonoBehaviour
     public void ShowMenu()
     {
         gameObject.SetActive(true);
-        LeanTween.moveY(GetComponent<RectTransform>(), 0, 2).setEase(LeanTweenType.easeOutBack);
+        LeanTween.moveY(GetComponent<RectTransform>(), 0, 1.5f).setEase(LeanTweenType.easeOutBack);
     }
 
     public void StartGame()
     {
-        LeanTween.moveY(GetComponent<RectTransform>(), 600, 2).setEase(LeanTweenType.easeInBack)
+        LeanTween.moveY(GetComponent<RectTransform>(), 1000, 1.5f).setEase(LeanTweenType.easeInBack)
             .setOnComplete(() => 
             { 
                 gameObject.SetActive(false);
@@ -41,7 +41,7 @@ public class MenuManager : MonoBehaviour
 
     IEnumerator DelayDialogue()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.5f);
         DialogueManager.Instance.Dialogue1();
     }
 
@@ -53,10 +53,11 @@ public class MenuManager : MonoBehaviour
     public void ShowVictoryScreen()
     {
         victoryScreen.SetActive(true);
-        LeanTween.moveX(victoryScreen.GetComponent<RectTransform>(), 0, 3).setDelay(1).setEase(LeanTweenType.easeOutBounce)
+        LeanTween.moveX(victoryScreen.GetComponent<RectTransform>(), 0, 2).setDelay(1).setEase(LeanTweenType.easeOutBounce)
             .setOnComplete(() =>
             {
-                LeanTween.moveX(victoryScreen.GetComponent<RectTransform>(), 1200, 3).setDelay(2).setEase(LeanTweenType.easeInBack).setOnComplete(() => victoryScreen.SetActive(false));
+                LeanTween.moveX(victoryScreen.GetComponent<RectTransform>(), 2000, 2).setDelay(2).setEase(LeanTweenType.easeInBack)
+                .setOnComplete(() => { victoryScreen.SetActive(false); victoryScreen.GetComponent<RectTransform>().position = new Vector2(-2000, 0); });
             });
     }
 

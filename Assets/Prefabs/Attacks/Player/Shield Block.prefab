@@ -47,9 +47,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _energyCost: 2
   _power: 4
-  _blockTime: 1
+  _blockTime: 0.6
   _stepAhead: 0
-  _knockback: 10
+  _knockback: 1.5
   _comboIncrease: 2
   _instantiateSelf: 1
   _destroyAfter: 0.5
