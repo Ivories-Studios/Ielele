@@ -14,7 +14,6 @@ public class Enemy : UnitObject
     public Vector2 zBounds;
     public float range = 2.5f;
 
-
     // Update is called once per frame
     public override void Update()
     {
