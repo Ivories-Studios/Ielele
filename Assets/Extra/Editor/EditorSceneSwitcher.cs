@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+/*using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
 using UnityEditor.Overlays;
@@ -11,7 +11,7 @@ using UnityEngine.UIElements;
 public static class EditorSceneSwitcher
 {
     public static bool AutoEnterPlaymode = false;
-    public static readonly List<string> ScenePaths = new();
+    public static readonly List<string> ScenePaths = new List<string>();
 
     public static void OpenScene(string scenePath)
     {
@@ -194,4 +194,4 @@ public class AutoEnterPlayModeToggle : EditorToolbarToggle
     {
         EditorSceneSwitcher.AutoEnterPlaymode = evt.newValue;
     }
-}
+}*/

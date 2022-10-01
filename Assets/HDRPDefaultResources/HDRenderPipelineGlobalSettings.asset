@@ -65,33 +65,14 @@ MonoBehaviour:
   beforePostProcessCustomPostProcesses: []
   afterPostProcessBlursCustomPostProcesses: []
   afterPostProcessCustomPostProcesses:
-  - AnalogTVNoise_RLPRO, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  - Artefacts_RLPRO, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - Bleed_RLPRO_HDRP, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  - BottomNoise_RLPRO, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  - BottomStretch_RLPRO, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  - CinematicBars_RLPRO, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  - ColormapPalette_RLPRO, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  - CRTAperture_RLPRO, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  - CustomTexture_RLPRO, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  - Fisheye_RLPRO, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  - Glitch1_RLPRO, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  - Glitch2_RLPRO, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  - Glitch3_RLPRO, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - Jitter_RLPRO, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  - LowRes_RLPRO, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  - Negative_RLPRO, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - Noise_RLPRO, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - NTSCEncode_RLPRO, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  - OldFilm_RLPRO, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - Phosphor_RLPRO, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  - PictureCorrection_RLPRO, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  - PulsatingVignette_RLPRO, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  - TV_RLPRO, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - UltimateVignette_RLPRO, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - VHSScanlines_RLPRO, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - VHS_RLPRO, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  - Warp_RLPRO, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   beforeTAACustomPostProcesses: []
   lightLayerName0: Light Layer default
   lightLayerName1: Light Layer 1
@@ -115,7 +96,7 @@ MonoBehaviour:
   diffusionProfileSettingsList:
   - {fileID: 11400000, guid: 1dfdfa4a29d84c649a4eeac17ea85503, type: 2}
   - {fileID: 11400000, guid: 5ed9d8d6df7c7124a9d25b2ef4817661, type: 2}
-  rendererListCulling: 0
+  rendererListCulling: 1
   DLSSProjectId: 000000
   useDLSSCustomProjectId: 0
   supportProbeVolumes: 0

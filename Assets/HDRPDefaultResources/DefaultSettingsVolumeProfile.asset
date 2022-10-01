@@ -194,28 +194,6 @@ MonoBehaviour:
   lineSpeed:
     m_OverrideState: 1
     m_Value: 0
---- !u!114 &-3567633685223788820
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8782244c75a8d94fb0818f8b71e73db, type: 3}
-  m_Name: CinematicBars_RLPRO
-  m_EditorClassIdentifier: 
-  active: 0
-  intensity:
-    m_OverrideState: 1
-    m_Value: 1
-  amount:
-    m_OverrideState: 1
-    m_Value: 0.1
-  fade:
-    m_OverrideState: 1
-    m_Value: 0
 --- !u!114 &-1569567208105683107
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -314,7 +292,6 @@ MonoBehaviour:
   - {fileID: 1932259527246508038}
   - {fileID: -7089757308646879465}
   - {fileID: 1827879027227913883}
-  - {fileID: -3567633685223788820}
   - {fileID: -6193527141584350178}
   - {fileID: -7967057215165966954}
   - {fileID: 7091421705566958855}
