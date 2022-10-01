@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 0e405f7bbdc941f4db20297e96563e30
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Brand New Retro
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: fd7ecfe15b91f234db9ec168e361c9b1, type: 3}
+  - {fileID: 12800000, guid: 11cb2565f367fab4492ce61e9229c9cb, type: 3}
+  - {fileID: 12800000, guid: f1b16615e93cf27438118ff89bb19668, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
