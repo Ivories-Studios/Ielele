@@ -6,11 +6,11 @@ public class BasicPunch : Attack
 {
     bool increaseComboOnce = true;
 
-    public override void Cast(UnitObject unit, float mutliplier)
+    public override void Cast(UnitObject unit, float multiplier)
     {
         Attack a = Instantiate(gameObject, unit.transform).GetComponent<Attack>();
         a._caster = unit;
-        a._power *= (int)mutliplier;
+        a._power *= (int)multiplier;
         unit.blockTime = _blockTime;
         if (unit is PlayerObject _player)
         {
@@ -41,6 +41,7 @@ public class BasicPunch : Attack
                 if(_caster is PlayerObject player && increaseComboOnce)
                 {
                     player.IncreaseCombo(_comboIncrease);
+                    player.IncreaseEnergyLevel(1);
                     increaseComboOnce = false;
                 }
             }

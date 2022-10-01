@@ -76,7 +76,7 @@ MonoBehaviour:
   _blockTime: 1
   _stepAhead: 7
   _knockback: 3
-  _comboIncrease: 0.1
+  _comboIncrease: 1
   _instantiateSelf: 1
   _destroyAfter: 0.1
   _caster: {fileID: 0}

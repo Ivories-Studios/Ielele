@@ -39,6 +39,7 @@ public class AxeFall : Attack
                 if (_caster is PlayerObject player)
                 {
                     player.IncreaseCombo(_comboIncrease);
+                    player.IncreaseEnergyLevel(1);
                 }
             }
         }

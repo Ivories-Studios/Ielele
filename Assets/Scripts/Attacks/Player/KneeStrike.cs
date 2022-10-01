@@ -39,12 +39,13 @@ public class KneeStrike : Attack
                     }
                 }
                 target.TakeDamage(_power);
-                target.stunTime += stun;
+                target.Stun(stun);
                 Vector3 knockbackDir = new Vector3(transform.position.x - target.transform.position.x > 0 ? -1 : 1, 0, 0);
                 target.Knockback(knockbackDir, _knockback);
                 if (_caster is PlayerObject player && increaseComboOnce)
                 {
                     player.IncreaseCombo(_comboIncrease);
+                    player.IncreaseEnergyLevel(1);
                     increaseComboOnce = false;
                 }
             }

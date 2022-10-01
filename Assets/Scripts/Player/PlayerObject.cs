@@ -2,16 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerObject : UnitObject
 {
+    public static PlayerObject Instance;
+    [SerializeField] AnimationCurve comboFunction;
+
     QueuedAction _queuedAction;
     Coroutine _queuedCoroutineAction;
 
     float _combo;
+    float _comboModifier;
     float _currentComboExpireTime;
     float _timeSinceLastCombo;
     [HideInInspector] public int comboInARow;
+
+    public List<InteractableObject> surroundingInteractableObjects = new List<InteractableObject>();
+
+    public int wellBuffs = 0;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     // Update is called once per frame
     public override void Update()
@@ -26,6 +40,7 @@ public class PlayerObject : UnitObject
         if(_currentComboExpireTime <= 0)
         {
             _combo = 1;
+            _comboModifier = 1;
             comboInARow = 0;
         }
         else
@@ -40,7 +55,7 @@ public class PlayerObject : UnitObject
         {
             if (CanAttack)
             {
-                CastAttack(0, _combo);
+                CastAttack(0, _comboModifier * (1 + wellBuffs * 0.25f));
             }
             else
             {
@@ -59,7 +74,7 @@ public class PlayerObject : UnitObject
         {
             if (CanAttack)
             {
-                CastAttack(1, _combo);
+                CastAttack(1, _comboModifier * (1 + wellBuffs * 0.25f));
             }
             else
             {
@@ -78,7 +93,7 @@ public class PlayerObject : UnitObject
         {
             if (CanAttack)
             {
-                CastAttack(2, _combo);
+                CastAttack(2, _comboModifier * (1 + wellBuffs * 0.25f));
             }
             else
             {
@@ -97,7 +112,7 @@ public class PlayerObject : UnitObject
         {
             if (CanAttack)
             {
-                CastAttack(3, _combo);
+                CastAttack(3, _comboModifier * (1 + wellBuffs * 0.25f));
             }
             else
             {
@@ -107,6 +122,14 @@ public class PlayerObject : UnitObject
                 }
                 _queuedCoroutineAction = StartCoroutine(AddActionToQueue(3));
             }
+        }
+    }
+
+    public void Interact(InputAction.CallbackContext context)
+    {
+        if (context.started && surroundingInteractableObjects.Count > 0)
+        {
+            surroundingInteractableObjects[0].Interact(this);
         }
     }
 
@@ -131,6 +154,11 @@ public class PlayerObject : UnitObject
             amount *= 2;
         }
         _combo += amount;
+        if(_combo > 100)
+        {
+            _combo = 100;
+        }
+        _comboModifier = comboFunction.Evaluate(_combo / 100.0f) * 5;
         _currentComboExpireTime = 4;
         _timeSinceLastCombo = 0;
     }
@@ -139,6 +167,24 @@ public class PlayerObject : UnitObject
     {
         _currentComboExpireTime = 4;
         _timeSinceLastCombo = 0;
+    }
+
+    public override void TakeDamage(int amount)
+    {
+        base.TakeDamage(amount);
+        CanvasManager.Instance.SetHealth(amount);
+    }
+
+    public void IncreaseEnergyLevel(int amount)
+    {
+        energy += amount;
+        energy = Mathf.Clamp(energy, 0, _maxEnergy);
+        CanvasManager.Instance.SetEnergy(energy);
+    }
+
+    public override void Die()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
 

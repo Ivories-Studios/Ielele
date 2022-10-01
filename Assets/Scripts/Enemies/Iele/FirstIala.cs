@@ -1,0 +1,91 @@
+
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class FirstIala : UnitObject
+{
+    [SerializeField] Encounter encounter;
+    [SerializeField] Transform[] projectileLocations;
+    [SerializeField] Transform[] stunLocations;
+    [SerializeField] Transform[] idleLocations;
+    [SerializeField] Transform[] spawnLocations;
+    [SerializeField] Transform safeLocation;
+
+    [SerializeField] UnitObject[] basicEnemyPrefabs;
+
+    // Start is called before the first frame update
+    public override void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    public override void Update()
+    {
+        base.Update();
+        blockTime = 0;
+        stunTime -= Time.deltaTime;
+    }
+
+    public IEnumerator StartProjectileAttack()
+    {
+        Transform dest = projectileLocations[Random.Range(0, projectileLocations.Length)];
+        for (int i = 0; i < Random.Range(3, 6); i++)
+        {
+            yield return StartCoroutine(MoveCoroutine(dest.position + new Vector3(0, 0, Random.Range(-3, 3))));
+            yield return new WaitForSeconds(0.5f);
+            CastAttack(0);
+            yield return new WaitForSeconds(0.5f);
+        }
+        encounter.done++;
+    }
+
+    public IEnumerator StartSpawnEnemiesAttack()
+    {
+        yield return StartCoroutine(MoveCoroutine(safeLocation.position));
+        yield return new WaitForSeconds(1f);
+        for(int i = 0; i < Random.Range(spawnLocations.Length / 2, spawnLocations.Length); i++)
+        {
+            Instantiate(basicEnemyPrefabs[Random.Range(0, basicEnemyPrefabs.Length)], spawnLocations[i].position, Quaternion.identity);
+        }
+        yield return new WaitForSeconds(5f);
+        CastAttack(1);
+        yield return new WaitForSeconds(10f);
+
+        encounter.done++;
+        yield return null;
+    }
+
+    public IEnumerator StartStunAttack()
+    {
+        Transform dest = stunLocations[Random.Range(0, stunLocations.Length)];
+        yield return StartCoroutine(MoveCoroutine(dest.position));
+        yield return new WaitForSeconds(1f);
+        CastAttack(1);
+        yield return new WaitForSeconds(0.5f);
+        encounter.done++;
+    }
+
+    public IEnumerator StartIdle()
+    {
+        Transform dest = idleLocations[Random.Range(0, idleLocations.Length)];
+        yield return StartCoroutine(MoveCoroutine(dest.position + new Vector3(0, 0, Random.Range(-3, 3))));
+    }
+
+    IEnumerator MoveCoroutine(Vector3 dest)
+    {
+        float time = 0.9f;
+        Vector3 startingPos = rb.position;
+        Vector3 finalPos = dest;
+        float elapsedTime = 0;
+
+        while (elapsedTime < time)
+        {
+            rb.MovePosition(Vector3.Lerp(startingPos, finalPos, elapsedTime / time));
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        rb.MovePosition(dest);
+    }
+}

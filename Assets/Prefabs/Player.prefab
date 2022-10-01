@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8480132064706530457}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -90,7 +90,34 @@ MonoBehaviour:
   team: 0
   blockTime: 0
   stunTime: 0
+  danceTime: 0
+  comboFunction:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   comboInARow: 0
+  surroundingInteractableObjects: []
+  wellBuffs: 0
 --- !u!114 &8480132064706530457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,7 +241,7 @@ GameObject:
   - component: {fileID: 6827717358765021654}
   m_Layer: 0
   m_Name: Hitbox
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -283,7 +310,7 @@ GameObject:
   - component: {fileID: 5145650619057829026}
   m_Layer: 0
   m_Name: Sprite
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -367,7 +394,7 @@ GameObject:
   - component: {fileID: 4149842263533715721}
   m_Layer: 6
   m_Name: Movement Collider
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
