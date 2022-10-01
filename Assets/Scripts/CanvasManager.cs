@@ -12,6 +12,7 @@ public class CanvasManager : MonoBehaviour
     [SerializeField] Sprite fullHealthSprite;
     [SerializeField] Sprite halfHealthSprite;
     [SerializeField] Sprite emptyHealthSprite;
+    [SerializeField] MenuManager menuManager;
 
     private void Awake()
     {
@@ -27,7 +28,10 @@ public class CanvasManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            menuManager.ShowMenu();
+        }
     }
 
     public void SetHealth(int amount)

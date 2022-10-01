@@ -5,30 +5,30 @@ using UnityEngine;
 public class EnemyAiManager : MonoBehaviour
 {
 
-    public static List<Enemy> enemies = new List<Enemy>();
+    public List<Enemy> enemies = new List<Enemy>();
 
     public static int NumberOfEnemiesThatShouldAttackPlayer = 3;
-    public static int NumberOfEnemiesAttackingPlayer = 0;
+    public int NumberOfEnemiesAttackingPlayer = 0;
 
     public List<Transform> enemyIdleLocations;
     public List<Transform> enemyFleeLocations;
 
     public static bool debug = false;
 
-    public static void StartFight()
+    public void StartFight()
     {
         fighting = true;
         allFleeing = false;
     }
 
-    public static void EndFight()
+    public void EndFight()
     {
         fighting = false;
         allFleeing = true;
         timer = 0;
     }
 
-    public static GameObject CreateEnemy(GameObject prefab, Vector3 position) 
+    public GameObject CreateEnemy(GameObject prefab, Vector3 position) 
     {
         if (fighting)
         {

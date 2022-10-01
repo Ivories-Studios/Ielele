@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 328858213692430304}
   - component: {fileID: 733244263783322078}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: Movement Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -256,6 +256,8 @@ MonoBehaviour:
   blockTime: 0
   stunTime: 0
   danceTime: 0
+  charmTime: 0
+  weakened: 0
   movementTarget: {x: 0, y: 0, z: 0}
   targetDisplacement: {x: 0, y: 0}
   state: 0

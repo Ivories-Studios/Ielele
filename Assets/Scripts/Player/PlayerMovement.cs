@@ -41,36 +41,36 @@ public class PlayerMovement : MonoBehaviour
         {
             Vector3 targetPosition = _rigidbody.position + _speed * Time.fixedDeltaTime * new Vector3(_movementDelta.x, 0, _movementDelta.y);
             _rigidbody.MovePosition(targetPosition);
-        }
-    }
-
-    public void OnMovement(InputAction.CallbackContext context)
-    {
-        if (!_playerObject.CanMove)
-        {
-            return;
-        }
-        _movementDelta = context.ReadValue<Vector2>();
-        if(_movementDelta != Vector2.zero)
-        {
-            LeanTween.cancel(_deadZoneId);
-            _composer.m_DeadZoneWidth = 0.2f;
-            if(_movementDelta.x > 0)
+            if (_movementDelta.x > 0)
             {
-                if (!isLookingRight && context.started)
+                if (!isLookingRight)
                 {
                     //anim call TurnRight
                     TurnRight(true);
                 }
             }
-            else if(_movementDelta.x < 0)
+            else if (_movementDelta.x < 0)
             {
-                if (isLookingRight && context.started)
+                if (isLookingRight)
                 {
                     //anim call TurnRight
                     TurnRight(false);
                 }
             }
+        }
+    }
+
+    public void OnMovement(InputAction.CallbackContext context)
+    {
+        _movementDelta = context.ReadValue<Vector2>();
+        if (!_playerObject.CanMove)
+        {
+            return;
+        }
+        if (_movementDelta != Vector2.zero)
+        {
+            LeanTween.cancel(_deadZoneId);
+            _composer.m_DeadZoneWidth = 0.2f;
         }
         else
         {

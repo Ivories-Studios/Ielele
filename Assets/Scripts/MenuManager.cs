@@ -11,6 +11,8 @@ public class MenuManager : MonoBehaviour
     [SerializeField] GameObject optionsMenu;
     [SerializeField] GameObject victoryScreen;
 
+    bool firstTime = true;
+
     private void Awake()
     {
         Instance = this;
@@ -19,7 +21,7 @@ public class MenuManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ShowVictoryScreen();
+
     }
 
     // Update is called once per frame
@@ -31,12 +33,27 @@ public class MenuManager : MonoBehaviour
     public void ShowMenu()
     {
         gameObject.SetActive(true);
+        LeanTween.moveY(GetComponent<RectTransform>(), 0, 2).setEase(LeanTweenType.easeOutBack);
     }
 
     public void StartGame()
     {
         gameRunning = true;
-        LeanTween.moveY(GetComponent<RectTransform>(), 600, 2).setEase(LeanTweenType.easeInBack).setOnComplete(() => gameObject.SetActive(false));
+        LeanTween.moveY(GetComponent<RectTransform>(), 600, 2).setEase(LeanTweenType.easeInBack)
+            .setOnComplete(() => 
+            { 
+                gameObject.SetActive(false);
+                if (firstTime) 
+                {
+                    DialogueManager.Instance.StartCoroutine(DelayDialogue());
+                } 
+            });
+    }
+
+    IEnumerator DelayDialogue()
+    {
+        yield return new WaitForSeconds(1);
+        DialogueManager.Instance.Dialogue1();
     }
 
     public void OpenOptionsMenu(bool open)

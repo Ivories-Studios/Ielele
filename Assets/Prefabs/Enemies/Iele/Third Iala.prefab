@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 328858213692430304}
   - component: {fileID: 733244263783322078}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: Movement Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -268,6 +268,7 @@ MonoBehaviour:
   _maxEnergy: 0
   attacks:
   - {fileID: 8581514978533259110, guid: cf033807ee6659a47aef4811644b5117, type: 3}
+  speed: 5
   team: 1
   blockTime: 0
   stunTime: 0

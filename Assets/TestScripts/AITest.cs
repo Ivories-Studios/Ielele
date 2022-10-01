@@ -6,7 +6,7 @@ using TMPro;
 public class AITest : MonoBehaviour
 {
 
-    public TextMeshProUGUI text;
+    /*public TextMeshProUGUI text;
     public GameObject enemyPrefab;
     // Start is called before the first frame update
     void Start()
@@ -47,6 +47,6 @@ public class AITest : MonoBehaviour
         pos.z += 11;
         GameObject obj = EnemyAiManager.CreateEnemy(enemyPrefab, pos);
         obj.transform.position = pos;
-    }
+    }*/
 
 }

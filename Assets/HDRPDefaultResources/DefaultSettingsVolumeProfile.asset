@@ -546,7 +546,7 @@ MonoBehaviour:
     m_Value: 1
   colorOffset:
     m_OverrideState: 1
-    m_Value: 2
+    m_Value: 1
   colorOffsetAngle:
     m_OverrideState: 1
     m_Value: 1
@@ -802,7 +802,7 @@ MonoBehaviour:
     m_Value: 0.5
   fade:
     m_OverrideState: 1
-    m_Value: 0.04
+    m_Value: 0.02
   horizontal:
     m_OverrideState: 1
     m_Value: 1

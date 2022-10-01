@@ -57,8 +57,7 @@ public class PlayerObject : UnitObject
 
     public void OnAttack1(InputAction.CallbackContext context)
     {
-        TakeDamage(20);
-        if (context.started)
+        if (context.performed)
         {
             if (CanAttack)
             {
@@ -77,7 +76,7 @@ public class PlayerObject : UnitObject
 
     public void OnAttack2(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (context.performed)
         {
             if (CanAttack)
             {
@@ -96,7 +95,7 @@ public class PlayerObject : UnitObject
 
     public void OnAttack3(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (context.performed)
         {
             if (CanAttack)
             {
@@ -115,7 +114,7 @@ public class PlayerObject : UnitObject
 
     public void OnAttack4(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (context.performed)
         {
             if (CanAttack)
             {

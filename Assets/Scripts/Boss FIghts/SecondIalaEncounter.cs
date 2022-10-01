@@ -18,6 +18,10 @@ public class SecondIalaEncounter : Encounter
     // Update is called once per frame
     void Update()
     {
+        if(iala2 == null && iala3 == null)
+        {
+            MenuManager.Instance.ShowVictoryScreen();
+        }
         timer += Time.deltaTime;
         switch (currentPhase)
         {

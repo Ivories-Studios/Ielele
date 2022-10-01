@@ -11,6 +11,10 @@ public class FirstIalaEncounter : Encounter
     // Update is called once per frame
     void Update()
     {
+        if (iala == null)
+        {
+            MenuManager.Instance.ShowVictoryScreen();
+        }
         timer += Time.deltaTime;
         switch (currentPhase)
         {
