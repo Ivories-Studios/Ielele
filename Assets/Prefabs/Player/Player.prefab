@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 8480132064706530457}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -133,7 +133,7 @@ Transform:
   - {fileID: 2898637529956584061}
   - {fileID: 1779630188}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &2577386254546681360
 Rigidbody:
@@ -149,7 +149,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 116
+  m_Constraints: 84
   m_CollisionDetection: 1
 --- !u!114 &2210910149515666823
 MonoBehaviour:
@@ -178,7 +178,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87690c4418c031645a71a370a823f5d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 5
+  _maxHealth: 10
+  _maxEnergy: 10
+  attacks:
+  - {fileID: -7155571223921436062, guid: 5ee1877f07c5a324cac0b67eb3a30a82, type: 3}
+  - {fileID: 1476108156324953482, guid: e578f8c2c88cf254c9a4329f7b92b11d, type: 3}
+  - {fileID: 1243588538328369670, guid: c0ae0108fbbf1a0429df8876229ff5ae, type: 3}
+  - {fileID: 5407213006191868574, guid: b164e5ffc8abfee4aa21e0539ecd9408, type: 3}
+  speed: 5
+  team: 0
+  isInvicible: 0
+  blockTime: 0
+  stunTime: 0
+  danceTime: 0
+  charmTime: 0
+  weakened: 0
+  comboFunction:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  comboInARow: 0
+  surroundingInteractableObjects: []
+  wellBuffs: 0
+  volume: {fileID: 0}
 --- !u!114 &8480132064706530457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,21 +263,85 @@ MonoBehaviour:
     m_ActionId: 9354879e-df34-4b40-a463-6e73c2f65f4e
     m_ActionName: Player/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8718713791504787691}
+        m_TargetAssemblyTypeName: PlayerObject, Assembly-CSharp
+        m_MethodName: OnAttack1
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: c281f057-4237-48d0-af18-73103476a627
     m_ActionName: Player/Attack 1[/Keyboard/rightArrow]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8718713791504787691}
+        m_TargetAssemblyTypeName: PlayerObject, Assembly-CSharp
+        m_MethodName: OnAttack2
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: f358e9f8-8838-4d3a-9f7b-94775e769784
     m_ActionName: Player/Attack 2[/Keyboard/leftArrow]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8718713791504787691}
+        m_TargetAssemblyTypeName: PlayerObject, Assembly-CSharp
+        m_MethodName: OnAttack3
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: a0473b46-6ab3-4805-8131-788febb47463
     m_ActionName: Player/Attack 3[/Keyboard/upArrow]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8718713791504787691}
+        m_TargetAssemblyTypeName: PlayerObject, Assembly-CSharp
+        m_MethodName: OnAttack4
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: e6ca8898-d6b6-4b95-8754-d46cfae9eb0e
     m_ActionName: Player/Attack 4[/Keyboard/downArrow]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8718713791504787691}
+        m_TargetAssemblyTypeName: PlayerObject, Assembly-CSharp
+        m_MethodName: Interact
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 55189612-13c8-403d-8989-cf610f5e25c3
+    m_ActionName: Player/Interact[/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
