@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerGraphicsTurnScript : MonoBehaviour
 {
     [SerializeField] float _turnSpeed = 100;
+    [SerializeField] Transform _graphics;
 
     private Transform _parent;
     private Vector3 _offset;
@@ -23,18 +24,18 @@ public class PlayerGraphicsTurnScript : MonoBehaviour
     {
         transform.position = _parent.position + _offset;
 
-        transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y,
-                Mathf.LerpAngle(transform.eulerAngles.z, _rotTarget, _turnSpeed * Time.deltaTime)
+        _graphics.eulerAngles = new Vector3(_graphics.eulerAngles.x, _graphics.eulerAngles.y,
+                Mathf.LerpAngle(_graphics.eulerAngles.z, _rotTarget, _turnSpeed * Time.deltaTime)
             );
     }
 
     public void TurnRight()
     {
-        _rotTarget = 0.0f;
+        _rotTarget = -180.0f;
     }
 
     public void TurnLeft()
     {
-        _rotTarget = -180.0f;
+        _rotTarget = 0.0f;
     }
 }
