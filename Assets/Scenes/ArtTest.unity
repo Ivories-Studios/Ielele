@@ -9029,7 +9029,7 @@ MonoBehaviour:
   m_ScreenX: 0.5008993
   m_ScreenY: 0.5
   m_CameraDistance: 12
-  m_DeadZoneWidth: 0.06917183
+  m_DeadZoneWidth: 0.3
   m_DeadZoneHeight: 1
   m_DeadZoneDepth: 0
   m_UnlimitedSoftZone: 0
