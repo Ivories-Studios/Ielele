@@ -48,7 +48,7 @@ MonoBehaviour:
   _power: 2
   _blockTime: 0.4
   _stepAhead: 0.6
-  _knockback: 1
+  _knockback: 1.5
   _comboIncrease: 2
   _instantiateSelf: 1
   audioClips:
