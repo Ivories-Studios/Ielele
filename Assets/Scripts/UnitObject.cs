@@ -7,6 +7,8 @@ public class UnitObject : MonoBehaviour
     [SerializeField] protected int _maxHealth;
     [SerializeField] protected int _maxEnergy;
     [SerializeField] protected List<Attack> attacks = new List<Attack>();
+    [SerializeField] protected Animator animator;
+
     public float speed = 5;
     public int team;
     public int Health 
@@ -99,10 +101,14 @@ public class UnitObject : MonoBehaviour
         
     }
 
-    public virtual void CastAttack(int index, float multiplier = 1)
+    public virtual void CastAttack(int index, float multiplier = 1, string anim = "")
     {
         if (attacks[index].CanCast(this))
         {
+            if(anim != "")
+            {
+                animator.SetTrigger(anim);
+            }
             attacks[index].Cast(this, multiplier * (weakened > 0 ? 0.75f : 1));
         }
     }
@@ -112,7 +118,7 @@ public class UnitObject : MonoBehaviour
         health -= amount;
         if(health < 0)
         {
-            //Die anim
+            animator.SetTrigger("Die");
             AudioSource.PlayClipAtPoint(death[Random.Range(0, death.Count)], transform.position);
         }
     }

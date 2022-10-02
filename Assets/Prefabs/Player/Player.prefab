@@ -204,6 +204,7 @@ MonoBehaviour:
   _virtualCamera: {fileID: 0}
   _graphicsTurnScript: {fileID: 1234852257637090943}
   _audioSource: {fileID: 760395068708567414}
+  _animator: {fileID: 1779630192}
 --- !u!114 &8718713791504787691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,6 +224,7 @@ MonoBehaviour:
   - {fileID: 1476108156324953482, guid: e578f8c2c88cf254c9a4329f7b92b11d, type: 3}
   - {fileID: 1243588538328369670, guid: c0ae0108fbbf1a0429df8876229ff5ae, type: 3}
   - {fileID: 5407213006191868574, guid: b164e5ffc8abfee4aa21e0539ecd9408, type: 3}
+  animator: {fileID: 1779630192}
   speed: 5
   team: 0
   isInvicible: 0
@@ -407,7 +409,7 @@ AudioSource:
   m_GameObject: {fileID: 61540296607098450}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 7889809515553981350, guid: 688fb7a07f6f69e46a14f0f4223d1182, type: 2}
   m_audioClip: {fileID: 8300000, guid: 6cb56b509a50af64385949df836fbd7c, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -816,6 +818,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1972125058252301187}
   - component: {fileID: 7321226524491383830}
+  - component: {fileID: 2195402373234495620}
   m_Layer: 0
   m_Name: Hitbox
   m_TagString: Untagged
@@ -853,6 +856,27 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.67}
   m_Size: {x: 1, y: 2}
   m_Direction: 0
+--- !u!50 &2195402373234495620
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 728939291511249688}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 7
 --- !u!1 &1151305539497845564
 GameObject:
   m_ObjectHideFlags: 0

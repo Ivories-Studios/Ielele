@@ -23,15 +23,21 @@ public class Enemy : UnitObject
 
         if(attackingTime <= 0)
         {
-            if(PlayerObject.Instance.transform.position.x > Mathf.Min(transform.position.x, transform.position.x + transform.right.x) && 
-                PlayerObject.Instance.transform.position.y < Mathf.Max(transform.position.y, transform.position.x + transform.right.x))
+            if(PlayerObject.Instance.transform.position.x > Mathf.Min(transform.position.x, transform.position.x + transform.right.x * 2) && 
+                PlayerObject.Instance.transform.position.x < Mathf.Max(transform.position.x, transform.position.x + transform.right.x * 2))
             {
-                if(PlayerObject.Instance.transform.position.y < transform.position.y + 1 && PlayerObject.Instance.transform.position.y > transform.position.y - 1)
+                print("here");
+                if(PlayerObject.Instance.transform.position.z < transform.position.z + 2 && PlayerObject.Instance.transform.position.z > transform.position.z - 2)
                 {
+                    print("here2");
                     CastAttack(0);
                     attackingTime = 5;
                 }
             }
+        }
+        else
+        {
+            attackingTime -= Time.deltaTime;
         }
     }
     public override void FixedUpdate()
@@ -54,7 +60,7 @@ public class Enemy : UnitObject
                 movementTarget = PlayerObject.Instance.transform.position;
             }
 
-            if (Random.Range(0, 1000) < 5)
+            if (Random.Range(0, 1000) < 4)
             {
                 targetDisplacement = Random.onUnitSphere;
                 targetDisplacement.y /= 2f;

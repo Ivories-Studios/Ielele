@@ -220,7 +220,7 @@ public class DialogueManager : MonoBehaviour
     {
         nextDialogue = Iala3_4;
         playerPanel.SetActive(true);
-        playerText.text = "";
+        playerText.text = "OUr final meeting. Today it shall be decided if I am to be called the Great.";
         StartCoroutine(ClackaClacka(playerText));
     }
 

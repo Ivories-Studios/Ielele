@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     bool isLookingRight = true;
 
     [SerializeField] AudioSource _audioSource;
+    [SerializeField] Animator _animator;
 
     private void Awake()
     {

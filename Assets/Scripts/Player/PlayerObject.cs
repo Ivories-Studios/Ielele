@@ -62,7 +62,7 @@ public class PlayerObject : UnitObject
         {
             if (CanAttack)
             {
-                CastAttack(0, _comboModifier * (1 + wellBuffs * 0.25f));
+                CastAttack(0, _comboModifier * (1 + wellBuffs * 0.25f), "Punch");
             }
             else
             {
@@ -119,7 +119,7 @@ public class PlayerObject : UnitObject
         {
             if (CanAttack)
             {
-                CastAttack(3, _comboModifier * (1 + wellBuffs * 0.25f));
+                CastAttack(3, _comboModifier * (1 + wellBuffs * 0.25f), "Block");
             }
             else
             {
@@ -185,6 +185,7 @@ public class PlayerObject : UnitObject
         if(health <= 0)
         {
             StartCoroutine(ActivatePostProcess());
+            animator.SetTrigger("Die");
             AudioSource.PlayClipAtPoint(death[Random.Range(0, death.Count)], transform.position);
         }
     }

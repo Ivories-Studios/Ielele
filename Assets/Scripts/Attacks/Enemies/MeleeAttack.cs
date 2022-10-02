@@ -17,6 +17,7 @@ public class MeleeAttack : Attack
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        print(collision.name);
         if (collision.transform.parent.TryGetComponent(out UnitObject target))
         {
             if (target.team != _caster.team)
