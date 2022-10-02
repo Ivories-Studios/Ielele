@@ -35,6 +35,7 @@ public class EnemyAiManager : MonoBehaviour
             GameObject obj = Instantiate(prefab);
             obj.transform.position = position;
             enemies.Add(obj.GetComponent<Enemy>());
+            RefreshAIActions();
             return obj;
 
         }

@@ -12,6 +12,7 @@ public class PlayerObject : UnitObject
 
     QueuedAction _queuedAction;
     Coroutine _queuedCoroutineAction;
+    string [] punchAnimStrings = { "Punch0", "Punch1", "Punch2" };
 
     int _combo;
     float _comboModifier;
@@ -42,6 +43,11 @@ public class PlayerObject : UnitObject
     // Update is called once per frame
     public override void Update()
     {
+        punchTimer -= Time.deltaTime;
+        if (punchTimer <= 0)
+        {
+            currentPunchId = 0;
+        }
         stoppedBlockingThisFrame = false;
 
         if (!isBlocking)
@@ -71,7 +77,15 @@ public class PlayerObject : UnitObject
                 GetComponent<PlayerMovement>().TurnRight(true);
             }
 
-            CastAttack(_queuedAction.attackIndex,1, _queuedAction.animName);
+            switch (_queuedAction.animName)
+            {
+                case "Punch":
+                    Punch();
+                    break;
+                default:
+                    CastAttack(_queuedAction.attackIndex,1, _queuedAction.animName);
+                    break;
+            }
             _queuedAction = null;
         }
 
@@ -96,13 +110,31 @@ public class PlayerObject : UnitObject
         }
     }
 
+    float punchTimer;
+    int currentPunchId = 0;
+    void Punch()
+    {
+        punchTimer = 0.36f;
+        string animationName = punchAnimStrings[currentPunchId];
+
+        CastAttack(0, _comboModifier * (1 + wellBuffs * 0.25f), animationName);
+
+        currentPunchId++;
+        if (currentPunchId % 3 == 0) currentPunchId = 0;
+
+        if (currentPunchId == 0)
+        {
+            blockTime += blockTime / 2;
+        }
+    }
+
     public void OnAttack1(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
             if (CanAttack)
             {
-                CastAttack(0, _comboModifier * (1 + wellBuffs * 0.25f), "Punch");
+                Punch();
             }
             else
             {
