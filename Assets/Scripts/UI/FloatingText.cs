@@ -37,7 +37,7 @@ public class FloatingText : MonoBehaviour
         }
         obj.gameObject.transform.position = pos;
         obj.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>().text
-            = "<size=75%> COMBO </size> <size= " + (120+(combo/25.0f)) + "%>" + combo + "</size>";
+            = "<size=65%> COMBO </size> <size= " + (120+(combo/25.0f)) + "%>" + combo + "</size>";
         Destroy(obj, 3.3f);
 
         if(combo%10 == 0)
