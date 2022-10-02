@@ -6,11 +6,12 @@ public class BossWell : MonoBehaviour
 {
     bool onlyOnce = true;
     public int index;
-
+    public GameObject interactText;
     [SerializeField] List<GameObject> gameObjects;
 
     public void Interact(PlayerObject player)
     {
+        interactText.SetActive(false);
         if (onlyOnce)
         {
             foreach(GameObject go in gameObjects)
