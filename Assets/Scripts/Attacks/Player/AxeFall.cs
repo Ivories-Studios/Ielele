@@ -41,8 +41,9 @@ public class AxeFall : Attack
                 Vector3 knockbackDir = new Vector3(transform.position.x - target.transform.position.x > 0 ? -1 : 1, 0, 0);
                 target.Knockback(knockbackDir, _knockback);
                 _caster.IncreaseEnergy(1);
-                if (_caster is PlayerObject player)
+                if (_caster is PlayerObject player && !grantedCombo)
                 {
+                    grantedCombo = true;
                     player.IncreaseCombo(_comboIncrease);
                 }
             }
