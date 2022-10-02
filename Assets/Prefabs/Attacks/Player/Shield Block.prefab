@@ -44,10 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cc358af92d486f4d8b1c7aeef9db926, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _energyCost: 2
-  _power: 4
+  _energyCost: 0
+  _power: 2
   _blockTime: 0.6
-  _stepAhead: 0
+  _stepAhead: -0.2
   _knockback: 1.5
   _comboIncrease: 2
   _instantiateSelf: 1
