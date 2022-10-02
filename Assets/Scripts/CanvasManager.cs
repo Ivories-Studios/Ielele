@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CanvasManager : MonoBehaviour
 {
@@ -31,7 +32,7 @@ public class CanvasManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            menuManager.ShowMenu();
+            menuManager?.ShowMenu();
         }
     }
 
@@ -62,5 +63,10 @@ public class CanvasManager : MonoBehaviour
         energySlider.value = amount;
         var emission = energyParticleSystem.emission;
         emission.rateOverTime = amount * 40;
+    }
+
+    public void SwitchScene(string scene)
+    {
+        SceneManager.LoadScene(scene);
     }
 }
