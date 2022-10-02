@@ -247,7 +247,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1585455117450829601
 Transform:
   m_ObjectHideFlags: 0
@@ -286,6 +286,7 @@ MonoBehaviour:
   speed: 5
   team: 1
   isBlocking: 0
+  knockbackResistance: 10
   isInvicible: 0
   blockTime: 0
   stunTime: 0
