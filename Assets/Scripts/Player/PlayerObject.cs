@@ -35,12 +35,30 @@ public class PlayerObject : UnitObject
 
     }
 
+
+    bool stoppedBlockingThisFrame = false;
     // Update is called once per frame
     public override void Update()
     {
+        stoppedBlockingThisFrame = false;
+
+        if (!isBlocking)
+        {
+            animator.ResetTrigger("StopBlock");
+        }
+        if (!Input.GetKey(KeyCode.DownArrow) && isBlocking)
+        {
+            stoppedBlockingThisFrame = true;
+            isBlocking = false;
+            blockTime = 0;
+            animator.SetTrigger("StopBlock");
+            animator.ResetTrigger("SpecialBlock");
+        }
 
         base.Update();
-        if(_queuedAction != null && attacks[_queuedAction.attackIndex].CanCast(this) && CanAttack)
+
+        //INPUT QUEUEING
+        if(_queuedAction != null && attacks[_queuedAction.attackIndex].CanCast(this) && CanAttack && !stoppedBlockingThisFrame)
         {
             if(_queuedAction.direction == QueuedDirection.left && GetComponent<PlayerMovement>().isLookingRight)
             {
@@ -54,6 +72,9 @@ public class PlayerObject : UnitObject
             CastAttack(_queuedAction.attackIndex,1, _queuedAction.animName);
             _queuedAction = null;
         }
+
+
+        //COMBOS
         _timeSinceLastCombo += Time.deltaTime;
         if(_currentComboExpireTime <= 0)
         {
@@ -64,14 +85,6 @@ public class PlayerObject : UnitObject
         else
         {
             _currentComboExpireTime -= Time.deltaTime;
-        }
-
-        if (Input.GetKeyUp(KeyCode.DownArrow) && isBlocking)
-        {
-            isBlocking = false;
-            blockTime = 0;
-            animator.SetTrigger("StopBlock");
-            animator.ResetTrigger("SpecialBlock");
         }
 
     }
