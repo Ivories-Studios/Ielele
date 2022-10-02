@@ -30,7 +30,7 @@ public class Attack : MonoBehaviour
         
     }
 
-    public virtual void Cast(UnitObject unit, float multiplier = 1f)
+    public virtual void Cast(UnitObject unit, float multiplier = 1, float? stepAheadOverride = null)
     {
         unit.IncreaseEnergy(-_energyCost);
     }

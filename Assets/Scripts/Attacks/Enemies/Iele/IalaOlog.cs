@@ -6,7 +6,7 @@ public class IalaOlog : Attack
 {
     Rigidbody2D rb;
 
-    public override void Cast(UnitObject unit, float multiplier = 1)
+    public override void Cast(UnitObject unit, float multiplier = 1, float ? stepAheadOverride = null)
     {
         Attack a = Instantiate(gameObject, unit.transform.position, unit.transform.rotation).GetComponent<Attack>();
         a._caster = unit;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MeleeAttack : Attack
 {
-    public override void Cast(UnitObject unit, float multiplier)
+    public override void Cast(UnitObject unit, float multiplier,float ? stepAheadOverride = null)
     {
         base.Cast(unit, multiplier);
 

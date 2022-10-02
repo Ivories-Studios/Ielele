@@ -6,7 +6,7 @@ public class KneeStrike : Attack
 {
     [SerializeField] float stun;
 
-    public override void Cast(UnitObject unit, float mutliplier)
+    public override void Cast(UnitObject unit, float mutliplier, float? stepAheadOverride = null)
     {
         base.Cast(unit, mutliplier);
         Attack a = Instantiate(gameObject, unit.transform).GetComponent<Attack>();

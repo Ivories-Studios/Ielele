@@ -46,7 +46,14 @@ public class PlayerObject : UnitObject
         punchTimer -= Time.deltaTime;
         if (punchTimer <= 0)
         {
-            currentPunchId = 0;
+            if (currentPunchId != 0)
+            {
+                currentPunchId = 0;
+                animator.SetTrigger("EndPunch");
+            }
+            animator.ResetTrigger("Punch1");
+            animator.ResetTrigger("Punch2");
+
         }
         stoppedBlockingThisFrame = false;
 
@@ -114,10 +121,20 @@ public class PlayerObject : UnitObject
     int currentPunchId = 0;
     void Punch()
     {
-        punchTimer = 0.36f;
+        animator.ResetTrigger("EndPunch");
+        punchTimer = 0.7f;
         string animationName = punchAnimStrings[currentPunchId];
+        switch (animationName)
+        {
+            case "Punch0":
+                animator.ResetTrigger("Punch1");
+                break;
+            case "Punch1":
+                animator.ResetTrigger("Punch2");
+                break;
+        }
 
-        CastAttack(0, _comboModifier * (1 + wellBuffs * 0.25f), animationName);
+        CastAttack(0, _comboModifier * (1 + wellBuffs * 0.25f), animationName, currentPunchId == 2 ? (float?)null : 0.4f);
 
         currentPunchId++;
         if (currentPunchId % 3 == 0) currentPunchId = 0;
