@@ -38,14 +38,6 @@ public class PlayerObject : UnitObject
     // Update is called once per frame
     public override void Update()
     {
-        if (Input.GetKeyUp(KeyCode.DownArrow) && isBlocking)
-        {
-            isBlocking = false;
-            blockTime = 0;
-            animator.SetTrigger("StopBlock");
-            animator.ResetTrigger("SpecialBlock");
-        }
-
 
         base.Update();
         if(_queuedAction != null && attacks[_queuedAction.attackIndex].CanCast(this) && CanAttack)
@@ -73,6 +65,15 @@ public class PlayerObject : UnitObject
         {
             _currentComboExpireTime -= Time.deltaTime;
         }
+
+        if (Input.GetKeyUp(KeyCode.DownArrow) && isBlocking)
+        {
+            isBlocking = false;
+            blockTime = 0;
+            animator.SetTrigger("StopBlock");
+            animator.ResetTrigger("SpecialBlock");
+        }
+
     }
 
     public void OnAttack1(InputAction.CallbackContext context)
