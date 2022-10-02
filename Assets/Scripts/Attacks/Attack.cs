@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
+    protected bool grantedCombo = false;
     [SerializeField] protected int _energyCost;
     [SerializeField] public int _power;
     [SerializeField] protected float _blockTime;
