@@ -40,7 +40,16 @@ public class PlayerObject : UnitObject
         base.Update();
         if(_queuedAction != null && attacks[_queuedAction.attackIndex].CanCast(this) && CanAttack)
         {
-            CastAttack(_queuedAction.attackIndex);
+            if(_queuedAction.direction == QueuedDirection.left && GetComponent<PlayerMovement>().isLookingRight)
+            {
+                GetComponent<PlayerMovement>().TurnRight(false);
+            }
+            if (_queuedAction.direction == QueuedDirection.right && !GetComponent<PlayerMovement>().isLookingRight)
+            {
+                GetComponent<PlayerMovement>().TurnRight(true);
+            }
+
+            CastAttack(_queuedAction.attackIndex,1, _queuedAction.animName);
             _queuedAction = null;
         }
         _timeSinceLastCombo += Time.deltaTime;
@@ -70,7 +79,13 @@ public class PlayerObject : UnitObject
                 {
                     StopCoroutine(_queuedCoroutineAction);
                 }
+                
+                
+
                 _queuedCoroutineAction = StartCoroutine(AddActionToQueue(0));
+                if (Input.GetKey(KeyCode.A)) _queuedAction.direction = QueuedDirection.left;
+                if (Input.GetKey(KeyCode.D)) _queuedAction.direction = QueuedDirection.right;
+                _queuedAction.animName = "Punch";
             }
         }
     }
@@ -89,7 +104,10 @@ public class PlayerObject : UnitObject
                 {
                     StopCoroutine(_queuedCoroutineAction);
                 }
+
                 _queuedCoroutineAction = StartCoroutine(AddActionToQueue(1));
+                if (Input.GetKey(KeyCode.A)) _queuedAction.direction = QueuedDirection.left;
+                if (Input.GetKey(KeyCode.D)) _queuedAction.direction = QueuedDirection.right;
             }
         }
     }
@@ -109,6 +127,8 @@ public class PlayerObject : UnitObject
                     StopCoroutine(_queuedCoroutineAction);
                 }
                 _queuedCoroutineAction = StartCoroutine(AddActionToQueue(2));
+                if (Input.GetKey(KeyCode.A)) _queuedAction.direction = QueuedDirection.left;
+                if (Input.GetKey(KeyCode.D)) _queuedAction.direction = QueuedDirection.right;
             }
         }
     }
@@ -127,7 +147,11 @@ public class PlayerObject : UnitObject
                 {
                     StopCoroutine(_queuedCoroutineAction);
                 }
+
                 _queuedCoroutineAction = StartCoroutine(AddActionToQueue(3));
+                if (Input.GetKey(KeyCode.A)) _queuedAction.direction = QueuedDirection.left;
+                if (Input.GetKey(KeyCode.D)) _queuedAction.direction = QueuedDirection.right;
+                _queuedAction.animName = "Block";
             }
         }
     }
@@ -144,7 +168,7 @@ public class PlayerObject : UnitObject
     {
         QueuedAction action = new QueuedAction() { attackIndex = index };
         _queuedAction = action;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.5f);
         _queuedAction = null;
     }
 
@@ -244,4 +268,12 @@ public class PlayerObject : UnitObject
 class QueuedAction
 {
     public int attackIndex;
+    public string animName = "";
+    public QueuedDirection direction;
+}
+
+enum QueuedDirection
+{
+    left,
+    right
 }
