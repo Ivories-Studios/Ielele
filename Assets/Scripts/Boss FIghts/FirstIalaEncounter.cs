@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class FirstIalaEncounter : Encounter
 {
     [SerializeField] FirstIala iala;
     Phases currentPhase = Phases.Idle;
     [SerializeField] GameObject healthBars;
+    [SerializeField] CinemachineVirtualCamera virtualCamera;
 
     // Update is called once per frame
     void Update()
@@ -14,6 +16,8 @@ public class FirstIalaEncounter : Encounter
         if (iala == null)
         {
             MenuManager.Instance.ShowVictoryScreen();
+            virtualCamera.Priority = 0;
+            Destroy(gameObject);
         }
         timer += Time.deltaTime;
         switch (currentPhase)
@@ -91,6 +95,7 @@ public class FirstIalaEncounter : Encounter
     {
         gameObject.SetActive(true);
         healthBars.SetActive(true);
+        virtualCamera.Priority = 20;
     }
 }
 
