@@ -73,7 +73,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4110039838748766273}
   m_LocalRotation: {x: 0, y: 0.7660445, z: -0.6427876, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 3.58, z: 0.63}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1585455117450829601}
@@ -152,7 +152,7 @@ Animator:
   m_GameObject: {fileID: 4110039838748766273}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 61adf76765725614b858e8ff243e1ed3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -187,7 +187,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7241698492461571079}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 3.16, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1585455117450829601}
@@ -207,7 +207,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1.5, y: 3.5}
+  m_Size: {x: 2, y: 6}
   m_Direction: 0
 --- !u!50 &8060606956744560348
 Rigidbody2D:
@@ -285,6 +285,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   speed: 5
   team: 1
+  isBlocking: 0
   isInvicible: 0
   blockTime: 0
   stunTime: 0
@@ -293,6 +294,7 @@ MonoBehaviour:
   weakened: 0
   death:
   - {fileID: 8300000, guid: af694a5e6b1554b4fa388aa353aa6952, type: 3}
+  rb: {fileID: 0}
   encounter: {fileID: 0}
   projectileLocations:
   - {fileID: 0}
