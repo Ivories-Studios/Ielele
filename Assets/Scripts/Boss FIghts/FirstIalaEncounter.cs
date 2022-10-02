@@ -25,7 +25,7 @@ public class FirstIalaEncounter : Encounter
             case Phases.Idle:
                 if (timer > 1)
                 {
-                    int random = Random.Range(0, 2);
+                    int random = Random.Range(0, 3);
                     if (random == 0)
                     {
                         switch (Random.Range(0, 10))
@@ -58,7 +58,7 @@ public class FirstIalaEncounter : Encounter
                                 {
                                     currentPhase = Phases.Stun;
                                     done = 0;
-                                    StartCoroutine(iala.StartStunAttack());
+                                    StartCoroutine(iala.StartProjectileAttack());
                                 }
                                 break;
                         }

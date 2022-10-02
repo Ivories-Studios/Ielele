@@ -44,9 +44,9 @@ public class FirstIala : UnitObject
             yield break;
         }
         Transform dest = projectileLocations[Random.Range(0, projectileLocations.Length)];
-        for (int i = 0; i < Random.Range(3, 6); i++)
+        for (int i = 0; i < Random.Range(8, 16); i++)
         {
-            yield return StartCoroutine(MoveCoroutine(dest.position + new Vector3(0, 0, Random.Range(-3, 3))));
+            yield return StartCoroutine(MoveCoroutine(dest.position + new Vector3(0, 0, Random.Range(-6, 6))));
             yield return new WaitForSeconds(0.5f);
             CastAttack(0);
             yield return new WaitForSeconds(0.5f);
@@ -69,8 +69,7 @@ public class FirstIala : UnitObject
             encounter.GetComponent<EnemyAiManager>().CreateEnemy(basicEnemyPrefabs[0].gameObject, spawnLocations[i].position);
         }
         yield return new WaitForSeconds(5f);
-        CastAttack(1);
-        yield return new WaitForSeconds(10f);
+        //CastAttack(1);
 
         encounter.done++;
         yield return null;

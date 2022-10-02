@@ -62,6 +62,7 @@ public class ThirdIalaEncounter : Encounter
                                 break;
                             case 1:
                             case 8:
+                            case 3:
                                 if (thirdIala != null)
                                 {
                                     StartCoroutine(thirdIala.StartOlogAttack());
@@ -98,26 +99,8 @@ public class ThirdIalaEncounter : Encounter
                                     done++;
                                 }
                                 break;
-                            case 3:
-                            case 10:
-                                if (thirdIala != null)
-                                {
-                                    StartCoroutine(thirdIala.StartOlogAttack());
-                                }
-                                else
-                                {
-                                    done++;
-                                }
-                                if (firstIala != null)
-                                {
-                                    StartCoroutine(firstIala.StartStunAttack());
-                                }
-                                else
-                                {
-                                    done++;
-                                }
-                                break;
                             case 4:
+                            case 10:
                                 if (secondIala != null)
                                 {
                                     StartCoroutine(secondIala.StartSpawnEnemiesAttack());
@@ -128,7 +111,7 @@ public class ThirdIalaEncounter : Encounter
                                 }
                                 if (firstIala != null)
                                 {
-                                    StartCoroutine(firstIala.StartStunAttack());
+                                    StartCoroutine(firstIala.StartProjectileAttack());
                                 }
                                 else
                                 {

@@ -10,7 +10,7 @@ public class IalaCharm : Attack
 
     public override void Cast(UnitObject unit, float multiplier = 1, float? stepAheadOverride = null)
     {
-        Attack a = Instantiate(gameObject, unit.transform.position, unit.transform.rotation).GetComponent<Attack>();
+        Attack a = Instantiate(gameObject, unit.transform.position + new Vector3(0, 1, 0), unit.transform.rotation).GetComponent<Attack>();
         a._caster = unit;
     }
 
