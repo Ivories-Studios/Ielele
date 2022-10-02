@@ -5,13 +5,16 @@ using UnityEngine.InputSystem;
 
 public class PlayerGraphicsTurnScript : MonoBehaviour
 {
+    public bool Right { get => right; }
+    private bool right = true;
+
     [SerializeField] float _turnSpeed = 100;
     [SerializeField] Transform _graphics;
 
     private Transform _parent;
     private Vector3 _offset;
 
-    private float _rotTarget = 0;
+    private float _rotTarget = 0.0f;
 
     void Start()
     {
@@ -31,11 +34,13 @@ public class PlayerGraphicsTurnScript : MonoBehaviour
 
     public void TurnRight()
     {
-        _rotTarget = -180.0f;
+        _rotTarget = 0.0f;
+        right = true;
     }
 
     public void TurnLeft()
     {
-        _rotTarget = 0.0f;
+        _rotTarget = -180.0f;
+        right = false;
     }
 }

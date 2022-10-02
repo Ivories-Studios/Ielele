@@ -110,11 +110,11 @@ public class PlayerMovement : MonoBehaviour
         {
             if (_movementDelta.x < 0)
             {
-                _graphicsTurnScript.TurnRight();
+                _graphicsTurnScript.TurnLeft();
             }
             else if (_movementDelta.x > 0)
             {
-                _graphicsTurnScript.TurnLeft();
+                _graphicsTurnScript.TurnRight();
             }
 
             LeanTween.cancel(_deadZoneId);
