@@ -35,7 +35,6 @@ public class EnemyAiManager : MonoBehaviour
             GameObject obj = Instantiate(prefab);
             obj.transform.position = position;
             enemies.Add(obj.GetComponent<Enemy>());
-            RefreshAIActions();
             return obj;
 
         }
@@ -69,7 +68,7 @@ public class EnemyAiManager : MonoBehaviour
         if (timer <= 0)
         {
             RefreshAIActions();
-            timer = Random.Range(3.5f, 5.5f);
+            timer = Random.Range(1.5f, 3.5f);
         }
 
 
@@ -142,7 +141,7 @@ public class EnemyAiManager : MonoBehaviour
                         enemy.movementTarget = GetClosestPosition(enemy.transform.position, enemyIdleLocations).position;
                         Vector3 randSphere = Random.onUnitSphere;
                         randSphere = randSphere.normalized;
-                        enemy.targetDisplacement = new Vector3(randSphere.x, 0, randSphere.z);
+                        enemy.targetDisplacement = new Vector3(randSphere.x*1.5f, 0, randSphere.z*3.5f);
                         enemy.state = AIState.RoamingAround;
                     }
                 }
