@@ -11,14 +11,20 @@ public class PlayerTextureScript : MonoBehaviour
 
     Material _material = null;
 
+    private void Start()
+    {
+        _material = new Material(_meshRenderer.sharedMaterial);
+        _meshRenderer.sharedMaterial = _material;
+    }
+
     void Update()
     {
         if (_material == null)
         {
-            _material = new Material(_meshRenderer.sharedMaterial);
-            _meshRenderer.sharedMaterial = _material;
+            _meshRenderer.sharedMaterial.mainTexture = _texture;
         }
-
-        _material.mainTexture = _texture;
+        else {
+            _material.mainTexture = _texture;
+        }
     }
 }
