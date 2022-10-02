@@ -8,6 +8,7 @@ public class TrainingManager : MonoBehaviour
     [SerializeField] GameObject dialoguePanel;
     [SerializeField] TextMeshProUGUI dialogueText;
 
+
     private void Start()
     {
         Dialogue();
@@ -30,6 +31,7 @@ public class TrainingManager : MonoBehaviour
 
     void Dialogue()
     {
+        dialoguePanel.SetActive(true);
         dialogueText.text = "Here you can fight an invincible and immobilized enemy to train yourself. You can exit by pressing the button in the upper right corner.";
         StartCoroutine(ClackaClacka());
     }

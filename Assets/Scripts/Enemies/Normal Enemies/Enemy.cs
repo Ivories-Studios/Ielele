@@ -19,6 +19,10 @@ public class Enemy : UnitObject
     // Update is called once per frame
     public override void Update()
     {
+        if (isInvicible)
+        {
+            return;
+        }
         base.Update();
 
         if(attackingTime <= 0)
@@ -42,6 +46,10 @@ public class Enemy : UnitObject
     }
     public override void FixedUpdate()
     {
+        if (isInvicible)
+        {
+            return;
+        }
         base.FixedUpdate();
         UpdatePosition();
     }

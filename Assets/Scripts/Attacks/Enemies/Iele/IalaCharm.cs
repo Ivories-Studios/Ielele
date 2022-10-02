@@ -5,7 +5,7 @@ using UnityEngine;
 public class IalaCharm : Attack
 {
     [SerializeField] float speed;
-    Rigidbody rb;
+    Rigidbody2D rb;
     Vector3 dir;
 
     public override void Cast(UnitObject unit, float multiplier = 1)
@@ -14,12 +14,16 @@ public class IalaCharm : Attack
         a._caster = unit;
     }
 
-    public void OnTriggerEnter(Collider collision)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.transform.root.TryGetComponent(out UnitObject target))
         {
             if (target.team != _caster.team)
             {
+                if (Vector3.Distance(target.transform.position, transform.position) > 3)
+                {
+                    return;
+                }
                 target.TakeDamage(_power);
                 target.Charm(1f);
                 Vector3 knockbackDir = new Vector3(transform.position.x - target.transform.position.x > 0 ? -1 : 1, 0, 0);
@@ -31,7 +35,7 @@ public class IalaCharm : Attack
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     public override void Start()
@@ -43,6 +47,6 @@ public class IalaCharm : Attack
 
     public void FixedUpdate()
     {
-        rb.MovePosition(rb.position + speed * Time.fixedDeltaTime * dir.normalized);
+        rb.MovePosition(rb.position + (Vector2)(speed * Time.fixedDeltaTime * dir.normalized));
     }
 }

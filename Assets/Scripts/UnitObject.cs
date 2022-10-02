@@ -38,7 +38,8 @@ public class UnitObject : MonoBehaviour
     {
         get
         {
-            return blockTime <= 0 && stunTime <= 0 && !inKnockback && danceTime <= 0 && charmTime <= 0 && MenuManager.Instance.gameRunning && !DialogueManager.Instance.isInDialogue;
+            return blockTime <= 0 && stunTime <= 0 && !inKnockback && danceTime <= 0 && charmTime <= 0 && 
+                (MenuManager.Instance == null || MenuManager.Instance.gameRunning) && (DialogueManager.Instance == null || !DialogueManager.Instance.isInDialogue);
         }
     }
 
@@ -46,7 +47,8 @@ public class UnitObject : MonoBehaviour
     {
         get
         {
-            return blockTime <= 0 && danceTime <= 0 && !inKnockback && danceTime <= 0 && charmTime <= 0 && MenuManager.Instance.gameRunning && !DialogueManager.Instance.isInDialogue;
+            return blockTime <= 0 && danceTime <= 0 && !inKnockback && danceTime <= 0 && charmTime <= 0 &&
+                (MenuManager.Instance == null || MenuManager.Instance.gameRunning) && (DialogueManager.Instance == null || !DialogueManager.Instance.isInDialogue);
         }
     }
 
@@ -116,7 +118,7 @@ public class UnitObject : MonoBehaviour
 
     public virtual void TakeDamage(int amount)
     {
-        health -= amount;
+        Health -= amount;
         if(health < 0)
         {
             //animator.SetTrigger("Die");

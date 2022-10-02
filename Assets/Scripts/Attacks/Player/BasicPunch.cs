@@ -30,6 +30,10 @@ public class BasicPunch : Attack
         {
             if (target.team != _caster.team)
             {
+                if (Vector3.Distance(target.transform.position, transform.position) > 3)
+                {
+                    return;
+                }
                 if (_caster is PlayerObject _player)
                 {
                     if(_player.comboInARow == 2)

@@ -22,6 +22,10 @@ public class MeleeAttack : Attack
         {
             if (target.team != _caster.team)
             {
+                if (Vector3.Distance(target.transform.position, transform.position) > 3)
+                {
+                    return;
+                }
                 target.TakeDamage(_power);
                 //rget.blockTime = 0.5f;
             }

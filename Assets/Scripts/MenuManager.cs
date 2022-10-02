@@ -41,7 +41,7 @@ public class MenuManager : MonoBehaviour
 
     IEnumerator DelayDialogue()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.4f);
         DialogueManager.Instance.Dialogue1();
     }
 

@@ -22,6 +22,10 @@ public class ShieldBlock : Attack
         {
             if (enemyAttack._caster.team != _caster.team)
             {
+                if(Vector3.Distance(enemyAttack.transform.position, transform.position) > 3)
+                {
+                    return;
+                }
                 if (_caster is PlayerObject _player)
                 {
                     if (_player.comboInARow == 2)
