@@ -9,6 +9,7 @@ public class PlayerObject : UnitObject
 {
     public static PlayerObject Instance;
     [SerializeField] AnimationCurve comboFunction;
+    [SerializeField] GameObject errorNoEnergyText = null;
 
     QueuedAction _queuedAction;
     Coroutine _queuedCoroutineAction;
@@ -38,6 +39,8 @@ public class PlayerObject : UnitObject
 
     }
 
+
+    float errorTimer = 0;
 
     bool stoppedBlockingThisFrame = false;
     // Update is called once per frame
@@ -72,10 +75,10 @@ public class PlayerObject : UnitObject
 
         base.Update();
 
-        //INPUT QUEUEING
-        if(_queuedAction != null && attacks[_queuedAction.attackIndex].CanCast(this) && CanAttack && !stoppedBlockingThisFrame)
+
+        if (_queuedAction != null && attacks[_queuedAction.attackIndex].CanCast(this) && CanAttack && !stoppedBlockingThisFrame)
         {
-            if(_queuedAction.direction == QueuedDirection.left && GetComponent<PlayerMovement>().isLookingRight)
+            if (_queuedAction.direction == QueuedDirection.left && GetComponent<PlayerMovement>().isLookingRight)
             {
                 GetComponent<PlayerMovement>().TurnRight(false);
             }
@@ -90,12 +93,19 @@ public class PlayerObject : UnitObject
                     Punch();
                     break;
                 default:
-                    CastAttack(_queuedAction.attackIndex,1, _queuedAction.animName);
+                    CastAttack(_queuedAction.attackIndex, 1, _queuedAction.animName);
                     break;
             }
             _queuedAction = null;
         }
 
+
+        errorTimer -= Time.deltaTime;
+        if (errorTimer < 0)
+        {
+            if(errorNoEnergyText!=null)
+                errorNoEnergyText.SetActive(false);
+        }
 
         //COMBOS
         _timeSinceLastCombo += Time.deltaTime;
