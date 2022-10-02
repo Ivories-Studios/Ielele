@@ -25,6 +25,7 @@ public class PlayerObject : UnitObject
 
     [SerializeField] Volume volume;
     [SerializeField] List<AudioClip> hurtAudio = new List<AudioClip>();
+    [SerializeField] List<AudioClip> shieldBlockAudio = new List<AudioClip>();
     [SerializeField] AudioSource audioSource;
 
     public override void Awake()
@@ -37,6 +38,15 @@ public class PlayerObject : UnitObject
     // Update is called once per frame
     public override void Update()
     {
+        if (Input.GetKeyUp(KeyCode.DownArrow) && isBlocking)
+        {
+            isBlocking = false;
+            blockTime = 0;
+            animator.SetTrigger("StopBlock");
+            animator.ResetTrigger("SpecialBlock");
+        }
+
+
         base.Update();
         if(_queuedAction != null && attacks[_queuedAction.attackIndex].CanCast(this) && CanAttack)
         {
@@ -203,6 +213,17 @@ public class PlayerObject : UnitObject
 
     public override void TakeDamage(int amount)
     {
+        if (isBlocking)
+        {
+            audioSource.PlayOneShot(shieldBlockAudio[Random.Range(0, shieldBlockAudio.Count)]);
+
+            animator.SetTrigger("SpecialBlock");
+            if(Random.Range(0,100) < 30)
+                energy += 1;
+
+            return;
+        }
+
         amount = (int)(amount * (1 + wellBuffs * 0.5f));
         base.TakeDamage(amount);
         CanvasManager.Instance.SetHealth(health);
@@ -274,6 +295,7 @@ class QueuedAction
 
 enum QueuedDirection
 {
+    none,
     left,
     right
 }

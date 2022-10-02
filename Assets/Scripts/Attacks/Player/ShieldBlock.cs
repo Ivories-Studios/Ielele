@@ -10,6 +10,7 @@ public class ShieldBlock : Attack
 
         Attack a = Instantiate(gameObject, unit.transform).GetComponent<Attack>();
         a._caster = unit;
+        a._caster.isBlocking = true;
         a._power *= (int)mutliplier;
         unit.blockTime = _blockTime;
         unit.StepAhead(_stepAhead);

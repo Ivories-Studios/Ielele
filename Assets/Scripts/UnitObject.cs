@@ -11,6 +11,7 @@ public class UnitObject : MonoBehaviour
 
     public float speed = 5;
     public int team;
+    public bool isBlocking = false;
     public int Health 
     {
         get 
