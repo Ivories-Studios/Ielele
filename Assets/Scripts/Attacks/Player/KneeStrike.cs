@@ -27,7 +27,7 @@ public class KneeStrike : Attack
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform.parent.TryGetComponent(out UnitObject target))
+        if (collision.transform.root.TryGetComponent(out UnitObject target))
         {
             if (target.team != _caster.team)
             {

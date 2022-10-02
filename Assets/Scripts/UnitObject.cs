@@ -56,7 +56,7 @@ public class UnitObject : MonoBehaviour
     [HideInInspector] public float weakened;
     [SerializeField] protected List<AudioClip> death = new List<AudioClip>();
     bool inKnockback;
-    protected Rigidbody rb;
+    public Rigidbody rb;
 
     public virtual void Awake()
     {

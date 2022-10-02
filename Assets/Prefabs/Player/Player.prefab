@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1779630192}
   m_Layer: 0
   m_Name: Graphics
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -251,6 +251,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 427a6a2c90edaed4c99ba6d53087ddaa, type: 3}
   - {fileID: 8300000, guid: 2c3899f4e49995e4c80d1994e4ff2e23, type: 3}
   - {fileID: 8300000, guid: 30a10d23fdf2b5146ac88d1e8f0c6df6, type: 3}
+  rb: {fileID: 0}
   comboFunction:
     serializedVersion: 2
     m_Curve:
@@ -616,7 +617,7 @@ GameObject:
   - component: {fileID: 8842056421786655185}
   m_Layer: 0
   m_Name: Light
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -832,7 +833,7 @@ GameObject:
   - component: {fileID: 2195402373234495620}
   m_Layer: 0
   m_Name: Hitbox
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -900,7 +901,7 @@ GameObject:
   - component: {fileID: 4149842263533715721}
   m_Layer: 6
   m_Name: Movement Collider
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -945,7 +946,7 @@ GameObject:
   - component: {fileID: 1234852257637090943}
   m_Layer: 0
   m_Name: Graphics Holder
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

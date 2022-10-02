@@ -14,8 +14,7 @@ public class InteractableObject : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        print(collision.name);
-        if (collision.transform.parent.CompareTag("Player"))
+        if (collision.transform.root.CompareTag("Player"))
         {
             collision.GetComponentInParent<PlayerObject>().surroundingInteractableObjects.Add(this);
         }
@@ -23,7 +22,7 @@ public class InteractableObject : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.transform.parent.CompareTag("Player"))
+        if (collision.transform.root.CompareTag("Player"))
         {
             collision?.GetComponentInParent<PlayerObject>().surroundingInteractableObjects.Remove(this);
         }

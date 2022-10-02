@@ -17,7 +17,7 @@ public class ShieldBlock : Attack
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform.parent.TryGetComponent(out Attack enemyAttack))
+        if (collision.transform.root.TryGetComponent(out Attack enemyAttack))
         {
             if (enemyAttack._caster.team != _caster.team)
             {

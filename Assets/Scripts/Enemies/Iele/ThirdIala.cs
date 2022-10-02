@@ -57,14 +57,12 @@ public class ThirdIala : UnitObject
         }
         yield return StartCoroutine(MoveCoroutine(safeLocation.position));
         yield return new WaitForSeconds(1f);
+        encounter.GetComponent<EnemyAiManager>().StartFight();
         for (int i = 0; i < Random.Range(spawnLocations.Length / 2, spawnLocations.Length); i++)
         {
             encounter.GetComponent<EnemyAiManager>().CreateEnemy(basicEnemyPrefabs[0].gameObject, spawnLocations[i].position);
         }
-        encounter.GetComponent<EnemyAiManager>().StartFight();
         yield return new WaitForSeconds(5f);
-        CastAttack(1);
-        yield return new WaitForSeconds(10f);
 
         encounter.done++;
         yield return null;
