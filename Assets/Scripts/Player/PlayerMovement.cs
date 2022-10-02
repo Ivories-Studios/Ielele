@@ -45,10 +45,12 @@ public class PlayerMovement : MonoBehaviour
             if (_movementDelta != Vector2.zero)
             {
                 _audioSource.UnPause();
+                _animator.SetBool("Moving", true);
             }
             else
             {
                 _audioSource.Pause();
+                _animator.SetBool("Moving", false);
             }
 
             _currentSpeed += Mathf.Max(Mathf.Abs(_movementDelta.x), Mathf.Abs(_movementDelta.y)) * Time.deltaTime * _acceleration;
@@ -81,6 +83,7 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             _audioSource.Pause();
+            _animator.SetBool("Moving", false);
         }
 
     }
