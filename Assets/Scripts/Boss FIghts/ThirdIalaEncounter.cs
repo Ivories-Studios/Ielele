@@ -26,6 +26,7 @@ public class ThirdIalaEncounter : Encounter
         {
             MenuManager.Instance.ShowVictoryScreen();
             virtualCamera.Priority = 0;
+            CanvasManager.Instance.FinishGame();
             Destroy(gameObject);
         }
         timer += Time.deltaTime;

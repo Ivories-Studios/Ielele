@@ -15,6 +15,7 @@ public class CanvasManager : MonoBehaviour
     [SerializeField] Sprite emptyHealthSprite;
     [SerializeField] MenuManager menuManager;
     [SerializeField] ParticleSystem energyParticleSystem;
+    [SerializeField] GameObject finish;
 
     private void Awake()
     {
@@ -34,6 +35,17 @@ public class CanvasManager : MonoBehaviour
         {
             menuManager?.ShowMenu();
         }
+    }
+
+    public void FinishGame()
+    {
+        StartCoroutine(Finish());
+    }
+
+    IEnumerator Finish()
+    {
+        yield return new WaitForSeconds(5f);
+        finish.SetActive(true);
     }
 
     public void SetHealth(int amount)

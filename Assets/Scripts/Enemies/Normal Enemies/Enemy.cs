@@ -16,6 +16,8 @@ public class Enemy : UnitObject
 
     float attackingTime = 0;
 
+    bool punchAnim = false;
+
     // Update is called once per frame
     public override void Update()
     {
@@ -27,16 +29,20 @@ public class Enemy : UnitObject
 
         if(attackingTime <= 0)
         {
-            if(PlayerObject.Instance.transform.position.x > Mathf.Min(transform.position.x, transform.position.x + transform.right.x * 2) && 
-                PlayerObject.Instance.transform.position.x < Mathf.Max(transform.position.x, transform.position.x + transform.right.x * 2))
+            if(Vector3.Distance(PlayerObject.Instance.transform.position, transform.position) < 2.5f)
             {
-                print("here");
-                if(PlayerObject.Instance.transform.position.z < transform.position.z + 2 && PlayerObject.Instance.transform.position.z > transform.position.z - 2)
+                if (punchAnim)
                 {
-                    print("here2");
-                    CastAttack(0);
-                    attackingTime = 5;
+                    animator.SetTrigger("Punch1");
+                    punchAnim = false;
                 }
+                else
+                {
+                    animator.SetTrigger("Punch2");
+                    punchAnim = true;
+                }
+                CastAttack(0);
+                attackingTime = 4;
             }
         }
         else
@@ -83,22 +89,40 @@ public class Enemy : UnitObject
             {
                 //Fully walking animation
                 if (Vector3.Distance(transform.position, actualTarget()) > 0.1f){
+                    animator.SetBool("Moving", true);
                     rb.MovePosition(transform.position + (dir * speed * Time.deltaTime));
+                }
+                else
+                {
+                    animator.SetBool("Moving", false);
+                }
+                if (rb.position.x > PlayerObject.Instance.transform.position.x)
+                {
+                    transform.rotation = Quaternion.Euler(0, 180, 0);
+                    transform.GetChild(2).rotation = Quaternion.Euler(80, 0, 0);
+                }
+                else
+                {
+                    transform.rotation = Quaternion.identity;
+                    transform.GetChild(2).rotation = Quaternion.Euler(80, 180, 0);
                 }
             }
             else if (state == AIState.RoamingAround)
             {
                 //Slow walking animation
+                animator.SetBool("Moving", true);
                 rb.MovePosition(transform.position + (dir * 1 * Time.deltaTime));
             }
             else if (state == AIState.Flee)
             {
                 //Flee animation
+                animator.SetBool("Moving", true);
                 rb.MovePosition(transform.position + (dir * speed * Time.deltaTime));
             }
             else
             {
                 //Idle animation
+                animator.SetBool("Moving", false);
             }
         }
     }

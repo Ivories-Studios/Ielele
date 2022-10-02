@@ -121,9 +121,9 @@ public class UnitObject : MonoBehaviour
         Health -= amount;
         if(health < 0)
         {
-            //animator.SetTrigger("Die");
+            animator.SetTrigger("Die");
             AudioSource.PlayClipAtPoint(death[Random.Range(0, death.Count)], transform.position);
-            Destroy(gameObject);
+            stunTime += 4.1f;
         }
     }
 
@@ -147,6 +147,7 @@ public class UnitObject : MonoBehaviour
 
     public virtual void Die()
     {
+        print("death");
         Destroy(gameObject);
     }
 

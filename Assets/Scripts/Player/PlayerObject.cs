@@ -176,7 +176,7 @@ public class PlayerObject : UnitObject
         {
             if (CanAttack)
             {
-                CastAttack(1, _comboModifier * (1 + wellBuffs * 0.25f));
+                CastAttack(1, _comboModifier * (1 + wellBuffs * 0.25f), "Kick");
             }
             else
             {
@@ -198,7 +198,7 @@ public class PlayerObject : UnitObject
         {
             if (CanAttack)
             {
-                CastAttack(2, _comboModifier * (1 + wellBuffs * 0.25f));
+                CastAttack(2, _comboModifier * (1 + wellBuffs * 0.25f), "Axe");
             }
             else
             {
@@ -336,6 +336,8 @@ public class PlayerObject : UnitObject
         {
             bleed.active = true;
         }
+        yield return new WaitForSeconds(2);
+        Die();
     }
 
     public override void Die()

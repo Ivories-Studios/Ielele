@@ -60,7 +60,7 @@ public class ThirdIala : UnitObject
         encounter.GetComponent<EnemyAiManager>().StartFight();
         for (int i = 0; i < Random.Range(spawnLocations.Length / 2, spawnLocations.Length); i++)
         {
-            encounter.GetComponent<EnemyAiManager>().CreateEnemy(basicEnemyPrefabs[0].gameObject, spawnLocations[i].position);
+            encounter.GetComponent<EnemyAiManager>().CreateEnemy(basicEnemyPrefabs[Random.Range(0, basicEnemyPrefabs.Length)].gameObject, spawnLocations[i].position);
         }
         yield return new WaitForSeconds(5f);
 

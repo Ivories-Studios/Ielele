@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3937356727708924999}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.51, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1585455117450829601}
@@ -42,7 +42,7 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.1
-  m_Height: 1.75
+  m_Height: 1
   m_Direction: 0
   m_Center: {x: 0, y: -1.6, z: 0}
 --- !u!1 &4110039838748766273
@@ -187,7 +187,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7241698492461571079}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.91, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1585455117450829601}
@@ -207,7 +207,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1.5, y: 3.5}
+  m_Size: {x: 1, y: 2.5}
   m_Direction: 0
 --- !u!50 &8060606956744560348
 Rigidbody2D:
@@ -281,7 +281,7 @@ MonoBehaviour:
   _maxEnergy: 0
   attacks:
   - {fileID: 6401480129454310305, guid: c46b2fa0247be57459cc892faa0ff05a, type: 3}
-  animator: {fileID: 0}
+  animator: {fileID: 1152195853606337348}
   speed: 4
   team: 1
   isBlocking: 0
@@ -298,7 +298,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 427a6a2c90edaed4c99ba6d53087ddaa, type: 3}
   - {fileID: 8300000, guid: 2c3899f4e49995e4c80d1994e4ff2e23, type: 3}
   - {fileID: 8300000, guid: 30a10d23fdf2b5146ac88d1e8f0c6df6, type: 3}
-  rb: {fileID: 0}
+  rb: {fileID: 3674419158398836531}
   movementTarget: {x: 0, y: 0, z: 0}
   targetDisplacement: {x: 0, y: 0}
   state: 0
