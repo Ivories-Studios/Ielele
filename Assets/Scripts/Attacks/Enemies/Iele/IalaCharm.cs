@@ -8,7 +8,7 @@ public class IalaCharm : Attack
     Rigidbody2D rb;
     Vector3 dir;
 
-    public override void Cast(UnitObject unit, float multiplier = 1)
+    public override void Cast(UnitObject unit, float multiplier = 1, float? stepAheadOverride = null)
     {
         Attack a = Instantiate(gameObject, unit.transform.position, unit.transform.rotation).GetComponent<Attack>();
         a._caster = unit;

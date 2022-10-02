@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BasicPunch : Attack
 {
-    public override void Cast(UnitObject unit, float multiplier)
+    public override void Cast(UnitObject unit, float multiplier, float? stepAheadOverride = null)
     {
         base.Cast(unit, multiplier);
 
@@ -19,7 +19,14 @@ public class BasicPunch : Attack
                 unit.blockTime += _blockTime;
             }
         }
-        unit.StepAhead(_stepAhead);
+        if (stepAheadOverride != null)
+        {
+            unit.StepAhead(stepAheadOverride.Value);
+        }
+        else
+        {
+            unit.StepAhead(_stepAhead);
+        }
         AudioSource.PlayClipAtPoint(audioClips2[Random.Range(0, audioClips2.Count)], a.transform.position);
 
     }

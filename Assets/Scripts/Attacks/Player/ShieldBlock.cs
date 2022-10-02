@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShieldBlock : Attack
 {
-    public override void Cast(UnitObject unit, float mutliplier)
+    public override void Cast(UnitObject unit, float mutliplier, float? stepAheadOverride)
     {
         base.Cast(unit, mutliplier);
 

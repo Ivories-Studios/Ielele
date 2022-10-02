@@ -104,7 +104,7 @@ public class UnitObject : MonoBehaviour
         
     }
 
-    public virtual void CastAttack(int index, float multiplier = 1, string anim = "")
+    public virtual void CastAttack(int index, float multiplier = 1, string anim = "", float? stepAheadOverride = null)
     {
         if (attacks[index].CanCast(this))
         {
@@ -112,7 +112,7 @@ public class UnitObject : MonoBehaviour
             {
                 animator.SetTrigger(anim);
             }
-            attacks[index].Cast(this, multiplier * (weakened > 0 ? 0.75f : 1));
+            attacks[index].Cast(this, multiplier * (weakened > 0 ? 0.75f : 1), stepAheadOverride);
         }
     }
 
