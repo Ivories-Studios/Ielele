@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class ThirdIalaEncounter : Encounter
 {
@@ -9,11 +10,13 @@ public class ThirdIalaEncounter : Encounter
     [SerializeField] ThirdIala thirdIala;
     Phases3 phases;
     [SerializeField] GameObject healthBars;
+    [SerializeField] CinemachineVirtualCamera virtualCamera;
 
     public override void StartFight()
     {
         gameObject.SetActive(true);
         healthBars.SetActive(true);
+        virtualCamera.Priority = 20;
     }
 
     // Update is called once per frame
@@ -22,6 +25,8 @@ public class ThirdIalaEncounter : Encounter
         if (firstIala == null && secondIala == null && thirdIala == null)
         {
             MenuManager.Instance.ShowVictoryScreen();
+            virtualCamera.Priority = 0;
+            Destroy(gameObject);
         }
         timer += Time.deltaTime;
         switch (phases)
