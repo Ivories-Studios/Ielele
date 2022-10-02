@@ -247,7 +247,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1585455117450829601
 Transform:
   m_ObjectHideFlags: 0
@@ -301,6 +301,7 @@ MonoBehaviour:
   speed: 5
   team: 1
   isBlocking: 0
+  knockbackResistance: 10
   isInvicible: 0
   blockTime: 0
   stunTime: 0
@@ -311,9 +312,19 @@ MonoBehaviour:
   - {fileID: 8300000, guid: af694a5e6b1554b4fa388aa353aa6952, type: 3}
   rb: {fileID: 0}
   encounter: {fileID: 0}
-  charmLocations: []
-  idleLocations: []
-  spawnLocations: []
+  charmLocations:
+  - {fileID: 0}
+  - {fileID: 0}
+  idleLocations:
+  - {fileID: 0}
+  - {fileID: 0}
+  spawnLocations:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   safeLocation: {fileID: 0}
-  basicEnemyPrefabs: []
+  basicEnemyPrefabs:
+  - {fileID: 97338212729038674, guid: f8b8e2c1fee3d494493f37053df0e921, type: 3}
   healthBar: {fileID: 0}

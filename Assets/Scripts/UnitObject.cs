@@ -12,6 +12,7 @@ public class UnitObject : MonoBehaviour
     public float speed = 5;
     public int team;
     public bool isBlocking = false;
+    public float knockbackResistance = 1;
     public int Health 
     {
         get 
@@ -164,6 +165,7 @@ public class UnitObject : MonoBehaviour
     public void Knockback(Vector3 dir, float amount, float duration = 0.1f)
     {
         Vector3 start = rb.position;
+        amount = amount / knockbackResistance;
         LeanTween.value(gameObject, 0, 1, duration).setEase(LeanTweenType.easeOutCubic)
             .setOnUpdate((v) =>
             {
