@@ -7,10 +7,16 @@ public class BossWell : MonoBehaviour
     bool onlyOnce = true;
     public int index;
 
+    [SerializeField] List<GameObject> gameObjects;
+
     public void Interact(PlayerObject player)
     {
         if (onlyOnce)
         {
+            foreach(GameObject go in gameObjects)
+            {
+                gameObject.SetActive(true);
+            }
             switch (index)
             {
                 case 1:
