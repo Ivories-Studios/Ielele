@@ -26,6 +26,11 @@ public class PlayerEffectScript : MonoBehaviour
     [SerializeField] GameObject _punch3Effect;
     [SerializeField] float _punch3Timer;
 
+    [Header("Axe")]
+    [SerializeField] Vector3 _axeOffset;
+    [SerializeField] GameObject _axeEffect;
+    [SerializeField] float _axeTimer;
+
     IEnumerator DestroyAfterUse(GameObject obj, float timer)
     {
         yield return new WaitForSeconds(timer);
@@ -83,5 +88,18 @@ public class PlayerEffectScript : MonoBehaviour
         StartCoroutine(DestroyAfterUse(punch, _punch3Timer));
     }
 
+    public void Axe()
+    {
+        Vector3 mult = _axeOffset;
+        if (!gameTurnScript.Right)
+            mult = new Vector3(-1.0f * _axeOffset.x, _axeOffset.y, _axeOffset.z);
+
+        GameObject punch = Instantiate(_axeEffect, transform.position + mult, Quaternion.identity);
+
+        if (!gameTurnScript.Right)
+            punch.transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
+
+        StartCoroutine(DestroyAfterUse(punch, _axeTimer));
+    }
 
 }

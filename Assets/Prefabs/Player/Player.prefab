@@ -123,6 +123,9 @@ MonoBehaviour:
   _punch3Offset: {x: 0.4, y: -0.1, z: -0.05}
   _punch3Effect: {fileID: 3785127834581222669, guid: fd30c77701b0fde4cb4016f66e0c095b, type: 3}
   _punch3Timer: 3
+  _axeOffset: {x: 0.65, y: -1.97, z: 0}
+  _axeEffect: {fileID: 1637288200392503353, guid: 22d972220fa0a0644975e981a51dec85, type: 3}
+  _axeTimer: 3
 --- !u!95 &1779630192
 Animator:
   serializedVersion: 3
@@ -239,7 +242,8 @@ MonoBehaviour:
   animator: {fileID: 1779630192}
   speed: 5
   team: 0
-  isInvicible: 0
+  isBlocking: 0
+  isInvicible: 1
   blockTime: 0
   stunTime: 0
   danceTime: 0
@@ -286,6 +290,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 0c05016ff43dd5a49870594a66664c5f, type: 3}
   - {fileID: 8300000, guid: 73d4e470b98709b459f37deb8a8a7019, type: 3}
   - {fileID: 8300000, guid: 8a318e106b4f7464fa9733ab0e32d461, type: 3}
+  shieldBlockAudio:
+  - {fileID: 8300000, guid: f192a21e5fd45c041ac5914d8743293d, type: 3}
+  - {fileID: 8300000, guid: c34a446228b973141ad4c0b97c1bfdfa, type: 3}
+  - {fileID: 8300000, guid: ab01ab8df68b834478dd6ba3fcc28c2f, type: 3}
+  - {fileID: 8300000, guid: 801e12c04bf6a0c469141112e0e38d3f, type: 3}
+  - {fileID: 8300000, guid: be35b80923a76f54ea97b718aa482002, type: 3}
   audioSource: {fileID: 5883090544085066685}
 --- !u!114 &8480132064706530457
 MonoBehaviour:
