@@ -44,6 +44,7 @@ public class FirstIala : UnitObject
             yield break;
         }
         Transform dest = projectileLocations[Random.Range(0, projectileLocations.Length)];
+        animator.SetBool("Casting", true);
         for (int i = 0; i < Random.Range(8, 16); i++)
         {
             yield return StartCoroutine(MoveCoroutine(dest.position + new Vector3(0, 0, Random.Range(-6, 6))));
@@ -51,6 +52,7 @@ public class FirstIala : UnitObject
             CastAttack(0);
             yield return new WaitForSeconds(0.5f);
         }
+        animator.SetBool("Casting", false);
         encounter.done++;
     }
 
@@ -62,12 +64,14 @@ public class FirstIala : UnitObject
             yield break;
         }
         yield return StartCoroutine(MoveCoroutine(safeLocation.position));
+        animator.SetBool("Casting", true);
         yield return new WaitForSeconds(1f);
         encounter.GetComponent<EnemyAiManager>().StartFight();
         for (int i = 0; i < Random.Range(spawnLocations.Length / 2, spawnLocations.Length); i++)
         {
             encounter.GetComponent<EnemyAiManager>().CreateEnemy(basicEnemyPrefabs[Random.Range(0, basicEnemyPrefabs.Length)].gameObject, spawnLocations[i].position);
         }
+        animator.SetBool("Casting", false);
         yield return new WaitForSeconds(5f);
         //CastAttack(1);
 
@@ -85,9 +89,11 @@ public class FirstIala : UnitObject
         }
         Transform dest = stunLocations[Random.Range(0, stunLocations.Length)];
         yield return StartCoroutine(MoveCoroutine(dest.position));
+        animator.SetBool("Casting", true);
         yield return new WaitForSeconds(1f);
         CastAttack(1);
         yield return new WaitForSeconds(0.5f);
+        animator.SetBool("Casting", false);
         encounter.done++;
     }
 

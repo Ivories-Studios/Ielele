@@ -41,8 +41,10 @@ public class ThirdIala : UnitObject
 
             yield break;
         }
+        animator.SetBool("Casting", true);
         yield return new WaitForSeconds(0.5f);
         CastAttack(0);
+        animator.SetBool("Casting", false);
         yield return new WaitForSeconds(1f);
         encounter.done++;
     }
@@ -56,12 +58,14 @@ public class ThirdIala : UnitObject
             yield break;
         }
         yield return StartCoroutine(MoveCoroutine(safeLocation.position));
+        animator.SetBool("Casting", true);
         yield return new WaitForSeconds(1f);
         encounter.GetComponent<EnemyAiManager>().StartFight();
         for (int i = 0; i < Random.Range(spawnLocations.Length / 2, spawnLocations.Length); i++)
         {
             encounter.GetComponent<EnemyAiManager>().CreateEnemy(basicEnemyPrefabs[Random.Range(0, basicEnemyPrefabs.Length)].gameObject, spawnLocations[i].position);
         }
+        animator.SetBool("Casting", false);
         yield return new WaitForSeconds(5f);
 
         encounter.done++;

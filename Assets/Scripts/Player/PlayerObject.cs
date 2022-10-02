@@ -198,6 +198,7 @@ public class PlayerObject : UnitObject
                 _queuedCoroutineAction = StartCoroutine(AddActionToQueue(1));
                 if (Input.GetKey(KeyCode.A)) _queuedAction.direction = QueuedDirection.left;
                 if (Input.GetKey(KeyCode.D)) _queuedAction.direction = QueuedDirection.right;
+                _queuedAction.animName = "Kick";
             }
         }
     }
@@ -219,6 +220,7 @@ public class PlayerObject : UnitObject
                 _queuedCoroutineAction = StartCoroutine(AddActionToQueue(2));
                 if (Input.GetKey(KeyCode.A)) _queuedAction.direction = QueuedDirection.left;
                 if (Input.GetKey(KeyCode.D)) _queuedAction.direction = QueuedDirection.right;
+                _queuedAction.animName = "Axe";
             }
         }
     }
@@ -282,7 +284,7 @@ public class PlayerObject : UnitObject
         _comboModifier = 1;//comboFunction.Evaluate(_combo / 100.0f) * 5;
         _currentComboExpireTime = 4;
         _timeSinceLastCombo = 0;
-        FloatingText.CreateFloatingTextCombo(_combo, transform.position + new Vector3(0, 1, 0));
+        FloatingText.CreateFloatingTextCombo(_combo, transform.position + transform.right + new Vector3(0, 1f, 0));
     }
 
     public void MaintainCombo()

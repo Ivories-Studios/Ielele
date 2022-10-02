@@ -118,16 +118,15 @@ public class DialogueManager : MonoBehaviour
     {
         nextDialogue = Iala1_4;
         enemyText.text = "Awww. The little son is angry. I want to see what trickeries you pretend to hide.";
-        StartCoroutine(ClackaClacka(enemyText));
     }
 
     void Iala1_4()
     {
-        bossEncounters[0].StartFight();
         nextDialogue = null;
         playerPanel.SetActive(false);
         enemyPanel.SetActive(false);
         isInDialogue = false;
+        bossEncounters[0].StartFight();
     }
 
     public void Iala2()
@@ -181,11 +180,11 @@ public class DialogueManager : MonoBehaviour
 
     void Iala2_6()
     {
-        bossEncounters[1].StartFight();
         nextDialogue = null;
         playerPanel.SetActive(false);
         enemyPanel.SetActive(false);
         isInDialogue = false;
+        bossEncounters[1].StartFight();
     }
 
     public void Iala3()
@@ -226,11 +225,11 @@ public class DialogueManager : MonoBehaviour
 
     public void Iala3_4()
     {
-        bossEncounters[2].StartFight();
         nextDialogue = null;
         playerPanel.SetActive(false);
         enemyPanel.SetActive(false);
         isInDialogue = false;
+        bossEncounters[2].StartFight();
     }
 
     IEnumerator ClackaClacka(TextMeshProUGUI text)

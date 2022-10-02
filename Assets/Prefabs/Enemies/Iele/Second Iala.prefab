@@ -98,7 +98,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e7e6924996be5b4488de80d30eacdcda, type: 2}
+  - {fileID: 2100000, guid: e9c3042ffebdc9f4fb9bbb2162c4c190, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -247,7 +247,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1585455117450829601
 Transform:
   m_ObjectHideFlags: 0
@@ -297,7 +297,7 @@ MonoBehaviour:
   _maxEnergy: 0
   attacks:
   - {fileID: 1954414016417484084, guid: aa273fc04b757b644af919df111dca4d, type: 3}
-  animator: {fileID: 0}
+  animator: {fileID: 5377968548220372892}
   speed: 5
   team: 1
   isBlocking: 0
