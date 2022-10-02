@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class BasicPunch : Attack
 {
-    bool increaseComboOnce = true;
-
     public override void Cast(UnitObject unit, float multiplier)
     {
         base.Cast(unit, multiplier);
@@ -44,10 +42,9 @@ public class BasicPunch : Attack
                 Vector3 knockbackDir = new Vector3(transform.position.x - target.transform.position.x > 0 ? -1 : 1, 0, 0);
                 target.Knockback(knockbackDir, _knockback);
                 _caster.IncreaseEnergy(1);
-                if (_caster is PlayerObject player && increaseComboOnce)
+                if (_caster is PlayerObject player)
                 {
                     player.IncreaseCombo(_comboIncrease);
-                    increaseComboOnce = false;
                     AudioSource.PlayClipAtPoint(audioClips[Random.Range(0, audioClips.Count)], transform.position);
                 }
             }

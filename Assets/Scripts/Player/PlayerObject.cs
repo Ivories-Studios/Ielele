@@ -13,7 +13,7 @@ public class PlayerObject : UnitObject
     QueuedAction _queuedAction;
     Coroutine _queuedCoroutineAction;
 
-    float _combo;
+    int _combo;
     float _comboModifier;
     float _currentComboExpireTime;
     float _timeSinceLastCombo;
@@ -148,7 +148,7 @@ public class PlayerObject : UnitObject
         _queuedAction = null;
     }
 
-    public void IncreaseCombo(float amount)
+    public void IncreaseCombo(int amount)
     {
         comboInARow++;
         if(comboInARow >= 3)
@@ -168,6 +168,7 @@ public class PlayerObject : UnitObject
         _comboModifier = comboFunction.Evaluate(_combo / 100.0f) * 5;
         _currentComboExpireTime = 4;
         _timeSinceLastCombo = 0;
+        FloatingText.CreateFloatingTextCombo(_combo, transform.position + new Vector3(0, 1, 0));
     }
 
     public void MaintainCombo()

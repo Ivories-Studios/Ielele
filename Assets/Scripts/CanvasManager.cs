@@ -61,6 +61,6 @@ public class CanvasManager : MonoBehaviour
     {
         energySlider.value = amount;
         var emission = energyParticleSystem.emission;
-        emission.rateOverTime = amount * 20;
+        emission.rateOverTime = amount * 40;
     }
 }

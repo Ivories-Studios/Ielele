@@ -5,7 +5,6 @@ using UnityEngine;
 public class KneeStrike : Attack
 {
     [SerializeField] float stun;
-    bool increaseComboOnce = true;
 
     public override void Cast(UnitObject unit, float mutliplier)
     {
@@ -47,10 +46,9 @@ public class KneeStrike : Attack
                 Vector3 knockbackDir = new Vector3(transform.position.x - target.transform.position.x > 0 ? -1 : 1, 0, 0);
                 target.Knockback(knockbackDir, _knockback);
                 _caster.IncreaseEnergy(1);
-                if (_caster is PlayerObject player && increaseComboOnce)
+                if (_caster is PlayerObject player)
                 {
                     player.IncreaseCombo(_comboIncrease);
-                    increaseComboOnce = false;
                     AudioSource.PlayClipAtPoint(audioClips[Random.Range(0, audioClips.Count)], transform.position);
                 }
             }

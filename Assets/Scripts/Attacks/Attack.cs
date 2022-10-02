@@ -9,7 +9,7 @@ public class Attack : MonoBehaviour
     [SerializeField] protected float _blockTime;
     [SerializeField] protected float _stepAhead;
     [SerializeField] protected float _knockback;
-    [SerializeField] protected float _comboIncrease;
+    [SerializeField] protected int _comboIncrease;
     [SerializeField] protected bool _instantiateSelf;
     [SerializeField] protected List<AudioClip> audioClips = new List<AudioClip>();
     [SerializeField] protected List<AudioClip> audioClips2 = new List<AudioClip>();
