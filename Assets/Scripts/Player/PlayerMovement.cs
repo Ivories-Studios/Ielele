@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     CinemachineFramingTransposer _composer;
     int _deadZoneId;
     PlayerObject _playerObject;
-    bool isLookingRight = true;
+    public bool isLookingRight = true;
 
     [SerializeField] AudioSource _audioSource;
     [SerializeField] Animator _animator;
@@ -138,5 +138,14 @@ public class PlayerMovement : MonoBehaviour
     {
         isLookingRight = right;
         transform.rotation = Quaternion.Euler(0, right ? 0 : 180, 0);
+        if (right)
+        {
+            _graphicsTurnScript.TurnRight();
+        }
+        if (!right)
+        {
+            _graphicsTurnScript.TurnLeft();
+        }
+
     }
 }
