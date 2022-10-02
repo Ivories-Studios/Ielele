@@ -25,7 +25,7 @@ public class FirstIalaEncounter : Encounter
             case Phases.Idle:
                 if (timer > 1)
                 {
-                    int random = Random.Range(0, 4);
+                    int random = Random.Range(0, 2);
                     if (random == 0)
                     {
                         switch (Random.Range(0, 10))

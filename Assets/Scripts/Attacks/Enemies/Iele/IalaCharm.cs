@@ -5,7 +5,7 @@ using UnityEngine;
 public class IalaCharm : Attack
 {
     [SerializeField] float speed;
-    Rigidbody2D rb;
+    Rigidbody rb;
     Vector3 dir;
 
     public override void Cast(UnitObject unit, float multiplier = 1)
@@ -14,7 +14,7 @@ public class IalaCharm : Attack
         a._caster = unit;
     }
 
-    public void OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerEnter(Collider collision)
     {
         if (collision.transform.root.TryGetComponent(out UnitObject target))
         {
@@ -31,7 +31,7 @@ public class IalaCharm : Attack
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody>();
     }
 
     public override void Start()
@@ -43,6 +43,6 @@ public class IalaCharm : Attack
 
     public void FixedUpdate()
     {
-        rb.MovePosition(rb.position + speed * Time.fixedDeltaTime * (Vector2)dir);
+        rb.MovePosition(rb.position + speed * Time.fixedDeltaTime * dir.normalized);
     }
 }

@@ -15,7 +15,7 @@ public class BossWell : MonoBehaviour
         {
             foreach(GameObject go in gameObjects)
             {
-                gameObject.SetActive(true);
+                go.SetActive(true);
             }
             switch (index)
             {
