@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6fc936d6605f9ed429b94512d18a9cc5, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -110,9 +110,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 015d1de0de8dc474da20c7b087b57fe5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameTurnScript: {fileID: 1234852257637090943}
   _counterOffset: {x: 0, y: -0.5, z: -0.2}
   _counterEffect: {fileID: 8575648914354950289, guid: 7d8f74db60914cd488a71fb26acff859, type: 3}
   _counterTimer: 3
+  _punchOffset: {x: 0.1, y: -0.18, z: -0.05}
+  _punchEffect: {fileID: 3785127834581222669, guid: ba24d0f9b6b761b46902c38a06200af0, type: 3}
+  _punchTimer: 2
+  _punch2Offset: {x: 0.3, y: -0.27, z: -0.05}
+  _punch2Effect: {fileID: 3785127834581222669, guid: e9b25d1cd8b77a94da1072364b801adc, type: 3}
+  _punch2Timer: 2
+  _punch3Offset: {x: 0.4, y: -0.1, z: -0.05}
+  _punch3Effect: {fileID: 3785127834581222669, guid: fd30c77701b0fde4cb4016f66e0c095b, type: 3}
+  _punch3Timer: 3
 --- !u!95 &1779630192
 Animator:
   serializedVersion: 3
