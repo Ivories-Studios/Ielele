@@ -452,10 +452,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4e7bfb1c1dce3049b8435019fd90481, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 2
-  interactText: {fileID: 0}
+  index: 1
+  interactText: {fileID: 236556440}
   gameObjects:
-  - {fileID: 0}
   - {fileID: 0}
 --- !u!50 &8980410974204819203
 Rigidbody2D:
