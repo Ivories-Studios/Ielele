@@ -160,7 +160,7 @@ public class UnitObject : MonoBehaviour
             });
     }
 
-    public void Knockback(Vector3 dir, float amount, float duration = 0.2f)
+    public void Knockback(Vector3 dir, float amount, float duration = 0.1f)
     {
         Vector3 start = rb.position;
         LeanTween.value(gameObject, 0, 1, duration).setEase(LeanTweenType.easeOutCubic)
