@@ -269,7 +269,7 @@ public class PlayerObject : UnitObject
         {
             _combo = 100;
         }
-        _comboModifier = comboFunction.Evaluate(_combo / 100.0f) * 5;
+        _comboModifier = 1;//comboFunction.Evaluate(_combo / 100.0f) * 5;
         _currentComboExpireTime = 4;
         _timeSinceLastCombo = 0;
         FloatingText.CreateFloatingTextCombo(_combo, transform.position + new Vector3(0, 1, 0));
