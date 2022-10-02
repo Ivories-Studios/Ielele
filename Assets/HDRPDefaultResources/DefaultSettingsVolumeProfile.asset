@@ -244,7 +244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d931570c0c4deab4e8cad0cd396c592b, type: 3}
   m_Name: Phosphor_RLPRO
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   m_AdvancedMode: 0
   intensity:
     m_OverrideState: 1
@@ -253,17 +253,17 @@ MonoBehaviour:
     max: 1
   width:
     m_OverrideState: 1
-    m_Value: 10
+    m_Value: 0.1
     min: 0
     max: 20
   amount:
     m_OverrideState: 1
-    m_Value: 0.03
+    m_Value: 0.05
     min: 0
     max: 1
   fade:
     m_OverrideState: 1
-    m_Value: 0.05
+    m_Value: 0.01
     min: 0
     max: 1
 --- !u!114 &-1016694868962581565
@@ -496,7 +496,7 @@ MonoBehaviour:
     max: 1
   colorOffset:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 1.5
     min: 0
     max: 50
   colorOffsetAngle:
@@ -877,7 +877,7 @@ MonoBehaviour:
     m_Value: 0.5
   fade:
     m_OverrideState: 1
-    m_Value: 0.03
+    m_Value: 0.02
     min: 0
     max: 1
   horizontal:
@@ -909,7 +909,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46b8f341bcb0fbf49a37e772b8f54e6d, type: 3}
   m_Name: Noise_RLPRO
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   m_AdvancedMode: 0
   intensity:
     m_OverrideState: 1
@@ -927,7 +927,7 @@ MonoBehaviour:
     m_Value: 1
   GranularityAmount:
     m_OverrideState: 1
-    m_Value: 0.1
+    m_Value: 0
     min: 0
     max: 0.5
   TapeNoise:
@@ -945,12 +945,12 @@ MonoBehaviour:
     max: 1.5
   TapeNoiseAmount:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 1.1
     min: 0
     max: 1.5
   tapeLinesAmount:
     m_OverrideState: 1
-    m_Value: 0.8
+    m_Value: 0.5
     min: 0
     max: 1
   TapeNoiseSpeed:
@@ -963,12 +963,12 @@ MonoBehaviour:
     m_Value: 1
   LineNoiseAmount:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 1.5
     min: 0
     max: 15
   LineNoiseSpeed:
     m_OverrideState: 1
-    m_Value: 0.72
+    m_Value: 0.2
     min: 0
     max: 10
   SignalNoise:
@@ -981,7 +981,7 @@ MonoBehaviour:
     max: 0.97
   SignalNoiseAmount:
     m_OverrideState: 1
-    m_Value: 0.5
+    m_Value: 0.4
     min: 0
     max: 2
   unscaledTime:

@@ -3,7 +3,7 @@
 --- !u!30 &1
 GraphicsSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 14
+  serializedVersion: 13
   m_Deferred:
     m_Mode: 1
     m_Shader: {fileID: 69, guid: 0000000000000000f000000000000000, type: 0}
@@ -37,8 +37,15 @@ GraphicsSettings:
   - {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 10770, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 10783, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 4800000, guid: bac4ce3123da9c04ab2ff0b4ccb0de3f, type: 3}
+  - {fileID: 4800000, guid: 28e799b5e72bb8c44a21c9a4ff855eab, type: 3}
+  - {fileID: 4800000, guid: 8326e53170b6cc0468c0ae8f55860302, type: 3}
+  - {fileID: 4800000, guid: 79291ec27defded4f98727a3f01b0b28, type: 3}
+  - {fileID: 4800000, guid: 8a2f14d3d78f8c44cadb8b575545af79, type: 3}
+  - {fileID: 4800000, guid: e1584c73dd202bc4794a2b9e6afa5001, type: 3}
+  - {fileID: 4800000, guid: cafdde644a1c2064bb517444dae7f551, type: 3}
+  - {fileID: 4800000, guid: 153f3a82fed81a64da6209bedb4a8706, type: 3}
   m_PreloadedShaders: []
-  m_PreloadShadersBatchTimeLimit: -1
   m_SpritesDefaultMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_CustomRenderPipeline: {fileID: 11400000, guid: eb3e8161577e3d846b25228c7c5ac9b8, type: 2}
   m_TransparencySortMode: 0
@@ -49,7 +56,6 @@ GraphicsSettings:
   m_LightmapStripping: 0
   m_FogStripping: 0
   m_InstancingStripping: 0
-  m_BrgStripping: 0
   m_LightmapKeepPlain: 1
   m_LightmapKeepDirCombined: 1
   m_LightmapKeepDynamicPlain: 1
@@ -64,5 +70,3 @@ GraphicsSettings:
   m_LightsUseColorTemperature: 1
   m_DefaultRenderingLayerMask: 257
   m_LogWhenShaderIsCompiled: 0
-  m_SRPDefaultSettings:
-    UnityEngine.Rendering.HighDefinition.HDRenderPipeline: {fileID: 11400000, guid: a0855409e57250444bbda8645faac2c9, type: 2}

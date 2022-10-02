@@ -222,12 +222,6 @@ public class PlayerObject : UnitObject
         {
             bleed.active = true;
         }
-        yield return new WaitForSeconds(1f);
-        Noise_RLPRO noise;
-        if(volume.profile.TryGet(out noise))
-        {
-            noise.active = true;
-        }
     }
 
     public override void Die()
