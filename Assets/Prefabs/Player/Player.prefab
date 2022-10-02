@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 1779630190}
   - component: {fileID: 1779630189}
   - component: {fileID: 4742983333923560963}
-  - component: {fileID: 1779630192}
   - component: {fileID: 1779630193}
+  - component: {fileID: 1779630192}
   m_Layer: 0
   m_Name: Graphics
   m_TagString: Untagged
@@ -98,6 +98,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _texture: {fileID: 2800000, guid: ab2ff1eeaff7bfc4c919c5fc3930e1f4, type: 3}
   _meshRenderer: {fileID: 1779630189}
+--- !u!114 &1779630193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1779630187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 015d1de0de8dc474da20c7b087b57fe5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _counterOffset: {x: 0, y: -0.5, z: -0.2}
+  _counterEffect: {fileID: 8575648914354950289, guid: 7d8f74db60914cd488a71fb26acff859, type: 3}
+  _counterTimer: 3
 --- !u!95 &1779630192
 Animator:
   serializedVersion: 3
@@ -117,21 +132,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1779630193
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1779630187}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 015d1de0de8dc474da20c7b087b57fe5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _counterOffset: {x: 0, y: -0.5, z: -0.2}
-  _counterEffect: {fileID: 8575648914354950289, guid: 7d8f74db60914cd488a71fb26acff859, type: 3}
-  _counterTimer: 3
 --- !u!1 &61540296607098450
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,6 +201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 5
+  _acceleration: 35
   _virtualCamera: {fileID: 0}
   _graphicsTurnScript: {fileID: 1234852257637090943}
   _audioSource: {fileID: 760395068708567414}
