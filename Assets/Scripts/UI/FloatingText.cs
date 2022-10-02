@@ -9,6 +9,7 @@ public class FloatingText : MonoBehaviour
     static GameObject comboPrefabObject;
 
     static float lastGlowTime = 0;
+    static float lastUpdate = 0;
     static GameObject comboPrefab
     {
         get
@@ -22,13 +23,18 @@ public class FloatingText : MonoBehaviour
         {
             return comboPrefabObject;
         }
+        lastUpdate = Time.time;
 
         GameObject obj;
-        if (comboPrefabObject != null)
+        if (comboPrefabObject != null && Time.time - lastUpdate > 0.5f)
         {
             Destroy(comboPrefabObject);
         }
-        obj = Instantiate(comboPrefab);
+        obj = comboPrefabObject;
+        if (comboPrefabObject == null)
+        {
+            obj = Instantiate(comboPrefab);
+        }
         obj.gameObject.transform.position = pos;
         obj.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>().text
             = "<size=75%> COMBO </size> <size= " + (120+(combo/25.0f)) + "%>" + combo + "</size>";

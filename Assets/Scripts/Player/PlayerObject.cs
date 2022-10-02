@@ -198,17 +198,17 @@ public class PlayerObject : UnitObject
 
     public void IncreaseCombo(int amount)
     {
-        comboInARow++;
-        if(comboInARow >= 3)
-        {
-            comboInARow = 0;
-            amount *= 2;
-        }
-        if (_timeSinceLastCombo < 0.5f)
-        {
-            amount *= 2;
-        }
-        _combo += amount;
+        //comboInARow++;
+        //if(comboInARow >= 3)
+        //{
+        //    comboInARow = 0;
+        //    amount *= 2;
+        //}
+        //if (_timeSinceLastCombo < 0.5f)
+        //{
+        //    amount *= 2;
+        //}
+        _combo += 1;
         if(_combo > 100)
         {
             _combo = 100;
@@ -221,7 +221,7 @@ public class PlayerObject : UnitObject
 
     public void MaintainCombo()
     {
-        _currentComboExpireTime = 4;
+        _currentComboExpireTime = 2.7f;
         _timeSinceLastCombo = 0;
     }
 
