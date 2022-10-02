@@ -28,6 +28,8 @@ public class PlayerObject : UnitObject
     [SerializeField] List<AudioClip> shieldBlockAudio = new List<AudioClip>();
     [SerializeField] AudioSource audioSource;
 
+    float regen = 0;
+
     public override void Awake()
     {
         base.Awake();
@@ -86,7 +88,12 @@ public class PlayerObject : UnitObject
         {
             _currentComboExpireTime -= Time.deltaTime;
         }
-
+        regen += Time.deltaTime;
+        if(regen >= 10)
+        {
+            Heal(1);
+            regen = 0;
+        }
     }
 
     public void OnAttack1(InputAction.CallbackContext context)
@@ -245,8 +252,6 @@ public class PlayerObject : UnitObject
         if(health <= 0)
         {
             StartCoroutine(ActivatePostProcess());
-            animator.SetTrigger("Die");
-            AudioSource.PlayClipAtPoint(death[Random.Range(0, death.Count)], transform.position);
         }
     }
 

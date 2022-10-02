@@ -119,19 +119,28 @@ public class UnitObject : MonoBehaviour
         health -= amount;
         if(health < 0)
         {
-            animator.SetTrigger("Die");
+            //animator.SetTrigger("Die");
             AudioSource.PlayClipAtPoint(death[Random.Range(0, death.Count)], transform.position);
+            Destroy(gameObject);
         }
     }
 
     public virtual void Heal(int amount)
     {
         health += amount;
+        if(health > _maxHealth)
+        {
+            health = _maxHealth;
+        }
     }
 
     public virtual void IncreaseEnergy(int amount)
     {
         energy += amount;
+        if(energy > _maxEnergy)
+        {
+            energy = _maxEnergy;
+        }
     }
 
     public virtual void Die()

@@ -5,7 +5,7 @@ using UnityEngine;
 public class IalaProjectile : Attack
 {
     [SerializeField] float speed;
-    Rigidbody2D rb;
+    Rigidbody rb;
     public Vector3 dir;
 
     public override void Cast(UnitObject unit, float multiplier = 1)
@@ -15,11 +15,10 @@ public class IalaProjectile : Attack
         ((IalaProjectile)a).dir = new Vector3((PlayerObject.Instance.transform.position.x - a.transform.position.x > 0) ? 1 : -1, 0, 0);
     }
 
-    public void OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerEnter(Collider collision)
     {
-        if (collision.transform.GetComponentInParent<UnitObject>())
+        if (collision.transform.root.TryGetComponent(out UnitObject target))
         {
-            UnitObject target = collision.transform.GetComponentInParent<UnitObject>();
             if (target.team != _caster.team)
             {
                 target.TakeDamage(_power);
@@ -32,11 +31,11 @@ public class IalaProjectile : Attack
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody>();
     }
 
     public void FixedUpdate()
     {
-        rb.MovePosition(rb.position + (Vector2)(speed * Time.fixedDeltaTime * dir));
+        rb.MovePosition(rb.position + (speed * Time.fixedDeltaTime * dir));
     }
 }
