@@ -7,6 +7,8 @@ using Cinemachine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float _speed;
+    [SerializeField] float _acceleration = 1;
+    float _currentSpeed;
     [SerializeField] CinemachineVirtualCamera _virtualCamera;
 
     [Space]
@@ -37,11 +39,6 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    private void FixedUpdate()
-    {
         if (_playerObject.CanMove)
         {
             if (_movementDelta != Vector2.zero)
@@ -52,8 +49,17 @@ public class PlayerMovement : MonoBehaviour
             {
                 _audioSource.Pause();
             }
-            Vector3 targetPosition = _rigidbody.position + _speed * Time.fixedDeltaTime * new Vector3(_movementDelta.x, 0, _movementDelta.y);
-            _rigidbody.MovePosition(targetPosition);
+
+            _currentSpeed += Mathf.Max(Mathf.Abs(_movementDelta.x), Mathf.Abs(_movementDelta.y)) * Time.deltaTime * _acceleration;
+            needsToMove = true;
+            if (_movementDelta.x == 0 && _movementDelta.y == 0)
+            {
+                _currentSpeed = 0;
+                needsToMove = false;
+            }
+
+            _currentSpeed = Mathf.Min(_speed, _currentSpeed);
+
             if (_movementDelta.x > 0)
             {
                 if (!isLookingRight)
@@ -75,11 +81,26 @@ public class PlayerMovement : MonoBehaviour
         {
             _audioSource.Pause();
         }
+
+    }
+    bool needsToMove = false;
+    private void FixedUpdate()
+    {
+        if (_playerObject.CanMove)
+        {
+            if (needsToMove)
+            {
+                Vector3 targetPosition = _rigidbody.position + _currentSpeed * Time.fixedDeltaTime * new Vector3(_movementDelta.x, 0, _movementDelta.y * 1.768f);
+                _rigidbody.MovePosition(targetPosition);
+            }
+        }
     }
 
     public void OnMovement(InputAction.CallbackContext context)
     {
         _movementDelta = context.ReadValue<Vector2>();
+        if (Input.GetKeyUp(KeyCode.W) && Input.GetKeyUp(KeyCode.A) && Input.GetKeyUp(KeyCode.S) && Input.GetKeyUp(KeyCode.D)) _movementDelta = Vector2.zero;
+
         if (!_playerObject.CanMove)
         {
             return;
