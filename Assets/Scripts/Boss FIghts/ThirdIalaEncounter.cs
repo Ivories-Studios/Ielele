@@ -24,7 +24,7 @@ public class ThirdIalaEncounter : Encounter
     {
         if (firstIala == null && secondIala == null && thirdIala == null)
         {
-            MenuManager.Instance.ShowVictoryScreen();
+            CanvasManager.Instance.ShowVictoryScreen();
             virtualCamera.Priority = 0;
             CanvasManager.Instance.FinishGame();
             Destroy(gameObject);

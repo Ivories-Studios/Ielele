@@ -23,7 +23,7 @@ public class SecondIalaEncounter : Encounter
     {
         if(iala2 == null && iala3 == null)
         {
-            MenuManager.Instance.ShowVictoryScreen();
+            CanvasManager.Instance.ShowVictoryScreen();
             virtualCamera.Priority = 0;
             Destroy(gameObject);
         }

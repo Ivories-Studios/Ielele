@@ -16,6 +16,7 @@ public class CanvasManager : MonoBehaviour
     [SerializeField] MenuManager menuManager;
     [SerializeField] ParticleSystem energyParticleSystem;
     [SerializeField] GameObject finish;
+    [SerializeField] GameObject victoryScreen;
 
     private void Awake()
     {
@@ -48,6 +49,17 @@ public class CanvasManager : MonoBehaviour
         finish.SetActive(true);
     }
 
+    public void ShowVictoryScreen()
+    {
+        victoryScreen.SetActive(true);
+        LeanTween.moveX(victoryScreen.GetComponent<RectTransform>(), 0, 2).setDelay(1).setEase(LeanTweenType.easeOutBounce)
+            .setOnComplete(() =>
+            {
+                LeanTween.moveX(victoryScreen.GetComponent<RectTransform>(), 2000, 2).setDelay(2).setEase(LeanTweenType.easeInBack)
+                .setOnComplete(() => { victoryScreen.SetActive(false); victoryScreen.GetComponent<RectTransform>().position = new Vector2(-2000, 0); });
+            });
+    }
+
     public void SetHealth(int amount)
     {
         for(int i = 0; i < healthPoints.Count; i++)
@@ -75,10 +87,5 @@ public class CanvasManager : MonoBehaviour
         energySlider.value = amount;
         var emission = energyParticleSystem.emission;
         emission.rateOverTime = amount * 40;
-    }
-
-    public void SwitchScene(string scene)
-    {
-        SceneManager.LoadScene(scene);
     }
 }

@@ -15,7 +15,7 @@ public class FirstIalaEncounter : Encounter
     {
         if (iala == null)
         {
-            MenuManager.Instance.ShowVictoryScreen();
+            CanvasManager.Instance.ShowVictoryScreen();
             virtualCamera.Priority = 0;
             Destroy(gameObject);
         }
