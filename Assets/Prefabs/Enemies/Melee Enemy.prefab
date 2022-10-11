@@ -291,7 +291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31388207fc70b2c41bc35906f598b3b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 4
+  _maxHealth: 3
   _maxEnergy: 0
   attacks:
   - {fileID: 6401480129454310305, guid: c46b2fa0247be57459cc892faa0ff05a, type: 3}
@@ -299,6 +299,7 @@ MonoBehaviour:
   speed: 4
   team: 1
   isBlocking: 0
+  knockbackResistance: 1
   isInvicible: 0
   blockTime: 0
   stunTime: 0

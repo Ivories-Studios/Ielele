@@ -131,5 +131,10 @@ public class FirstIala : UnitObject
     {
         base.TakeDamage(amount);
         healthBar.value = health;
+        //TODO: temporary until we have anims
+        if(health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }

@@ -120,7 +120,7 @@ public class UnitObject : MonoBehaviour
     public virtual void TakeDamage(int amount)
     {
         Health -= amount;
-        if(health < 0)
+        if(health <= 0)
         {
             animator.SetBool("Die", true);
             AudioSource.PlayClipAtPoint(death[Random.Range(0, death.Count)], transform.position);

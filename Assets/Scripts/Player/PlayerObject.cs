@@ -363,7 +363,6 @@ public class PlayerObject : UnitObject
         if(randomNumber + _combo / 2 > 990)
         {
             Heal(1);
-            CanvasManager.Instance.SetHealth(health);
         }
     }
 }
