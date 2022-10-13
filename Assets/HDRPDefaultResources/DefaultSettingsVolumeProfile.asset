@@ -232,40 +232,6 @@ MonoBehaviour:
     m_Value: 0
     min: 0
     max: 10
---- !u!114 &-1569567208105683107
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d931570c0c4deab4e8cad0cd396c592b, type: 3}
-  m_Name: Phosphor_RLPRO
-  m_EditorClassIdentifier: 
-  active: 0
-  m_AdvancedMode: 0
-  intensity:
-    m_OverrideState: 1
-    m_Value: 1
-    min: 0
-    max: 1
-  width:
-    m_OverrideState: 1
-    m_Value: 0.1
-    min: 0
-    max: 20
-  amount:
-    m_OverrideState: 1
-    m_Value: 0.05
-    min: 0
-    max: 1
-  fade:
-    m_OverrideState: 1
-    m_Value: 0.01
-    min: 0
-    max: 1
 --- !u!114 &-1016694868962581565
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -359,7 +325,6 @@ MonoBehaviour:
   - {fileID: -6193527141584350178}
   - {fileID: -7967057215165966954}
   - {fileID: 7091421705566958855}
-  - {fileID: -1569567208105683107}
   - {fileID: -7520736976507882750}
   - {fileID: 450264667209321095}
   - {fileID: 5995638371233919307}
