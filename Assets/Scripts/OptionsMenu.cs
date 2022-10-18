@@ -6,7 +6,7 @@ using UnityEngine.Audio;
 
 public class OptionsMenu : MonoBehaviour
 {
-    [SerializeField] Volume volume;
+    [SerializeField] VolumeProfile volume;
     [SerializeField] AudioMixer mixer;
 
     // Start is called before the first frame update
@@ -45,7 +45,7 @@ public class OptionsMenu : MonoBehaviour
     public void SetVHSColorShift(bool active)
     {
         VHS_RLPRO vhsColor;
-        if(volume.profile.TryGet(out vhsColor))
+        if(volume.TryGet(out vhsColor))
         {
             vhsColor.active = active;
             PlayerPrefs.SetInt("vhsColor", active ? 1 : 0);
@@ -55,7 +55,7 @@ public class OptionsMenu : MonoBehaviour
     public void SetNoise(bool active)
     {
         Noise_RLPRO noise;
-        if (volume.profile.TryGet(out noise))
+        if (volume.TryGet(out noise))
         {
             noise.active = active;
             PlayerPrefs.SetInt("noise", active ? 1 : 0);
@@ -65,7 +65,7 @@ public class OptionsMenu : MonoBehaviour
     public void SetScanlines(bool active)
     {
         VHSScanlines_RLPRO vhsScanlines;
-        if(volume.profile.TryGet(out vhsScanlines))
+        if(volume.TryGet(out vhsScanlines))
         {
             vhsScanlines.active = active;
             PlayerPrefs.SetInt("vhsScanlines", active ? 1 : 0);
@@ -78,19 +78,19 @@ public class OptionsMenu : MonoBehaviour
         mixer.SetFloat("Music", PlayerPrefs.GetFloat("MusicVolume"));
         mixer.SetFloat("Effects", PlayerPrefs.GetFloat("EffectsVolume"));
         VHS_RLPRO vhsColor;
-        if (volume.profile.TryGet(out vhsColor))
+        if (volume.TryGet(out vhsColor))
         {
-            vhsColor.active = PlayerPrefs.GetInt("vhsColor") != 0;
+            vhsColor.active = PlayerPrefs.GetInt("vhsColor", 1) != 0;
         }
         Noise_RLPRO noise;
-        if (volume.profile.TryGet(out noise))
+        if (volume.TryGet(out noise))
         {
-            noise.active = PlayerPrefs.GetInt("noise") != 0;
+            noise.active = PlayerPrefs.GetInt("noise", 1) != 0;
         }
         VHSScanlines_RLPRO vhsScanlines;
-        if (volume.profile.TryGet(out vhsScanlines))
+        if (volume.TryGet(out vhsScanlines))
         {
-            vhsScanlines.active = PlayerPrefs.GetInt("vhsScanlines") != 0;
+            vhsScanlines.active = PlayerPrefs.GetInt("vhsScanlines", 1) != 0;
         }
     }
 
