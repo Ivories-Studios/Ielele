@@ -9,8 +9,6 @@ public class MenuManager : MonoBehaviour
 
     public bool gameRunning = false;
 
-    [SerializeField] GameObject optionsMenu;
-
     bool firstTime = true;
 
     private void Awake()
@@ -32,11 +30,6 @@ public class MenuManager : MonoBehaviour
                 gameObject.SetActive(false);
                 gameRunning = true;
             });
-    }
-
-    public void OpenOptionsMenu(bool open)
-    {
-        optionsMenu.SetActive(open);
     }
 
     public void Quit()
