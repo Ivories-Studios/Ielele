@@ -41,7 +41,7 @@ public class ShieldBlock : Attack
                 {
                     player.MaintainCombo();
                 }
-                AudioSource.PlayClipAtPoint(audioClips[Random.Range(0, audioClips.Count)], transform.position);
+                LevelManager.PlayClipAtPoint(audioClips[Random.Range(0, audioClips.Count)], transform.position, group: LevelManager.effectMixer);
             }
         }
     }

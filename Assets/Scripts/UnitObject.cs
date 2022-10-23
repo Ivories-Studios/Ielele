@@ -123,7 +123,7 @@ public class UnitObject : MonoBehaviour
         if(health <= 0)
         {
             animator.SetBool("Die", true);
-            AudioSource.PlayClipAtPoint(death[Random.Range(0, death.Count)], transform.position);
+            LevelManager.PlayClipAtPoint(death[Random.Range(0, death.Count)], transform.position, 0.5f, LevelManager.effectMixer);
             stunTime += 4.1f;
         }
     }

@@ -243,6 +243,7 @@ MonoBehaviour:
   speed: 5
   team: 0
   isBlocking: 0
+  knockbackResistance: 1
   isInvicible: 1
   blockTime: 0
   stunTime: 0
@@ -281,6 +282,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  errorNoEnergyText: {fileID: 0}
   comboInARow: 0
   surroundingInteractableObjects: []
   wellBuffs: 0
@@ -435,7 +437,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 7889809515553981350, guid: 688fb7a07f6f69e46a14f0f4223d1182, type: 2}
   m_audioClip: {fileID: 8300000, guid: 6cb56b509a50af64385949df836fbd7c, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0

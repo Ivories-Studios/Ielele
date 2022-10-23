@@ -3,43 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class OptionsMenu : MonoBehaviour
 {
     [SerializeField] VolumeProfile volume;
     [SerializeField] AudioMixer mixer;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        ReadPrefs();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField] List<Slider> audioSliders = new List<Slider>();
 
     public void SetMasterVolume(float volume)
     {
+        PlayerPrefs.SetFloat("MasterVolume", volume);
         volume = volume == 0 ? 0.0001f : volume / 10;
         mixer.SetFloat("Master", Mathf.Log10(volume) * 20);
-        PlayerPrefs.SetFloat("MasterVolume", volume);
     }
 
     public void SetMusicVolume(float volume)
     {
+        PlayerPrefs.SetFloat("MusicVolume", volume);
         volume = volume == 0 ? 0.0001f : volume / 10;
         mixer.SetFloat("Music", Mathf.Log10(volume) * 20);
-        PlayerPrefs.SetFloat("MusicVolume", volume);
     }
 
     public void SetEffectsVolume(float volume)
     {
+        PlayerPrefs.SetFloat("EffectsVolume", volume);
         volume = volume == 0 ? 0.0001f : volume / 10;
         mixer.SetFloat("Effects", Mathf.Log10(volume) * 20);
-        PlayerPrefs.SetFloat("EffectsVolume", volume);
     }
 
     public void SetVHSColorShift(bool active)
@@ -72,11 +62,11 @@ public class OptionsMenu : MonoBehaviour
         }
     }
 
-    void ReadPrefs()
+    public void ReadPrefs()
     {
-        mixer.SetFloat("Master", PlayerPrefs.GetFloat("MasterVolume"));
-        mixer.SetFloat("Music", PlayerPrefs.GetFloat("MusicVolume"));
-        mixer.SetFloat("Effects", PlayerPrefs.GetFloat("EffectsVolume"));
+        SetMasterVolume(audioSliders[0].value = PlayerPrefs.GetFloat("MasterVolume", 10));
+        SetMusicVolume(audioSliders[1].value = PlayerPrefs.GetFloat("MusicVolume", 10));
+        SetEffectsVolume(audioSliders[2].value = PlayerPrefs.GetFloat("EffectsVolume", 10));
         VHS_RLPRO vhsColor;
         if (volume.TryGet(out vhsColor))
         {

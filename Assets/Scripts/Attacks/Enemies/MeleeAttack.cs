@@ -12,12 +12,11 @@ public class MeleeAttack : Attack
         a._caster = unit;
         unit.blockTime = _blockTime;
         unit.StepAhead(_stepAhead);
-        AudioSource.PlayClipAtPoint(audioClips2[Random.Range(0, audioClips2.Count)], a.transform.position);
+        LevelManager.PlayClipAtPoint(audioClips2[Random.Range(0, audioClips2.Count)], a.transform.position, group: LevelManager.effectMixer);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        print(collision.name);
         if (collision.transform.parent.TryGetComponent(out UnitObject target))
         {
             if (target.team != _caster.team)
