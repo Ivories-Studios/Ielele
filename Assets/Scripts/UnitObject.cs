@@ -21,7 +21,7 @@ public class UnitObject : MonoBehaviour
         }
         protected set
         {
-            if (isInvicible) return;
+            if (isInvincible) return;
             health = value;
         }
     }
@@ -31,7 +31,7 @@ public class UnitObject : MonoBehaviour
         get; private set;
     }
 
-    public bool isInvicible = false;
+    public bool isInvincible = false;
 
     public int energy { get; protected set; }
 
@@ -123,7 +123,7 @@ public class UnitObject : MonoBehaviour
         if(health <= 0)
         {
             animator.SetBool("Die", true);
-            LevelManager.PlayClipAtPoint(death[Random.Range(0, death.Count)], transform.position, 0.5f, LevelManager.effectMixer);
+            LevelManager.PlayClipAtPoint(death[Random.Range(0, death.Count)], transform.position, 1.0f, LevelManager.effectMixer);
             stunTime += 4.1f;
         }
     }
@@ -163,6 +163,10 @@ public class UnitObject : MonoBehaviour
 
     public void Knockback(Vector3 dir, float amount, float duration = 0.1f)
     {
+        if (isInvincible)
+        {
+            return;
+        }
         Vector3 start = rb.position;
         amount = amount / knockbackResistance;
         LeanTween.value(gameObject, 0, 1, duration).setEase(LeanTweenType.easeOutCubic)
