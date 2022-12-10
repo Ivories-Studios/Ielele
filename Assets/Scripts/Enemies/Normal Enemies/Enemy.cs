@@ -21,7 +21,7 @@ public class Enemy : UnitObject
     // Update is called once per frame
     public override void Update()
     {
-        if (isInvicible)
+        if (isInvincible)
         {
             return;
         }
@@ -52,7 +52,7 @@ public class Enemy : UnitObject
     }
     public override void FixedUpdate()
     {
-        if (isInvicible)
+        if (isInvincible)
         {
             return;
         }
@@ -62,7 +62,7 @@ public class Enemy : UnitObject
     void UpdatePosition()
     {
 
-        if(Vector3.Distance( PlayerObject.Instance.transform.position, transform.position) < 2 * range)
+        if(Vector3.Distance(PlayerObject.Instance.transform.position, transform.position) < 2 * range)
         {
             state = AIState.Attacking;
         }

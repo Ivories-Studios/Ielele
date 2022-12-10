@@ -243,7 +243,8 @@ MonoBehaviour:
   speed: 5
   team: 0
   isBlocking: 0
-  isInvicible: 1
+  knockbackResistance: 1
+  isInvincible: 0
   blockTime: 0
   stunTime: 0
   danceTime: 0
@@ -281,6 +282,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  errorNoEnergyText: {fileID: 0}
   comboInARow: 0
   surroundingInteractableObjects: []
   wellBuffs: 0

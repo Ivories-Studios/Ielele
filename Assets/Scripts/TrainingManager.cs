@@ -28,15 +28,12 @@ public class TrainingManager : MonoBehaviour
                 dialoguePanel.SetActive(false);
             }
         }
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            SceneManager.LoadScene("ArtTest");
-        }
     }
 
     void Dialogue()
     {
         dialoguePanel.SetActive(true);
+        dialogueText.maxVisibleCharacters = 0;
         dialogueText.text = "Here you can fight an invincible and immobilized enemy to train yourself. You can exit by pressing the arrow in the upper right corner. Close the dialogue by pressing Enter.";
         StartCoroutine(ClackaClacka());
     }
