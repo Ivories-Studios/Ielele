@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerEffectScript : MonoBehaviour
 {
     public PlayerGraphicsTurnScript gameTurnScript;
+    public UnitAnimWrapper unitAnimWrapper;
 
     [Header("Counter")]
     [SerializeField] Vector3 _counterOffset;
@@ -51,7 +52,8 @@ public class PlayerEffectScript : MonoBehaviour
         if (!gameTurnScript.Right)
             mult = new Vector3(-1.0f * _punchOffset.x, _punchOffset.y, _punchOffset.z);
 
-        GameObject punch = Instantiate(_punchEffect, transform.position + mult, Quaternion.identity );
+        GameObject punch = Instantiate(_punchEffect, transform.position + mult, Quaternion.identity);
+        
 
         if (!gameTurnScript.Right)
             punch.transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);

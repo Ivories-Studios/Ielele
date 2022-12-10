@@ -49,7 +49,7 @@ public class FirstIala : UnitObject
         {
             yield return StartCoroutine(MoveCoroutine(dest.position + new Vector3(0, 0, Random.Range(-6, 6))));
             yield return new WaitForSeconds(0.5f);
-            CastAttack(0);
+            CastAttack(0, instant: true);
             yield return new WaitForSeconds(0.5f);
         }
         animator.SetBool("Casting", false);
@@ -91,7 +91,7 @@ public class FirstIala : UnitObject
         yield return StartCoroutine(MoveCoroutine(dest.position));
         animator.SetBool("Casting", true);
         yield return new WaitForSeconds(1f);
-        CastAttack(1);
+        CastAttack(1, instant: true);
         yield return new WaitForSeconds(0.5f);
         animator.SetBool("Casting", false);
         encounter.done++;

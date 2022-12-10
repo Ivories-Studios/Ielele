@@ -59,6 +59,7 @@ GameObject:
   - component: {fileID: 8046625572335574844}
   - component: {fileID: 1152195853606337348}
   - component: {fileID: 5236958405319562194}
+  - component: {fileID: 3756026859559746997}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -175,6 +176,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _unitObject: {fileID: 97338212729038674}
+--- !u!114 &3756026859559746997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4110039838748766273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7737998d9427aeb4e8929b95c1ecac26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _unitObject: {fileID: 97338212729038674}
+  multiplier: 1
 --- !u!1 &7241698492461571079
 GameObject:
   m_ObjectHideFlags: 0
@@ -296,6 +311,7 @@ MonoBehaviour:
   attacks:
   - {fileID: 6401480129454310305, guid: c46b2fa0247be57459cc892faa0ff05a, type: 3}
   animator: {fileID: 1152195853606337348}
+  animWrapper: {fileID: 3756026859559746997}
   speed: 4
   team: 1
   isBlocking: 0

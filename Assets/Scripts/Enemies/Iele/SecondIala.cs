@@ -45,7 +45,7 @@ public class SecondIala : UnitObject
         yield return StartCoroutine(MoveCoroutine(dest.position));
         animator.SetBool("Casting", true);
         yield return new WaitForSeconds(1f);
-        CastAttack(0);
+        CastAttack(0, instant: true);
         yield return new WaitForSeconds(0.5f);
         animator.SetBool("Casting", false);
         encounter.done++;

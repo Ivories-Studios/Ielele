@@ -33,15 +33,14 @@ public class Enemy : UnitObject
             {
                 if (punchAnim)
                 {
-                    animator.SetTrigger("Punch1");
+                    CastAttack(0, anim: "Punch1");
                     punchAnim = false;
                 }
                 else
                 {
-                    animator.SetTrigger("Punch2");
+                    CastAttack(0, anim: "Punch2");
                     punchAnim = true;
                 }
-                CastAttack(0);
                 attackingTime = 4;
             }
         }

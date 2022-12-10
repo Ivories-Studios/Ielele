@@ -6,8 +6,9 @@ public class UnitObject : MonoBehaviour
 {
     [SerializeField] protected int _maxHealth;
     [SerializeField] protected int _maxEnergy;
-    [SerializeField] protected List<Attack> attacks = new List<Attack>();
+    public List<Attack> attacks = new List<Attack>();
     [SerializeField] protected Animator animator;
+    public UnitAnimWrapper animWrapper;
 
     public float speed = 5;
     public int team;
@@ -105,15 +106,27 @@ public class UnitObject : MonoBehaviour
         
     }
 
-    public virtual void CastAttack(int index, float multiplier = 1, string anim = "", float? stepAheadOverride = null)
+    public virtual void CastAttack(int index, float multiplier = 1, string anim = "", float? stepAheadOverride = null, bool instant = false)
     {
         if (attacks[index].CanCast(this))
         {
             if(anim != "")
             {
                 animator.SetTrigger(anim);
+                if (instant)
+                {
+                    attacks[index].Cast(this, multiplier * (weakened > 0 ? 0.75f : 1), stepAheadOverride);
+                }
+                else
+                {
+                    animWrapper.multiplier = multiplier * (weakened > 0 ? 0.75f : 1);
+                    animWrapper.stepAheadOverride = stepAheadOverride;
+                }
             }
-            attacks[index].Cast(this, multiplier * (weakened > 0 ? 0.75f : 1), stepAheadOverride);
+            else
+            {
+                attacks[index].Cast(this, multiplier * (weakened > 0 ? 0.75f : 1), stepAheadOverride);
+            }
         }
     }
 

@@ -144,7 +144,7 @@ public class PlayerObject : UnitObject
                 break;
         }
 
-        CastAttack(0, _comboModifier * (1 + wellBuffs * 0.25f), animationName, currentPunchId == 2 ? (float?)null : 0.4f);
+        CastAttack(0, _comboModifier * (1 + wellBuffs * 0.25f), animationName, currentPunchId == 2 ? (float?)null : 0.4f, true);
 
         currentPunchId++;
         if (currentPunchId % 3 == 0) currentPunchId = 0;
@@ -184,7 +184,7 @@ public class PlayerObject : UnitObject
         {
             if (CanAttack)
             {
-                CastAttack(1, _comboModifier * (1 + wellBuffs * 0.25f), "Kick");
+                CastAttack(1, _comboModifier * (1 + wellBuffs * 0.25f), "Kick", instant: true);
             }
             else
             {
@@ -208,7 +208,6 @@ public class PlayerObject : UnitObject
             if (CanAttack)
             {
                 CastAttack(2, _comboModifier * (1 + wellBuffs * 0.25f), "Axe");
-                Debug.Break();
             }
             else
             {
@@ -230,7 +229,7 @@ public class PlayerObject : UnitObject
         {
             if (CanAttack)
             {
-                CastAttack(3, _comboModifier * (1 + wellBuffs * 0.25f), "Block");
+                CastAttack(3, _comboModifier * (1 + wellBuffs * 0.25f), "Block", instant: true);
             }
             else
             {

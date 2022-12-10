@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4742983333923560963}
   - component: {fileID: 1779630193}
   - component: {fileID: 4815903628254444465}
+  - component: {fileID: 4509874895646950641}
   m_Layer: 0
   m_Name: Graphics
   m_TagString: Player
@@ -111,6 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameTurnScript: {fileID: 1234852257637090943}
+  unitAnimWrapper: {fileID: 0}
   _counterOffset: {x: 0, y: -0.5, z: -0.2}
   _counterEffect: {fileID: 8575648914354950289, guid: 7d8f74db60914cd488a71fb26acff859, type: 3}
   _counterTimer: 3
@@ -145,6 +147,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4509874895646950641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1779630187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7737998d9427aeb4e8929b95c1ecac26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _unitObject: {fileID: 8718713791504787691}
+  multiplier: 1
 --- !u!1 &61540296607098450
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,6 +256,7 @@ MonoBehaviour:
   - {fileID: 1243588538328369670, guid: c0ae0108fbbf1a0429df8876229ff5ae, type: 3}
   - {fileID: 5407213006191868574, guid: b164e5ffc8abfee4aa21e0539ecd9408, type: 3}
   animator: {fileID: 0}
+  animWrapper: {fileID: 4509874895646950641}
   speed: 5
   team: 0
   isBlocking: 0

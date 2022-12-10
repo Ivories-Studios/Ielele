@@ -43,7 +43,7 @@ public class ThirdIala : UnitObject
         }
         animator.SetBool("Casting", true);
         yield return new WaitForSeconds(0.5f);
-        CastAttack(0);
+        CastAttack(0, instant: true);
         animator.SetBool("Casting", false);
         yield return new WaitForSeconds(1f);
         encounter.done++;
