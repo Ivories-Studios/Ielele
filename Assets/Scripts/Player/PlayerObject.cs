@@ -169,8 +169,6 @@ public class PlayerObject : UnitObject
                 {
                     StopCoroutine(_queuedCoroutineAction);
                 }
-                
-                
 
                 _queuedCoroutineAction = StartCoroutine(AddActionToQueue(0));
                 if (Input.GetKey(KeyCode.A)) _queuedAction.direction = QueuedDirection.left;
@@ -210,6 +208,7 @@ public class PlayerObject : UnitObject
             if (CanAttack)
             {
                 CastAttack(2, _comboModifier * (1 + wellBuffs * 0.25f), "Axe");
+                Debug.Break();
             }
             else
             {

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1779630189}
   - component: {fileID: 4742983333923560963}
   - component: {fileID: 1779630193}
-  - component: {fileID: 1779630192}
+  - component: {fileID: 4815903628254444465}
   m_Layer: 0
   m_Name: Graphics
   m_TagString: Player
@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1779630187}
   m_LocalRotation: {x: 0.76604444, y: -0, z: -0, w: 0.64278764}
-  m_LocalPosition: {x: 0, y: -0.379, z: 0.161}
+  m_LocalPosition: {x: 0, y: 0.291, z: 0}
   m_LocalScale: {x: 0.3, y: 1, z: 0.3}
   m_Children: []
   m_Father: {fileID: 4472236409185953074}
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6fc936d6605f9ed429b94512d18a9cc5, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -126,7 +126,7 @@ MonoBehaviour:
   _axeOffset: {x: 0.65, y: -1.97, z: 0}
   _axeEffect: {fileID: 1637288200392503353, guid: 22d972220fa0a0644975e981a51dec85, type: 3}
   _axeTimer: 3
---- !u!95 &1779630192
+--- !u!95 &4815903628254444465
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -175,7 +175,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 61540296607098450}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1972125058252301187}
@@ -219,7 +219,7 @@ MonoBehaviour:
   _graphicsTurnScript: {fileID: 1234852257637090943}
   isLookingRight: 1
   _audioSource: {fileID: 760395068708567414}
-  _animator: {fileID: 1779630192}
+  _animator: {fileID: 0}
 --- !u!114 &8718713791504787691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,7 +239,7 @@ MonoBehaviour:
   - {fileID: 1476108156324953482, guid: e578f8c2c88cf254c9a4329f7b92b11d, type: 3}
   - {fileID: 1243588538328369670, guid: c0ae0108fbbf1a0429df8876229ff5ae, type: 3}
   - {fileID: 5407213006191868574, guid: b164e5ffc8abfee4aa21e0539ecd9408, type: 3}
-  animator: {fileID: 1779630192}
+  animator: {fileID: 0}
   speed: 5
   team: 0
   isBlocking: 0
@@ -643,7 +643,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 111349330085203880}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.55, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 61540296607098461}
@@ -879,7 +879,7 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.67}
+  m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 2}
   m_Direction: 0
 --- !u!50 &2195402373234495620
@@ -947,7 +947,7 @@ CapsuleCollider:
   m_Radius: 0.1
   m_Height: 1.01
   m_Direction: 0
-  m_Center: {x: 0, y: -1.6, z: 0}
+  m_Center: {x: 0, y: -0.93, z: 0}
 --- !u!1 &1788243812905663928
 GameObject:
   m_ObjectHideFlags: 0
@@ -992,7 +992,7 @@ CapsuleCollider:
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0, y: -0.75, z: 0}
+  m_Center: {x: 0, y: -0.08, z: 0}
 --- !u!1 &7453989427698432333
 GameObject:
   m_ObjectHideFlags: 0
