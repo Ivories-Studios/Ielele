@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -37,7 +38,11 @@ public class DialogueManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+    }
+
+    public void SkipDialogue(InputAction.CallbackContext context)
+    {
+        if (context.performed)
         {
             if (playerText.maxVisibleCharacters < playerText.text.Length || enemyText.maxVisibleCharacters < enemyText.text.Length)
             {
@@ -46,7 +51,7 @@ public class DialogueManager : MonoBehaviour
             }
             else
             {
-                if(nextDialogue != null)
+                if (nextDialogue != null)
                 {
                     nextDialogue.Invoke();
                 }

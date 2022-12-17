@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class TrainingManager : MonoBehaviour
 {
@@ -17,7 +18,12 @@ public class TrainingManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        
+    }
+
+    public void SkipDialogue(InputAction.CallbackContext context)
+    {
+        if (context.performed)
         {
             if (dialogueText.maxVisibleCharacters < dialogueText.text.Length)
             {

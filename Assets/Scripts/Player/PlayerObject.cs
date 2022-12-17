@@ -43,6 +43,9 @@ public class PlayerObject : UnitObject
     float errorTimer = 0;
 
     bool stoppedBlockingThisFrame = false;
+
+    private bool holdingBlock = false;
+    
     // Update is called once per frame
     public override void Update()
     {
@@ -64,7 +67,7 @@ public class PlayerObject : UnitObject
         {
             animator.ResetTrigger("StopBlock");
         }
-        if (!Input.GetKey(KeyCode.DownArrow) && isBlocking)
+        if (!holdingBlock && isBlocking)
         {
             stoppedBlockingThisFrame = true;
             isBlocking = false;
@@ -208,7 +211,6 @@ public class PlayerObject : UnitObject
             if (CanAttack)
             {
                 CastAttack(2, _comboModifier * (1 + wellBuffs * 0.25f), "Axe");
-                Debug.Break();
             }
             else
             {
@@ -228,6 +230,7 @@ public class PlayerObject : UnitObject
     {
         if (context.performed)
         {
+            holdingBlock = true;
             if (CanAttack)
             {
                 CastAttack(3, _comboModifier * (1 + wellBuffs * 0.25f), "Block");
@@ -244,6 +247,10 @@ public class PlayerObject : UnitObject
                 if (Input.GetKey(KeyCode.D)) _queuedAction.direction = QueuedDirection.right;
                 _queuedAction.animName = "Block";
             }
+        }
+        else if (context.canceled)
+        {
+            holdingBlock = false;
         }
     }
 

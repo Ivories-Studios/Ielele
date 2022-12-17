@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class CanvasManager : MonoBehaviour
 {
@@ -31,7 +31,11 @@ public class CanvasManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+    }
+
+    public void OpenMenu(InputAction.CallbackContext context)
+    {
+        if (context.performed)
         {
             menuManager?.ShowMenu();
         }
